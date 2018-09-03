@@ -18,18 +18,25 @@ public class Oblig1 {
 
     /**
      * Metode som finner og returnerer største verdi i et array
+     *
+     * Metoden utfører flest antall ombyttinger når største verdi ligger på første index index
+     * Metoden utfører færrest antall ombyttinger når største verdi ligger på siste index
+     *
      * @param a arrayet der den største verdien skal lokaliseres
      * @return den største verdien i arrayet
      */
     public static int maks(int[] a) {
 
+        //Sjekker at tabellen ikke er tom
         if (a.length < 1) {
             throw new NoSuchElementException
                     ("\nTabellen er tom, vennligst send en gyldig tabell som parameter.");
         }
 
+        //Initialiserer variabel som holder på største verdi
         int m = a[0];
 
+        //Itererer over arrayet og "bobler" største verdi "oppo
         for (int i = 0; i < a.length - 1; ++i) {
 
             if (a[i] >  a[i + 1]) {
@@ -37,7 +44,6 @@ public class Oblig1 {
                 m = a[i+1];
             }
         }
-
         return m;
     }
 
