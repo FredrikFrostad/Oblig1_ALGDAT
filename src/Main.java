@@ -18,17 +18,26 @@ public class Main {
             System.out.println(e);
         }
 */
-        for (int i = 0; i < 10; i++) {
+
+        int snitt = 0;
+        int n = 100000;
+
+        for (int i = 0; i < n; i++) {
             try {
 
                 int[] a = Oblig1.randPerm(10);
+                //int[] a = {1,2,3,4,5};
+
                 int c = Oblig1.ombytting(a);
                 System.out.println("\nAntall ombyttinger utført: " + c);
+                snitt += c;
 
             }catch (NoSuchElementException e) {
                 System.out.println(e);
             }
         }
+
+        System.out.println("Gjennomsnittet er: " + snitt/n + " ombyttinger");
 
     }
 }

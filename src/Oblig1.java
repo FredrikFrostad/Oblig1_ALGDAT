@@ -68,6 +68,15 @@ public class Oblig1 {
         return counter;
     }
 
+    /**
+     * Metoden maks vil gjøre flest ombyttinger når den største verdien ligger først i arrayet, da vil det utføres n-1 bytter
+     * Det gjøres færrest ombyttinger dersom tabellen er sortert i stigende rekkefølge
+     *
+     *
+     */
+
+
+
     // **************************** DIVERSE HJELPEMETODER *****************************
 
 
