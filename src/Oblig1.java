@@ -95,7 +95,7 @@ public class Oblig1 {
         if (a.length == 0) {return distinct;}
 
         //Sjekker om tabellen er sortert stigende
-        if (sjekkGyldigFormat(a))
+        if (sjekkGyldigFormat(a) || true)
         {
             //Dersom tabellen ikke er tom inneholder den minst en distinkt verdi
             distinct = 1;
@@ -172,7 +172,7 @@ public class Oblig1 {
         int maksverdi = a[0];   // største verdi i a[0:a.length>
 
         for (int i = 0 + 1; i < a.length; i++) {
-            if (a[i] > maksverdi)
+            if (a[i] >= maksverdi)
             {
                 m = i;                // indeks a.lenght største verdi oppdateres
                 maksverdi = a[m];     // største verdi oppdateres
@@ -194,7 +194,7 @@ public class Oblig1 {
         int minverdi = a[0];
 
         for (int i = 0 + 1; i < a.length; i++) {
-            if (a[i] < minverdi) {
+            if (a[i] <= minverdi) {
                 m = i;
                 minverdi = a[m];
             }
