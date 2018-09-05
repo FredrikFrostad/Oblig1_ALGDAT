@@ -210,12 +210,24 @@ public class Oblig1 {
             ++i;
         }
         //Todo: legg til sorteringsalgoritme her
+        int partall = antallPartall(a);
+        bubbleSort(a,0,a.length-partall);
+        bubbleSort(a,a.length-partall, a.length);
+
     }
 
-    public static void bubble(int[] a, int v, int h) {
-        for (int j = 0; j < a.length; ++j) {
+    public static int antallPartall(int[] a) {
+        int antPartall = 0;
+        for (int k = 0; k < a.length; k++) {
+            if (a[k] % 2 == 0) {antPartall++;}
+        }
+        return antPartall;
+    }
+
+    public static void bubbleSort(int[] a, int v, int h) {
+        for (int j = v; j < h; ++j) {
             //Itererer over alle elementene i a
-            for (int i = 0; i < a.length - 1; ++i) {
+            for (int i = v; i < h - 1; ++i) {
 
                 if (a[i] > a[i + 1]) {
                     System.out.println("Inversjon i plass" + i + ", bytter om");
