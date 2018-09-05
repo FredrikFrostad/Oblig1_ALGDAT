@@ -80,6 +80,12 @@ public class Oblig1 {
 
     //***************************** OPPGAVE 2  ****************************************
 
+
+    /**
+     * Metode som finner antall ulike verdier i et stigende sortert array
+     * @param a arrayet der vi søker etter distinkte verdier
+     * @return antall distinkte verdier i arrayet
+     */
     public static int antallUlikeSortert(int[] a) {
 
         //Variabel som holder på returverdi
@@ -111,6 +117,11 @@ public class Oblig1 {
         return distinct;
     }
 
+    /**
+     * Metode som sjekker om et array er sortert stigende
+     * @param a arrayet som skal kontrolleres
+     * @return true dersom gyldig sortert, false ellers
+     */
     public static boolean sjekkGyldigFormat(int[] a) {
 
         //Sjekker om tabellen har gyldig format (er sortert stigende)
