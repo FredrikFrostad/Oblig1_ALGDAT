@@ -178,6 +178,17 @@ public class Oblig1 {
         return distinct - duplicate;
     }
 
+    //***************************** OPPGAVE 4 *****************************************
+
+    /**
+     * Metode som deler et array i to sorterte deler, der venstre side inneholder oddetallene sortert,
+     * og høyre side inneholder partallene sortert.
+     * @param a arrayet som skal sorteres
+     */
+    public static void delsortering(int[] a) {
+
+    }
+
 
     // **************************** DIVERSE HJELPEMETODER *****************************
 
