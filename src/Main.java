@@ -62,13 +62,11 @@ public class Main {
         int[] d = {1,1,1,1,2,2,3,3,8,9,9,9};
         int[] e = {-7,3,2,6,-8,-9,5,1,2,8,13,-4};
 
-        //for (int i:e) { System.out.print(i + " "); }
+        for (int i:e) { System.out.print(i + " "); }
 
-        //Oblig1.sortschmort(e);
-        Oblig1.delsortering(e);
-
+        System.out.println();
         //System.out.println();
 
-        //for (int i:e) { System.out.print(i + " "); }
+        for (int i:e) { System.out.print(i + " "); }
     }
 }

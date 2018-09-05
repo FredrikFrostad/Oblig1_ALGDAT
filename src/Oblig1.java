@@ -187,59 +187,8 @@ public class Oblig1 {
      */
     public static void delsortering(int[] a) {
 
-        //TODO: fjern test print
-
-        //Sjekker om tabellen er tom
-        if (a.length != 0) {
-
-            for (int i = 0; i < a.length; i++) {
-
-                int left = 0;
-                int right = a.length - 1;
-
-                //Sjekker om tallet er par eller odde
-                if (a[i] % 2 != 0)
-                {
-                    //Hvis oddetall, bytt med partall lengst til venstre
-                    for (int j = 0; j < a.length;j++) {
-                        if (a[j] % 2 == 0)
-                        {
-                            bytt(a, i, j);
-                            System.out.println();
-                            for (int t:a) { System.out.print(t + " ");}
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    //Hvis partall bytt med oddetall lengst til høyre
-                    for (int j = a.length - 1; j > 0; j--) {
-                        if (a[j] % 2 != 0)
-                        {
-                            bytt(a,i,j);
-                            System.out.println();
-                            for (int t:a) { System.out.print(t + " ");}
-                            break;
-                        }
-                    }
-                }
-            }
-            //Sorterer tabellen
-            //sortschmort(a,0,countOdde);
-            //sortschmort(a,countOdde, a.length);
-        }
     }
 
-    public static void sortschmort(int[] a, int v, int h) {
-        int m;  //variabel for å holde på index til største verdi
-
-        while(h > v) {
-            m = maksIndex(a);
-            bytt(a,h-1, m);
-            h--;
-        }
-    }
 
 
     // **************************** DIVERSE HJELPEMETODER *****************************
@@ -305,7 +254,7 @@ public class Oblig1 {
         int m = fra;              // indeks til største verdi i a[fra:til>
         int maksverdi = a[fra];   // største verdi i a[fra:a.length>
 
-        for (int i = fra + 1; i < til; i++) {
+        for (int i = fra + 1; i <= til; i++) {
             if (a[i] >= maksverdi)
             {
                 m = i;                // indeks a.lenght største verdi oppdateres
