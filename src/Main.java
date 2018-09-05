@@ -60,11 +60,12 @@ public class Main {
         int[] b = {9,2,3,4,5,6,7,8,1};
         int[] c = {};
         int[] d = {1,1,1,1,2,2,3,3,8,9,9,9};
-        int[] e = {-7,3,2,6,-8,-9,5,1,2,8,13,-4};
+        int[] e = {2,-7,3,2,6,-8,-9,5,1,2,8,13,15};
 
         for (int i:e) { System.out.print(i + " "); }
 
-        System.out.println();
+        Oblig1.delsortering(e);
+        System.out.println("test");
         //System.out.println();
 
         for (int i:e) { System.out.print(i + " "); }

@@ -187,9 +187,25 @@ public class Oblig1 {
      */
     public static void delsortering(int[] a) {
 
+        int i = 0;
+
+        while (i < a.length) {
+            if (a[i] % 2 == 0) {
+                int j = a.length-1;
+                while (j > i) {
+                    if (a[j] % 2 != 0) {
+                        int temp = a[i];
+                        a[i] = a[j];
+                        a[j] = temp;
+                        break;
+                    }
+                    --j;
+                }
+            }
+            ++i;
+        }
+
     }
-
-
 
     // **************************** DIVERSE HJELPEMETODER *****************************
 
