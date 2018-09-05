@@ -95,7 +95,7 @@ public class Oblig1 {
         if (a.length == 0) {return distinct;}
 
         //Sjekker om tabellen er sortert stigende
-        if (sjekkGyldigFormat(a) || true)
+        if (sjekkGyldigFormat(a))
         {
             //Dersom tabellen ikke er tom inneholder den minst en distinkt verdi
             distinct = 1;
@@ -125,6 +125,11 @@ public class Oblig1 {
     public static boolean sjekkGyldigFormat(int[] a) {
 
         //Sjekker om tabellen har gyldig format (er sortert stigende)
+
+        //TODO: Fjern testutskrifter
+        System.out.println("maxindex a: " + maksIndex(a));
+        System.out.println("minindex a: " + minIndex(a));
+
         if (maksIndex(a) != a.length - 1 || minIndex(a) != 0)
         {
          return false;
@@ -194,7 +199,7 @@ public class Oblig1 {
         int minverdi = a[0];
 
         for (int i = 0 + 1; i < a.length; i++) {
-            if (a[i] <= minverdi) {
+            if (a[i] < minverdi) {
                 m = i;
                 minverdi = a[m];
             }
