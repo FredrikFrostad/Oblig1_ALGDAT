@@ -188,11 +188,16 @@ public class Oblig1 {
     public static void delsortering(int[] a) {
 
         int i = 0;
+        int j = a.length - 1;
 
+        //Iterer gjennom arrayet en gang med ytre while løkke
         while (i < a.length) {
-            if (a[i] % 2 == 0) {
-                int j = a.length-1;
+            //Dersom vi finner et partall bytter det plass med det oddetallet som er lengst
+            //til venstre for gjeldende posisjon i arrayet.
+            if (a[i] % 2 == 0 && a[i] != 0) {
+                //Itererer over mulige oddetall til høyre for a[i]
                 while (j > i) {
+                    //Dersom vi finner et oddetall bytter vi plass med partallet i a[i]
                     if (a[j] % 2 != 0) {
                         int temp = a[i];
                         a[i] = a[j];
@@ -204,7 +209,22 @@ public class Oblig1 {
             }
             ++i;
         }
+        //Todo: legg til sorteringsalgoritme her
+    }
 
+    public static void bubble(int[] a, int v, int h) {
+        for (int j = 0; j < a.length; ++j) {
+            //Itererer over alle elementene i a
+            for (int i = 0; i < a.length - 1; ++i) {
+
+                if (a[i] > a[i + 1]) {
+                    System.out.println("Inversjon i plass" + i + ", bytter om");
+                    int temp = a[i];
+                    a[i] = a[i + 1];
+                    a[i + 1] = temp;
+                }
+            }
+        }
     }
 
     // **************************** DIVERSE HJELPEMETODER *****************************

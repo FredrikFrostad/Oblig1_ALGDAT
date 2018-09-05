@@ -64,7 +64,8 @@ public class Main {
 
         for (int i:e) { System.out.print(i + " "); }
 
-        Oblig1.delsortering(e);
+        //Oblig1.delsortering(e);
+        Oblig1.bubble(e);
         System.out.println("test");
         //System.out.println();
 
