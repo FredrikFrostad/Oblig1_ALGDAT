@@ -224,13 +224,22 @@ public class Oblig1 {
         return antPartall;
     }
 
+
+
+    // **************************** DIVERSE HJELPEMETODER *****************************
+
+    /**
+     * Metode som implementerer bubblesort-algoritmen i et intervall
+     * @param a arrayet som inneholder intervallet som skal sorteres
+     * @param v nedre grense for intervallet
+     * @param h øvre grense for intervallet
+     */
     public static void bubbleSort(int[] a, int v, int h) {
         for (int j = v; j < h; ++j) {
             //Itererer over alle elementene i a
             for (int i = v; i < h - 1; ++i) {
 
                 if (a[i] > a[i + 1]) {
-                    System.out.println("Inversjon i plass" + i + ", bytter om");
                     int temp = a[i];
                     a[i] = a[i + 1];
                     a[i + 1] = temp;
@@ -238,8 +247,6 @@ public class Oblig1 {
             }
         }
     }
-
-    // **************************** DIVERSE HJELPEMETODER *****************************
 
 
     /**
