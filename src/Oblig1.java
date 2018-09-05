@@ -149,7 +149,10 @@ public class Oblig1 {
      */
     public  static void bytt(int[] a, int i, int j) {
 
-        //TODO: Legg til kode som sjekker at parameterne er gyldige og kaster en exception dersom de ikke er det
+        if (i < 0 || i > a.length - 1 || j < 0 || j > a.length - 1) {
+            throw new IllegalArgumentException
+                    ("Illegal input argument. Input must be within array bounds");
+        }
 
         int temp = a[i];
         a[i] = a[j];
