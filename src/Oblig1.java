@@ -137,6 +137,43 @@ public class Oblig1 {
         return true;
     }
 
+    //***************************** OPPGAVE 3 *****************************************
+
+
+    /**
+     * Metode som finner antall distinkte verdier i et usortert array.
+     * Metoden teller antallet duplikater i arrayet, trekker dette tallet fra antall
+     * elementer og returnerer differansen
+     * @param a arrayet vi skal finne ulike verdier i
+     * @return antall ulike verdier
+     */
+    public static int antallUlikeUsortert(int[] a) {
+
+        //Variabel som holder på returverdi
+        int distinct = a.length;
+        //Variabler som teller antall duplikattall
+        int duplicate = 0;
+
+        //Sjekker om tabellen er tom
+        if (a.length == 0) {return 0;}
+
+        //Ytre for løkke som itererer gjennom tabellen en gang
+        for (int i = 0; i < a.length; i++) {
+
+            for (int j = 0; j < i; j++) {
+
+                //sjekker om vi har funnet et duplikattall
+                if (i != j && a[i] == a[j])
+                {
+                    duplicate++;
+                    break;
+                }
+            }
+        }
+
+        return distinct - duplicate;
+    }
+
 
     // **************************** DIVERSE HJELPEMETODER *****************************
 
@@ -161,7 +198,8 @@ public class Oblig1 {
 
 
     /**
-     * Metode som finner index til største verdi i et array
+     * Metode som finner index til største verdi i et array, dersom arrayet inneholder duplikatverdier er det
+     * høyreverdien som returneres
      * @param a arrayet vi skal søke etter største verdi i
      * @return index til største verdi
      */
@@ -187,7 +225,8 @@ public class Oblig1 {
 
 
     /**
-     * Metode som finner index til minste verdi i et array
+     * Metode som finner index til minste verdi i et array, dersom arrayet inneholder duplikatverdier er
+     * det index til venstreverdien som returneres
      * @param a arrayet vi skal søke etter minste verdi i
      * @return index til minste verdi
      */
@@ -207,7 +246,7 @@ public class Oblig1 {
 
 
     /**
-     * Metode som generere et randomisert array
+     * Metode som genererer et randomisert array
      * @param n arrayets lengde
      * @return det permuterte arrayet
      */

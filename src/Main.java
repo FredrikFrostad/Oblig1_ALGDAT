@@ -42,6 +42,8 @@ public class Main {
         System.out.println("Gjennomsnittet er: " + snitt/n + " ombyttinger");
 */
 
+
+/*      Test av oppgave 2
         int[] a = {1,2,3,4,5,6,7,8,9};
         int[] b = {9,2,3,4,5,6,7,8,1};
         int[] c = {};
@@ -52,9 +54,12 @@ public class Main {
 
 
         System.out.println(Oblig1.antallUlikeSortert(d));
+  */
 
-
-
-
+        int[] a = {1,2,3,4,5,6,7,8,9};
+        int[] b = {9,2,3,4,5,6,7,8,1};
+        int[] c = {};
+        int[] d = {1,1,1,1,2,2,3,3,8,9,9,9};
+        System.out.println(Oblig1.antallUlikeUsortert(d));
     }
 }
