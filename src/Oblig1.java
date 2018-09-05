@@ -125,11 +125,6 @@ public class Oblig1 {
     public static boolean sjekkGyldigFormat(int[] a) {
 
         //Sjekker om tabellen har gyldig format (er sortert stigende)
-
-        //TODO: Fjern testutskrifter
-        System.out.println("maxindex a: " + maksIndex(a));
-        System.out.println("minindex a: " + minIndex(a));
-
         if (maksIndex(a) != a.length - 1 || minIndex(a) != 0)
         {
          return false;
