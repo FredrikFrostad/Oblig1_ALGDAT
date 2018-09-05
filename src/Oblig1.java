@@ -209,11 +209,11 @@ public class Oblig1 {
             }
             ++i;
         }
-        //Todo: legg til sorteringsalgoritme her
+        //finner antall partall for å beregne korrekte intervaller for sortering
         int partall = antallPartall(a);
+        //sorterer hvert av intervallene separat
         bubbleSort(a,0,a.length-partall);
         bubbleSort(a,a.length-partall, a.length);
-
     }
 
     public static int antallPartall(int[] a) {
