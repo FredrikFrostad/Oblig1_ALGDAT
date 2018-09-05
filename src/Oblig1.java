@@ -187,6 +187,58 @@ public class Oblig1 {
      */
     public static void delsortering(int[] a) {
 
+        //TODO: fjern test print
+
+        //Sjekker om tabellen er tom
+        if (a.length != 0) {
+
+            for (int i = 0; i < a.length; i++) {
+
+                int left = 0;
+                int right = a.length - 1;
+
+                //Sjekker om tallet er par eller odde
+                if (a[i] % 2 != 0)
+                {
+                    //Hvis oddetall, bytt med partall lengst til venstre
+                    for (int j = 0; j < a.length;j++) {
+                        if (a[j] % 2 == 0)
+                        {
+                            bytt(a, i, j);
+                            System.out.println();
+                            for (int t:a) { System.out.print(t + " ");}
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    //Hvis partall bytt med oddetall lengst til høyre
+                    for (int j = a.length - 1; j > 0; j--) {
+                        if (a[j] % 2 != 0)
+                        {
+                            bytt(a,i,j);
+                            System.out.println();
+                            for (int t:a) { System.out.print(t + " ");}
+                            break;
+                        }
+                    }
+                }
+            }
+            //Sorterer tabellen
+            //sortschmort(a,0,countOdde);
+            //sortschmort(a,countOdde, a.length);
+        }
+    }
+
+    public static void sortschmort(int[] a, int v, int h) {
+        int m;  //variabel for å holde på index til største verdi
+
+        while(h > v) {
+            m = maksIndex(a);
+            bytt(a,h-1, m);
+            h--;
+        }
     }
 
 
@@ -228,6 +280,32 @@ public class Oblig1 {
         int maksverdi = a[0];   // største verdi i a[0:a.length>
 
         for (int i = 0 + 1; i < a.length; i++) {
+            if (a[i] >= maksverdi)
+            {
+                m = i;                // indeks a.lenght største verdi oppdateres
+                maksverdi = a[m];     // største verdi oppdateres
+            }
+        }
+
+        return m;  // posisjonen til største verdi i a[fra:til>
+    }
+
+    /**
+     * Metode som finner index til største verdi i et intervall, dersom arrayet inneholder duplikatverdier er det
+     * høyreverdien som returneres
+     * @param a arrayet vi skal søke etter største verdi i
+     * @return index til største verdi
+     */
+    public static int maksIndex(int[] a,int fra, int til) {
+
+        //Sjekker om arrayet er gyldig (ikke null)
+        if(a == null) throw new NullPointerException
+                (a.toString() + "is null");
+
+        int m = fra;              // indeks til største verdi i a[fra:til>
+        int maksverdi = a[fra];   // største verdi i a[fra:a.length>
+
+        for (int i = fra + 1; i < til; i++) {
             if (a[i] >= maksverdi)
             {
                 m = i;                // indeks a.lenght største verdi oppdateres
