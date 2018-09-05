@@ -160,9 +160,13 @@ public class Oblig1 {
         //Ytre for løkke som itererer gjennom tabellen en gang
         for (int i = 0; i < a.length; i++) {
 
+            //Indre løkke itererer over alle elementer i tabellen opp til i
+            //Dersom vi finner at a[i] er lik et element til venstre i tabellen er
+            //a[i] et duplikattall og teller øker med en.
             for (int j = 0; j < i; j++) {
 
-                //sjekker om vi har funnet et duplikattall
+                //sjekker om vi har funnet et duplikattall,
+                // øker i så fall teller med en og hopper ut av indre loop
                 if (i != j && a[i] == a[j])
                 {
                     duplicate++;
