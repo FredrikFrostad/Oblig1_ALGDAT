@@ -232,6 +232,18 @@ public class Oblig1 {
     }
 
 
+    //***************************** OPPGAVE 5 *****************************************
+
+    /**
+     * Metode som "rotere" innholdet i tabellen a én enhet. En rotasjon i en tom tabell eller i en tabell med nøyaktig
+     * ett element er ingen feilsituasjon, men rotasjonen vil da ikke endre noe.
+     * @param a arrayet som skal roteres
+     */
+    public static void rotasjon(char[] a) {
+        
+
+    }
+
     //******************************* OPPGAVE 8 ***************************************
 
     public static int[] indekssortering(int[] a) {
