@@ -289,6 +289,17 @@ public class Oblig1 {
         }
         else{
 
+            for (int i = 0; i < k ; i++) {
+                char temp;
+                int j = 0;
+
+                while (j < (a.length-1)){
+                    temp = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = temp;
+                    j++;
+                }
+            }
 
 /*
             for (int j = 0; j < k ; j++) {
@@ -299,6 +310,7 @@ public class Oblig1 {
                 }
             }
 */
+/*
             for (int i = 0; i <k ; i++) {
                 char temp = a[i]; //Lagrer unna verdien i index du står i
                 a[i] = a[i+1];
@@ -308,7 +320,7 @@ public class Oblig1 {
                 a[k] = a[a.length-1];
                 rotasjon(a);
             }
-
+*/
             //Testing
             System.out.println(Arrays.toString(a));
 
