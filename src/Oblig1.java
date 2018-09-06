@@ -240,12 +240,27 @@ public class Oblig1 {
      * @param a arrayet som skal roteres
      */
     public static void rotasjon(char[] a) {
+        char temp;
+        if ((a == null)||(a.length ==1)){
+            System.out.println("Ingen endring i rotasjon. Objektet er null, eller array har lengde 1");
+        }
+        else{
+            for (int i = 0; i < a.length-1 ; i++) {
+                for (int j = a.length-1; j > 0; j--) {
+                    temp = a[j];
+                    a[j] = a[j - 1];
+                    a[j-1] = temp;
+                }
+            }
+            System.out.println(Arrays.toString(a));
+        }
 
-//test
+
+
     }
 
     //******************************* OPPGAVE 8 ***************************************
-
+/*
     public static int[] indekssortering(int[] a) {
 
         int[] index = new int[a.length];
@@ -264,7 +279,8 @@ public class Oblig1 {
 
         return index;
     }
-
+*/
+    /*
     public static void finnIndex(int[] a, int[] b, int[] index, int start, int position) {
 
         for (int i = start; i < a.length; i++) {
@@ -280,7 +296,7 @@ public class Oblig1 {
             }
         }
     }
-
+*/
     // **************************** DIVERSE HJELPEMETODER *****************************
 
     /**
