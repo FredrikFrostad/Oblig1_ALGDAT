@@ -232,6 +232,36 @@ public class Oblig1 {
     }
 
 
+    //******************************* OPPGAVE 8 ***************************************
+
+    public static int[] indekssortering(int[] a) {
+
+        int[] index = new int[a.length];
+        int[] b = Arrays.copyOf(a,a.length);
+
+        Arrays.sort(b);
+
+        for (int i = 0; i < a.length;i++) {     //iterere over tabell index
+
+            for (int j = 0; j < b.length; j++) {    //itererer over tabell b
+
+                for (int k = 0; k < index.length; k++) {    //itererer over tabell index
+
+                    if (b[j] == a[k])
+                    {
+                        for (int l = 0; l < i; l++) {
+                            if (k == index[l])
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
 
     // **************************** DIVERSE HJELPEMETODER *****************************
 
