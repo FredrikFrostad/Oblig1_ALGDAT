@@ -237,30 +237,36 @@ public class Oblig1 {
     public static int[] indekssortering(int[] a) {
 
         int[] index = new int[a.length];
+
+        for (int i = 0; i < index.length; i++) {
+            index[i] = -i-1;
+        }
+
         int[] b = Arrays.copyOf(a,a.length);
 
         Arrays.sort(b);
 
         for (int i = 0; i < a.length;i++) {     //iterere over tabell index
+            finnIndex(a,b,index,i,i);
+        }
 
-            for (int j = 0; j < b.length; j++) {    //itererer over tabell b
+        return index;
+    }
 
-                for (int k = 0; k < index.length; k++) {    //itererer over tabell index
+    public static void finnIndex(int[] a, int[] b, int[] index, int start, int position) {
 
-                    if (b[j] == a[k])
-                    {
-                        for (int l = 0; l < i; l++) {
-                            if (k == index[l])
-                            {
-
-                            }
+        for (int i = start; i < a.length; i++) {
+            if (b[position] == a[i]) {
+                for (int j = 0; j < a.length; j++) {
+                    if (index[j] == i) {
+                        finnIndex(a,b,index,i,position);
+                    }else
+                        {
+                            index[position] = i;
                         }
-                    }
                 }
             }
         }
-
-        return null;
     }
 
     // **************************** DIVERSE HJELPEMETODER *****************************
