@@ -240,8 +240,8 @@ public class Oblig1 {
      * @param a arrayet som skal roteres
      */
     public static void rotasjon(char[] a) {
-        
 
+//test
     }
 
     //******************************* OPPGAVE 8 ***************************************
