@@ -180,7 +180,6 @@ public class Oblig1 {
                 }
             }
         }
-
         return distinct - duplicate;
     }
 
@@ -235,12 +234,21 @@ public class Oblig1 {
 
     //******************************* OPPGAVE 8 ***************************************
 
+
+    /**
+     * Metode som indekssorterer en tabell. Metoden endrer ikke parametertabellen.
+     * @param a Tabellen som vi ønsker indekssortert
+     * @return en tabell med indekser ordnet etter elementstørrelse i parametertabellen
+     */
     public static int[] indekssortering(int[] a) {
 
         //index = sorted(range(len(a)), key=lambda i:a[i])
+        //Tabell som skal inneholde de sorterte indeksene
         int[] index = new int[a.length];
+        //Sortert hjelpetabell
         int[] sorted_a = Arrays.copyOf(a,a.length);
         Arrays.sort(sorted_a);
+        //Finner duplikatverdier til venstre for gjeldende element og teller dem
         for (int i = 0; i < a.length; i++) {
             int sort_val = sorted_a[i];
             int duplicates_count = 0;
@@ -249,6 +257,9 @@ public class Oblig1 {
                 duplicates_count++;
                 k--;
             }
+            //Befolker indekstabellen basert på den sorterte kopitabellen
+            //Dersom vi finner en match mellom sortert tabell og parametertabellen settes tilhørende
+            //index fra parametertabellen inn i indekstabellen, så fremt duplikatteller er null.
             for (int j = 0; j < a.length; j++) {
                 if (a[j] == sort_val){
                     if (duplicates_count > 0)
@@ -259,7 +270,6 @@ public class Oblig1 {
                 }
             }
         }
-
         return index;
     }
 
