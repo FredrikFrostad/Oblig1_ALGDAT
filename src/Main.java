@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class Main {
@@ -86,6 +87,7 @@ public class Main {
         //for (int i:test) { System.out.print(i + " "); }
 
         char[] a = {'A','B','C','D','E','F','G','H','I','J'};
-
+        System.out.println(Arrays.toString(a));
+        Oblig1.rotasjon(a);
     }
 }
