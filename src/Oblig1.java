@@ -173,7 +173,7 @@ public class Oblig1 {
 
                 //sjekker om vi har funnet et duplikattall,
                 // øker i så fall teller med en og hopper ut av indre loop
-                if (i != j && a[i] == a[j])
+                if (a[i] == a[j])
                 {
                     duplicate++;
                     break;
