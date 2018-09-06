@@ -373,6 +373,4 @@ public class Oblig1 {
         return a;                        // permutasjonen returneres
     }
 
-
-
 }
