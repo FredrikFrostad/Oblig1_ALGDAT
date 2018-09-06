@@ -262,15 +262,12 @@ public class Oblig1 {
      * @param k antall rotasjoner, og retning
      */
     public static void rotasjon(char[] a, int k ) {
-        //Testing
-        System.out.println(Arrays.toString(a));
-
         if ((a == null)||(a.length ==1)){
             System.out.println("Ingen endring i rotasjon. Objektet er null, eller array har lengde 1");
         }
         else{
 
-            for (int i = 0; i <=k ; i++) {
+            for (int i = 0; i <k ; i++) {
                 for (int j = a.length-1; j > 0; j--) { //Starter på slutten av array a.length-1 og går til index 0
                     char temp = a[j]; //Lagrer unna verdien i index du står i
                     a[j] = a[j - 1]; //Erstatter index du står i med verdien til neste index
