@@ -240,13 +240,33 @@ public class Oblig1 {
      * @param a arrayet som skal roteres
      */
     public static void rotasjon(char[] a) {
-        char temp;
         if ((a == null)||(a.length ==1)){
             System.out.println("Ingen endring i rotasjon. Objektet er null, eller array har lengde 1");
         }
         else{
             for (int i = a.length-1; i > 0; i--) { //Starter på slutten av array a.length-1 og går til index 0
-                temp = a[i]; //Lagrer unna verdien i index du står i
+                char temp = a[i]; //Lagrer unna verdien i index du står i
+                a[i] = a[i - 1]; //Erstatter index du står i med verdien til neste index
+                a[i-1] = temp; //Dytter mellomlagret verdi inn i neste index
+            }
+        }
+    }
+
+    //***************************** OPPGAVE 6 *****************************************
+
+    /**
+     * Metode som "rotere" innholdet i tabellen a én enhet. En rotasjon i en tom tabell eller i en tabell med nøyaktig
+     * ett element er ingen feilsituasjon, men rotasjonen vil da ikke endre noe. Metoden tar inn en parameter for som
+     * sier noe om hvor mange rotasjoner som skal utføres. Negativt tall roterer motsatt vei.
+     * @param a arrayet som skal roteres
+     */
+    public static void rotasjon(char[] a, int k ) {
+        if ((a == null)||(a.length ==1)){
+            System.out.println("Ingen endring i rotasjon. Objektet er null, eller array har lengde 1");
+        }
+        else{
+            for (int i = a.length-1; i > 0; i--) { //Starter på slutten av array a.length-1 og går til index 0
+                char temp = a[i]; //Lagrer unna verdien i index du står i
                 a[i] = a[i - 1]; //Erstatter index du står i med verdien til neste index
                 a[i-1] = temp; //Dytter mellomlagret verdi inn i neste index
             }
