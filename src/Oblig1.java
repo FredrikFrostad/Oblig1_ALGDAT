@@ -35,7 +35,12 @@ public class Oblig1 {
                 bytt(a,i, i +1);
                 m = a[i+1];
             }
+            else
+                {
+                    m = a[i+1];
+                }
         }
+        System.out.println(m);
         return m;
     }
 
@@ -104,7 +109,7 @@ public class Oblig1 {
             for (int i = 0; i < a.length - 1; i++) {
                 if (a[i] != a[i + 1])
                 {
-                    distinct += 1;
+                    distinct++;
                 }
             }
         }else
@@ -194,10 +199,10 @@ public class Oblig1 {
         while (i < a.length) {
             //Dersom vi finner et partall bytter det plass med det oddetallet som er lengst
             //til venstre for gjeldende posisjon i arrayet.
-            if (a[i] % 2 == 0 && a[i] != 0) {
+            if (a[i] % 2 == 0) {
                 //Itererer over mulige oddetall til høyre for a[i]
                 while (j > i) {
-                    //Dersom vi finner et oddetall bytter vi plass med partallet i a[i]
+                    //Dersom vi finner et oddetall bytter vi plass med partallet a[i]
                     if (a[j] % 2 != 0) {
                         int temp = a[i];
                         a[i] = a[j];
@@ -212,8 +217,10 @@ public class Oblig1 {
         //finner antall partall for å beregne korrekte intervaller for sortering
         int partall = antallPartall(a);
         //sorterer hvert av intervallene separat
-        bubbleSort(a,0,a.length-partall);
-        bubbleSort(a,a.length-partall, a.length);
+        //bubbleSort(a,0,a.length-partall);
+        //bubbleSort(a,a.length-partall, a.length);
+        Arrays.sort(a,0,a.length-partall);
+        Arrays.sort(a,a.length-partall, a.length);
     }
 
     public static int antallPartall(int[] a) {
@@ -235,6 +242,7 @@ public class Oblig1 {
      * @param h øvre grense for intervallet
      */
     public static void bubbleSort(int[] a, int v, int h) {
+        int count = 0;
         for (int j = v; j < h; ++j) {
             //Itererer over alle elementene i a
             for (int i = v; i < h - 1; ++i) {
@@ -243,9 +251,11 @@ public class Oblig1 {
                     int temp = a[i];
                     a[i] = a[i + 1];
                     a[i + 1] = temp;
+                    count++;
                 }
             }
         }
+        System.out.println(count);
     }
 
 
