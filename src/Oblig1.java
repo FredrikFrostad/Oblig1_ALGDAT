@@ -245,18 +245,12 @@ public class Oblig1 {
             System.out.println("Ingen endring i rotasjon. Objektet er null, eller array har lengde 1");
         }
         else{
-            for (int i = 0; i < a.length-1 ; i++) {
-                for (int j = a.length-1; j > 0; j--) {
-                    temp = a[j];
-                    a[j] = a[j - 1];
-                    a[j-1] = temp;
-                }
+            for (int i = a.length-1; i > 0; i--) { //Starter på slutten av array a.length-1 og går til index 0
+                temp = a[i]; //Lagrer unna verdien i index du står i
+                a[i] = a[i - 1]; //Erstatter index du står i med verdien til neste index
+                a[i-1] = temp; //Dytter mellomlagret verdi inn i neste index
             }
-            System.out.println(Arrays.toString(a));
         }
-
-
-
     }
 
     //******************************* OPPGAVE 8 ***************************************
