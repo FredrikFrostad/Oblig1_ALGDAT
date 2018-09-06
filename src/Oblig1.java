@@ -44,7 +44,7 @@ public class Oblig1 {
      * @param a arrayet det vi skal finne største verdi
      * @return antallet sammenligninger som gjøres for å finne største verdi
      */
-    public static int ombytting(int[] a) {
+    public static int ombyttinger(int[] a) {
 
         int counter = 0;
 

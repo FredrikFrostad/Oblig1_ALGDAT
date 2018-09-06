@@ -71,5 +71,7 @@ public class Main {
         //System.out.println();
 
         for (int i:e) { System.out.print(i + " "); }
+
+
     }
 }
