@@ -92,5 +92,10 @@ public class Main {
         System.out.println(Arrays.toString(a));
         Oblig1.rotasjon(a);
         */
+
+        //Test for oppgave6
+        char[] a = {'A','B','C','D','E','F','G','H','I','J'};
+        System.out.println(Arrays.toString(a));
+        Oblig1.rotasjon(a,1);
     }
 }
