@@ -86,8 +86,11 @@ public class Main {
 
         //for (int i:test) { System.out.print(i + " "); }
 
+        /*
+        //Test for oppgave5
         char[] a = {'A','B','C','D','E','F','G','H','I','J'};
         System.out.println(Arrays.toString(a));
         Oblig1.rotasjon(a);
+        */
     }
 }
