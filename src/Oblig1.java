@@ -217,8 +217,6 @@ public class Oblig1 {
         //finner antall partall for å beregne korrekte intervaller for sortering
         int partall = antallPartall(a);
         //sorterer hvert av intervallene separat
-        //bubbleSort(a,0,a.length-partall);
-        //bubbleSort(a,a.length-partall, a.length);
         Arrays.sort(a,0,a.length-partall);
         Arrays.sort(a,a.length-partall, a.length);
     }
@@ -229,6 +227,40 @@ public class Oblig1 {
             if (a[k] % 2 == 0) {antPartall++;}
         }
         return antPartall;
+    }
+
+    //******************************* OPPGAVE 7 ***************************************
+
+    public static String flett(String s, String t) {
+
+        int str_len;
+        int index = 0;
+        String interleaved = null;
+
+        if (s.length() >= t.length())
+        {
+            str_len = t.length();
+
+        }else
+        {
+            str_len = s.length();
+        }
+
+        while (str_len > 0) {
+            interleaved += s.charAt(index);
+            interleaved += t.charAt(index);
+        }
+
+
+        return null;
+    }
+
+    public static void stringWeaver(String longest, String shortest) {
+
+        int index_shrt = shortest.length();
+        int index_long = longest.length();
+
+
     }
 
 
@@ -384,7 +416,7 @@ public class Oblig1 {
         int m = 0;
         int minverdi = a[0];
 
-        for (int i = 0 + 1; i < a.length; i++) {
+        for (int i = 1; i < a.length; i++) {
             if (a[i] < minverdi) {
                 m = i;
                 minverdi = a[m];
