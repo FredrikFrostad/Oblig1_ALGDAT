@@ -233,8 +233,6 @@ public class Oblig1 {
 
     public static String flett(String s, String t) {
 
-        int str_len;
-        int index = 0;
         String interleaved = null;
 
         if (s.length() == t.length())
@@ -243,33 +241,44 @@ public class Oblig1 {
         }
         if (s.length() < t.length())
         {
-
+            interleaved = stringWeaver(s,t,false);
         }
         if (s.length() > t.length())
         {
-
+            interleaved = stringWeaver(t,s,false);
         }
 
         return interleaved;
     }
 
+    public static String flett(){
+        return null;
+    }
+
     public static String stringWeaver(String shortest, String longest, boolean equal) {
 
         StringBuilder interleaved = new StringBuilder();
+
         if (equal)
         {
             for (int i = 0; i < longest.length(); i++) {
                 interleaved.append(shortest.charAt(i));
                 interleaved.append(longest.charAt(i));
             }
+        }else
+        {
+            int i = 0;
+            while (i < shortest.length()) {
+                interleaved.append(shortest.charAt(i));
+                interleaved.append(longest.charAt(i));
+                i++;
+            }
+            while (i < longest.length()) {
+                interleaved.append(longest.charAt(i));
+                i++;
+            }
         }
-
-        int index_shrt = shortest.length();
-        int index_long = longest.length();
-
-        String out = interleaved.toString();
-
-        return out;
+        return interleaved.toString();
     }
 
 
