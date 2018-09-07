@@ -229,59 +229,6 @@ public class Oblig1 {
         return antPartall;
     }
 
-    //******************************* OPPGAVE 7 ***************************************
-
-    public static String flett(String s, String t) {
-
-        String interleaved = null;
-
-        if (s.length() == t.length())
-        {
-            interleaved = stringWeaver(s,t,true);
-        }
-        if (s.length() < t.length())
-        {
-            interleaved = stringWeaver(s,t,false);
-        }
-        if (s.length() > t.length())
-        {
-            interleaved = stringWeaver(t,s,false);
-        }
-
-        return interleaved;
-    }
-
-    public static String flett(){
-        return null;
-    }
-
-    public static String stringWeaver(String shortest, String longest, boolean equal) {
-
-        StringBuilder interleaved = new StringBuilder();
-
-        if (equal)
-        {
-            for (int i = 0; i < longest.length(); i++) {
-                interleaved.append(shortest.charAt(i));
-                interleaved.append(longest.charAt(i));
-            }
-        }else
-        {
-            int i = 0;
-            while (i < shortest.length()) {
-                interleaved.append(shortest.charAt(i));
-                interleaved.append(longest.charAt(i));
-                i++;
-            }
-            while (i < longest.length()) {
-                interleaved.append(longest.charAt(i));
-                i++;
-            }
-        }
-        return interleaved.toString();
-    }
-
-
     //***************************** OPPGAVE 5 *****************************************
 
     /**
@@ -392,6 +339,93 @@ public class Oblig1 {
 
         }
     }
+
+
+    //******************************* OPPGAVE 7 ***************************************
+
+    public static String flett(String s, String t) {
+
+        String interleaved = null;
+
+        if (s.length() == t.length())
+        {
+            interleaved = stringWeaver(s,t,true,false);
+        }
+        if (s.length() < t.length())
+        {
+            interleaved = stringWeaver(s,t,false, false);
+        }
+        if (s.length() > t.length())
+        {
+            interleaved = stringWeaver(t,s,false, true);
+        }
+
+        return interleaved;
+    }
+
+
+    public static String stringWeaver(String shortest, String longest, boolean equal, boolean swapped) {
+
+        StringBuilder interleaved = new StringBuilder();
+
+        if (equal)
+        {
+            for (int i = 0; i < longest.length(); i++) {
+                interleaved.append(shortest.charAt(i));
+                interleaved.append(longest.charAt(i));
+            }
+        }else
+        {
+            int i = 0;
+            while (i < shortest.length()) {
+                if (swapped)
+                {
+                    interleaved.append(longest.charAt(i));
+                    interleaved.append(shortest.charAt(i));
+                }else {
+                    interleaved.append(shortest.charAt(i));
+                    interleaved.append(longest.charAt(i));
+                }
+                i++;
+            }
+            while (i < longest.length()) {
+                interleaved.append(longest.charAt(i));
+                i++;
+            }
+        }
+        return interleaved.toString();
+    }
+
+    public static String flett(String... s){
+
+        StringBuilder interleaved = new StringBuilder();
+
+        int i = 0;
+        int longest = findLongest(s);
+        while (i <= longest)  {
+
+            for (int j = 0; j < s.length; j++) {
+                if (s[j].length() > i)
+                {
+                    interleaved.append(s[j].charAt(i));
+                }
+            }
+            i++;
+        }
+        return interleaved.toString();
+    }
+
+    public static int findLongest(String[] s) {
+        int maxlength = 0;
+
+        for (String str : s) {
+            if (str.length() > maxlength) {
+                maxlength = str.length();
+            }
+        }
+        return maxlength;
+    }
+
 
     //******************************* OPPGAVE 8 ***************************************
 
