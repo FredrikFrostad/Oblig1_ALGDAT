@@ -84,8 +84,6 @@ public class Main {
 
         //int[] test = Oblig1.indekssortering(a);
 
-        //for (int i:test) { System.out.print(i + " "); }
-
         /*
         //Test for oppgave5
         char[] a = {'A','B','C','D','E','F','G','H','I','J'};

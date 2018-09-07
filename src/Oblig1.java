@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
@@ -78,7 +79,7 @@ public class Oblig1 {
      * Metoden maks vil gjøre flest ombyttinger når den største verdien ligger først i arrayet, da vil det utføres n-1 bytter
      * Det gjøres færrest ombyttinger dersom tabellen er sortert i stigende rekkefølge
      * TODO: Fullfør besvarelsen av average case scenario
-     * Avsnitt 1.1.6 i kompendiet omhandler average case effektivitet for denne algoritmen. Der får vi vite at det harmoske
+     * Avsnitt 1.1.6 i kompendiet omhandler average case effektivitet for denne algoritmen. Der får vi vite at det harmoniske
      * tallet for denne algoritmen er Hn tilnærmet lik log(n) - 0,557
      */
 
@@ -172,14 +173,13 @@ public class Oblig1 {
 
                 //sjekker om vi har funnet et duplikattall,
                 // øker i så fall teller med en og hopper ut av indre loop
-                if (i != j && a[i] == a[j])
+                if (a[i] == a[j])
                 {
                     duplicate++;
                     break;
                 }
             }
         }
-
         return distinct - duplicate;
     }
 
@@ -328,43 +328,48 @@ public class Oblig1 {
     }
 
     //******************************* OPPGAVE 8 ***************************************
-/*
+
+
+    /**
+     * Metode som indekssorterer en tabell. Metoden endrer ikke parametertabellen.
+     * @param a Tabellen som vi ønsker indekssortert
+     * @return en tabell med indekser ordnet etter elementstørrelse i parametertabellen
+     */
     public static int[] indekssortering(int[] a) {
 
+        //index = sorted(range(len(a)), key=lambda i:a[i])
+        //Tabell som skal inneholde de sorterte indeksene
         int[] index = new int[a.length];
-
-        for (int i = 0; i < index.length; i++) {
-            index[i] = -i-1;
-        }
-
-        int[] b = Arrays.copyOf(a,a.length);
-
-        Arrays.sort(b);
-
-        for (int i = 0; i < a.length;i++) {     //iterere over tabell index
-            finnIndex(a,b,index,i,i);
-        }
-
-        return index;
-    }
-*/
-    /*
-    public static void finnIndex(int[] a, int[] b, int[] index, int start, int position) {
-
-        for (int i = start; i < a.length; i++) {
-            if (b[position] == a[i]) {
-                for (int j = 0; j < a.length; j++) {
-                    if (index[j] == i) {
-                        finnIndex(a,b,index,i,position);
-                    }else
-                        {
-                            index[position] = i;
-                        }
+        //Sortert hjelpetabell
+        int[] sorted_a = Arrays.copyOf(a,a.length);
+        Arrays.sort(sorted_a);
+        //Finner duplikatverdier til venstre for gjeldende element og teller dem
+        for (int i = 0; i < a.length; i++) {
+            int sort_val = sorted_a[i];
+            int duplicates_count = 0;
+            int k = i - 1;
+            while (k >= 0 && sorted_a[k] == sort_val){
+                duplicates_count++;
+                k--;
+            }
+            //Befolker indekstabellen basert på den sorterte kopitabellen
+            //Dersom vi finner en match mellom sortert tabell og parametertabellen settes tilhørende
+            //index fra parametertabellen inn i indekstabellen, så fremt duplikatteller er null.
+            for (int j = 0; j < a.length; j++) {
+                if (a[j] == sort_val){
+                    if (duplicates_count > 0)
+                        duplicates_count--;
+                    else{
+                        index[i] = j;
+                    }
                 }
             }
         }
+        return index;
     }
-*/
+
+
+
     // **************************** DIVERSE HJELPEMETODER *****************************
 
     /**
@@ -482,27 +487,4 @@ public class Oblig1 {
         }
         return m;
     }
-
-
-    /**
-     * Metode som genererer et randomisert array
-     * @param n arrayets lengde
-     * @return det permuterte arrayet
-     */
-    public static int[] randPerm(int n)  // en effektiv versjon
-    {
-        Random r = new Random();         // en randomgenerator
-        int[] a = new int[n];            // en tabell med plass til n tall
-
-        Arrays.setAll(a, i -> i + 1);    // legger inn tallene 1, 2, . , n
-
-        for (int k = n - 1; k > 0; k--)  // løkke som går n - 1 ganger
-        {
-            int i = r.nextInt(k+1);        // en tilfeldig tall fra 0 til k
-            bytt(a,k,i);                   // bytter om
-        }
-
-        return a;                        // permutasjonen returneres
-    }
-
 }
