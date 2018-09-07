@@ -123,9 +123,15 @@ public class Oblig1 {
      * @return antall ulike verdier
      */
     public static int antallUlikeUsortert(int[] a) {
+        ; //Minst 1 ulik hvis a har en lengde på 1
 
+        if(a.length == 0)
+            return 0;
 
-        return -1;
+        int antallUnikeVerdie = (int)Arrays.stream(a).distinct().count();
+        System.out.println(Arrays.stream(a).distinct().count());
+
+        return antallUnikeVerdie;
     }
 
     //***************************** OPPGAVE 4 *****************************************
