@@ -153,9 +153,80 @@ public class Oblig1 {
      * @param a arrayet som skal sorteres
      */
     public static void delsortering(int[] a) {
+//a[i]%2)==1 => ODD
+//a[i]%2)==0 => EVEN
 
+        int fra = 0;
+        int til = a.length;
+        int oddCount = 1;
+        int evenCount = 0;
+        int loopCount = 0;
+
+        int oddOrEven = 1;
+
+
+        for (int i = 0; i < 2 ; i++) { //En l
+
+            for (int j = 0; j < a.length-1 ; j++) {
+
+                if((a[j]%2)==oddOrEven){ //oddOrEven=1 => ODD sort, oddOrEven=0 => EVEN sort
+
+                    
+
+                    oddCount++;
+                }
+
+
+
+                loopCount++; //samme som i?
+                //if(a[i-1+iSort]<a[i+iSort]) {}
+
+
+
+            }
+            oddOrEven = 0; //Next loop will sort even numbers
+        }
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static int antallPartall(int[] a) {
         int antPartall = 0;
