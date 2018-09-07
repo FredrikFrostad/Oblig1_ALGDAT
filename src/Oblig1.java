@@ -237,30 +237,39 @@ public class Oblig1 {
         int index = 0;
         String interleaved = null;
 
-        if (s.length() >= t.length())
+        if (s.length() == t.length())
         {
-            str_len = t.length();
+            interleaved = stringWeaver(s,t,true);
+        }
+        if (s.length() < t.length())
+        {
 
-        }else
+        }
+        if (s.length() > t.length())
         {
-            str_len = s.length();
+
         }
 
-        while (str_len > 0) {
-            interleaved += s.charAt(index);
-            interleaved += t.charAt(index);
-        }
-
-
-        return null;
+        return interleaved;
     }
 
-    public static void stringWeaver(String longest, String shortest) {
+    public static String stringWeaver(String shortest, String longest, boolean equal) {
+
+        StringBuilder interleaved = new StringBuilder();
+        if (equal)
+        {
+            for (int i = 0; i < longest.length(); i++) {
+                interleaved.append(shortest.charAt(i));
+                interleaved.append(longest.charAt(i));
+            }
+        }
 
         int index_shrt = shortest.length();
         int index_long = longest.length();
 
+        String out = interleaved.toString();
 
+        return out;
     }
 
 

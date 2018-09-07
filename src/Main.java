@@ -84,5 +84,11 @@ public class Main {
         //int[] test = Oblig1.indekssortering(a);
 
         //for (int i:test) { System.out.print(i + " "); }
+
+        String s = "qwerty";
+        String t = "ytrewq";
+
+        String result = Oblig1.flett(s,t);
+        System.out.print(result);
     }
 }
