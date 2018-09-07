@@ -68,7 +68,7 @@ public class Main {
 
         System.out.println(Oblig1.antallUlikeSortert(d));
 */
-
+/*
         //Test oppgave3
         int[] a = {1,2,3,4,5,6,7,8,9};
         int[] b = {5,3,7,4,3,5,7,8,6,7};
@@ -76,6 +76,18 @@ public class Main {
         int[] d = {1,1,1,1,2,2,3,3,8,9,9,9};
         int[] e = {2,-7,3,2,6,-8,0,-9,5,1,2,8,13,15};
         Oblig1.antallUlikeUsortert(b);
+*/
+
+        //Test oppgave4
+        //int[] a = {6,10,9,4,1,3,8,5,2,7};
+        int[] b = {1,2,3,4,6,5};
+        int[] c = {-1,2,-3,4,6,-5};
+        System.out.println(Arrays.toString(c));
+        Oblig1.delsortering(b);
+        System.out.println(Arrays.toString(c));
+
+        System.out.println("-3%2= " + -4%2);
+
 
 /*
         int[] a = {1,2,3,4,5,6,7,8,9};

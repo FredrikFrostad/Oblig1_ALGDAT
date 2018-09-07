@@ -153,39 +153,33 @@ public class Oblig1 {
      * @param a arrayet som skal sorteres
      */
     public static void delsortering(int[] a) {
-//a[i]%2)==1 => ODD
-//a[i]%2)==0 => EVEN
-
-        int fra = 0;
-        int til = a.length;
-        int oddCount = 1;
-        int evenCount = 0;
-        int loopCount = 0;
-
-        int oddOrEven = 1;
-
-
-        for (int i = 0; i < 2 ; i++) { //En l
-
-            for (int j = 0; j < a.length-1 ; j++) {
-
-                if((a[j]%2)==oddOrEven){ //oddOrEven=1 => ODD sort, oddOrEven=0 => EVEN sort
-
-                    
-
-                    oddCount++;
-                }
-
-
-
-                loopCount++; //samme som i?
-                //if(a[i-1+iSort]<a[i+iSort]) {}
-
-
-
-            }
-            oddOrEven = 0; //Next loop will sort even numbers
+        //Har tabellen lengde 0?
+        if (a==null){
+            throw new NoSuchElementException("Tabellen har langde 0. Den er tom! ");
         }
+
+        //Moving the odd number over to the left side
+        int oddMoved = 0; //Funker til å flytte odde nummere på venstre side, og som offsett for når even nummere starter
+        for (int i = 0; i < a.length ; i++) {
+            if(Math.abs(a[i]%2)==1){
+                bytt(a,oddMoved,i);
+                oddMoved++;
+            }
+        }
+
+        //Finner miste verdi for odde og fyller opp fra index 0 til oddMoved offseten
+        for (int i = 0; i < oddMoved; i++) {
+            int minst = minIndex(a,i,oddMoved);
+            bytt(a, i, minst);
+        }
+
+        //Finner miste verdi for odde og fyller opp fra index 0 til oddMoved offseten
+        for (int i = oddMoved; i < a.length; i++) {
+            int minst = minIndex(a,i,a.length);
+            bytt(a, i, minst);
+        }
+
+
 
     }
 
@@ -482,6 +476,28 @@ public class Oblig1 {
             if (a[i] < minverdi) {
                 m = i;
                 minverdi = a[m];
+            }
+        }
+        return m;
+    }
+
+    /**
+     * Metode som finner index til minste verdi i et array, med til og fra som parameter.
+     * Dersom arrayet inneholder duplikatverdier er det index til venstreverdien som returneres
+     * @param a arrayet vi skal søke etter minste verdi i
+     * @return index til minste verdi
+     */
+    public static int minIndex(int[] a,int fra, int til) {
+
+        int m = fra;              // indeks til største verdi i a[fra:til>
+        int minverdi = a[fra];   // største verdi i a[fra:til>
+
+        for (int i = fra + 1; i < til; i++)
+        {
+            if (a[i] < minverdi)
+            {
+                m = i;                // indeks til største verdi oppdateres
+                minverdi = a[m];     // største verdi oppdateres
             }
         }
         return m;
