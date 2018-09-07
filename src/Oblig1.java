@@ -127,21 +127,22 @@ public class Oblig1 {
         if(a.length == 0)
             return 0;
 
-        int antallUnikeVerdier = 1;
+        int antallDuplikat = 0;
                 //(int)Arrays.stream(a).distinct().count();
         //System.out.println(Arrays.stream(a).distinct().count());
+
 
         for (int i = 0; i < a.length; i++) {
 
             for (int j = 0; j < i ; j++) {
                 if (a[i]==a[j]){
-                    antallUnikeVerdier++;
+                    antallDuplikat++;
                     break;
                 }
             }
         }
-        System.out.println(antallUnikeVerdier);
-        return antallUnikeVerdier;
+        //System.out.println(antallDuplikat);
+        return a.length-antallDuplikat;
     }
 
     //***************************** OPPGAVE 4 *****************************************
