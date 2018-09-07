@@ -343,6 +343,8 @@ public class Oblig1 {
 
     //******************************* OPPGAVE 7 ***************************************
 
+    //TODO: LEGG TIL KOMMENTARER!!
+
     public static String flett(String s, String t) {
 
         String interleaved = null;
