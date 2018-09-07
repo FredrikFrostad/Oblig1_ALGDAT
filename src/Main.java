@@ -82,11 +82,11 @@ public class Main {
         //int[] a = {6,10,9,4,1,3,8,5,2,7};
         int[] b = {1,2,3,4,6,5};
         int[] c = {-1,2,-3,4,6,-5};
-        System.out.println(Arrays.toString(c));
+        System.out.println(Arrays.toString(b));
         Oblig1.delsortering(b);
-        System.out.println(Arrays.toString(c));
+        System.out.println(Arrays.toString(b));
 
-        System.out.println("-3%2= " + -4%2);
+        //System.out.println("-3%2= " + -4%2);
 
 
 /*

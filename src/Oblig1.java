@@ -167,6 +167,16 @@ public class Oblig1 {
             }
         }
 
+        //Arrays.sort er rask nok
+        Arrays.sort(a,0,oddMoved);
+        Arrays.sort(a,oddMoved,a.length);
+
+        //Bublesort er for treigt
+        //bubbleSort(a,0,oddMoved);
+        //bubbleSort(a,oddMoved,a.length);
+
+        
+/*      DETTE FUNKER MEN BLIR FOR TREIGT!
         //Finner miste verdi for odde og fyller opp fra index 0 til oddMoved offseten
         for (int i = 0; i < oddMoved; i++) {
             int minst = minIndex(a,i,oddMoved);
@@ -178,58 +188,10 @@ public class Oblig1 {
             int minst = minIndex(a,i,a.length);
             bytt(a, i, minst);
         }
-
+*/
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public static int antallPartall(int[] a) {
-        int antPartall = 0;
-        for (int k = 0; k < a.length; k++) {
-            if (a[k] % 2 == 0) {antPartall++;}
-        }
-        return antPartall;
-    }
-
 
     //***************************** OPPGAVE 5 *****************************************
 
@@ -385,7 +347,7 @@ public class Oblig1 {
                 }
             }
         }
-        System.out.println(count);
+        //System.out.println(count);
     }
 
 
