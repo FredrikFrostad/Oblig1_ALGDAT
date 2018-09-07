@@ -93,19 +93,19 @@ public class Oblig1 {
 
 
         for (int i = 1; i < a.length ; i++) {
-            if(a[i]>a[i-1]) {
-                isSortedAscending = true;
+            if(a[i-1]<a[i]) {
                 antallUlikeSorterte++;
             }
-            else{
-                isSortedAscending = false;
-
+            else if(a[i-1]>a[i]){ //Hvis den neste verdien er større en den du står i, så har vi en inversjon, og en usortert tabell
+                throw new IllegalStateException("Tabellen er ikke sortert stigende! Sorter tabellen først");
             }
+
         }
 
+        /*
         if(isSortedAscending = false){
             throw new IllegalStateException("Tabellen er ikke sortert stigende! Sorter tabellen først");
-        }
+        }*/
 
         return antallUlikeSorterte;
     }

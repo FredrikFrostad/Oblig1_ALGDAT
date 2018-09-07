@@ -43,7 +43,7 @@ public class Main {
         System.out.println("Gjennomsnittet er: " + snitt/n + " ombyttinger");
 */
 
-
+/*
         //Test oppgave1
         int[] a = {1,2,3,4,5};
 
@@ -53,20 +53,21 @@ public class Main {
 
         Oblig1.ombyttinger(a);
         System.out.println(Arrays.toString(a));
+*/
 
-
-/*      Test av oppgave 2
+//       Test av oppgave 2
         int[] a = {1,2,3,4,5,6,7,8,9};
         int[] b = {9,2,3,4,5,6,7,8,1};
         int[] c = {};
         int[] d = {1,1,1,1,2,2,3,3,8,9,9,9};
+        int[] e = {3,3,4,5,5,6,7,7,7,8};
 
         //Testprint
         System.out.println(d.length);
 
 
         System.out.println(Oblig1.antallUlikeSortert(d));
-  */
+
 /*
         int[] a = {1,2,3,4,5,6,7,8,9};
         int[] b = {9,2,3,4,5,6,7,8,1};
@@ -94,6 +95,7 @@ public class Main {
         //a = new int[]{-4, -1, 3, 0, 2, -3, -2, 4, 1};
 
         //int[] test = Oblig1.indekssortering(a);
+
 
         /*
         //Test for oppgave5
