@@ -85,12 +85,10 @@ public class Oblig1 {
      * @return antall distinkte verdier i arrayet
      */
     public static int antallUlikeSortert(int[] a) {
-        boolean isSortedAscending = false;
         int antallUlikeSorterte = 1; //Minst 1 ulik hvis a har en lengde på 1
 
         if(a.length == 0)
             return 0;
-
 
         for (int i = 1; i < a.length ; i++) {
             if(a[i-1]<a[i]) {
@@ -99,14 +97,7 @@ public class Oblig1 {
             else if(a[i-1]>a[i]){ //Hvis den neste verdien er større en den du står i, så har vi en inversjon, og en usortert tabell
                 throw new IllegalStateException("Tabellen er ikke sortert stigende! Sorter tabellen først");
             }
-
         }
-
-        /*
-        if(isSortedAscending = false){
-            throw new IllegalStateException("Tabellen er ikke sortert stigende! Sorter tabellen først");
-        }*/
-
         return antallUlikeSorterte;
     }
 
