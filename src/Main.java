@@ -44,6 +44,17 @@ public class Main {
 */
 
 
+        //Test oppgave1
+        int[] a = {1,2,3,4,5};
+
+        System.out.println(Arrays.toString(a));
+        //Oblig1.maks(a);
+        //System.out.println(Arrays.toString(a));
+
+        Oblig1.ombyttinger(a);
+        System.out.println(Arrays.toString(a));
+
+
 /*      Test av oppgave 2
         int[] a = {1,2,3,4,5,6,7,8,9};
         int[] b = {9,2,3,4,5,6,7,8,1};
@@ -92,8 +103,8 @@ public class Main {
         */
 
         //Test for oppgave6
-        char[] a = {'A','B','C','D'};
-        System.out.println(Arrays.toString(a));
-        Oblig1.rotasjon(a,-3);
+        //char[] a = {'A','B','C','D'};
+        //System.out.println(Arrays.toString(a));
+        //Oblig1.rotasjon(a,-3);
     }
 }

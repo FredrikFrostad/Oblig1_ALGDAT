@@ -20,7 +20,25 @@ public class Oblig1 {
      */
     public static int maks(int[] a) {
 
-        return -1;
+        //Har tabellen lengde 0?
+        if (a.length<1){
+            throw new NoSuchElementException("Tabellen har langde 0. Den er tom! ");
+        }
+
+        int m = a[0]; //Variabel for å lagre unna største verdi. Må initieres der hvor løkka starter å kjøre.
+
+        //Looper igjennom arrayet.
+        for (int i = 0; i <= a.length-2 ; i++ ) { //
+
+            if(a[i] > a[i+1]) {
+                m = a[i]; //Tar vare på det største tallet.
+                bytt(a,i,i+1); //Det største tallet skal boble oppover mot slutten av tabellen.
+            }
+            else{ //Hvis ikke nest siste er større enn siste, så er den største verdien på siste index
+                m = a[i+1];
+            }
+        }
+        return m;
     }
 
     /**
@@ -30,8 +48,23 @@ public class Oblig1 {
      */
     public static int ombyttinger(int[] a) {
 
+        //Har tabellen lengde 0?
+        if (a.length<1){
+            throw new NoSuchElementException("Tabellen har langde 0. Den er tom! ");
+        }
 
-        return -1;
+        int nOmbyttinger = 0;
+
+        for (int i = 0; i <= a.length-2 ; i++ ) { //
+
+            if(a[i] > a[i+1]) {
+                bytt(a,i,i+1); //Det største tallet skal boble oppover mot slutten av tabellen
+                nOmbyttinger++;
+            }
+
+        }
+        //System.out.println("Antall byttinger: " + nOmbyttinger);
+        return nOmbyttinger;
     }
 
     /**
