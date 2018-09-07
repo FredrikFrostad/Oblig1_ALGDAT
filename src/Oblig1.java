@@ -273,6 +273,117 @@ public class Oblig1 {
     }
 
 
+    //***************************** OPPGAVE 5 *****************************************
+
+    /**
+     * Metode som "rotere" innholdet i tabellen a én enhet. En rotasjon i en tom tabell eller i en tabell med nøyaktig
+     * ett element er ingen feilsituasjon, men rotasjonen vil da ikke endre noe.
+     * @param a arrayet som skal roteres
+     */
+    public static void rotasjon(char[] a) {
+        if ((a == null)||(a.length ==1)){
+            System.out.println("Ingen endring i rotasjon. Objektet er null, eller array har lengde 1");
+        }
+        else{
+            for (int i = a.length-1; i > 0; i--) { //Starter på slutten av array a.length-1 og går til index 0
+                char temp = a[i]; //Lagrer unna verdien i index du står i
+                a[i] = a[i - 1]; //Erstatter index du står i med verdien til neste index
+                a[i-1] = temp; //Dytter mellomlagret verdi inn i neste index
+            }
+        }
+    }
+
+    //***************************** OPPGAVE 6 *****************************************
+
+    /**
+     * Metode som "rotere" innholdet i tabellen a én enhet. En rotasjon i en tom tabell eller i en tabell med nøyaktig
+     * ett element er ingen feilsituasjon, men rotasjonen vil da ikke endre noe. Metoden tar inn en parameter for som
+     * sier noe om hvor mange rotasjoner som skal utføres. Negativt tall roterer motsatt vei.
+     * @param a arrayet som skal roteres
+     * @param k antall rotasjoner, og retning
+     */
+    public static void rotasjon(char[] a, int k ) {
+        //char[] result = new char[a.length];
+
+        // if x<n, x%n = x
+        // if x=n, x%n = 0 =>
+        // x % n
+/*
+        //Circular array running backwards
+        for (int i = 0; i < a.length ; i = (i+1)%a.length ) { //i = (i+1)%a.length lager et sirkulært array som looper uendelig
+            System.out.print(a[i]);
+        }
+*/
+/*
+        //Circular array running backwards
+        for (int i = a.length-1; i >=0; i = (i-1)%a.length) {
+            System.out.print(a[i]);
+
+            if (i ==0){
+                i = a.length;
+            }
+        }
+*/
+
+        if ((a == null)||(a.length ==1)){
+            System.out.println("Ingen endring i rotasjon. Objektet er null, eller array har lengde 1");
+        }
+        else{
+
+            int n = Math.abs(k);
+
+            for (int i = 0; i < n ; i++) {
+                char temp;
+                int j = 0;
+
+                if(k <0 ){
+                    //System.out.println("Du flytter " + n + " mot venstre");
+                    while (j < (a.length-1)){
+                        temp = a[j];
+                        a[j] = a[j+1];
+                        a[j+1] = temp;
+                        j++;
+                    }
+
+                }
+                else{
+                    //System.out.println("Du flytter " + n + " mot høyre");
+                    for (int x = a.length-1; x > 0; x--) { //Starter på slutten av array a.length-1 og går til index 0
+                        char tempTest = a[x]; //Lagrer unna verdien i index du står i
+                        a[x] = a[x - 1]; //Erstatter index du står i med verdien til neste index
+                        a[x-1] = tempTest; //Dytter mellomlagret verdi inn i neste index
+                    }
+                }
+
+
+            }
+
+/*
+            for (int j = 0; j < k ; j++) {
+                for (int i = a.length-1; i > 0; i--) { //Starter på slutten av array a.length-1 og går til index 0
+                    char temp = a[i]; //Lagrer unna verdien i index du står i
+                    a[i] = a[i - 1]; //Erstatter index du står i med verdien til neste index
+                    a[i-1] = temp; //Dytter mellomlagret verdi inn i neste index
+                }
+            }
+*/
+/*
+            for (int i = 0; i <k ; i++) {
+                char temp = a[i]; //Lagrer unna verdien i index du står i
+                a[i] = a[i+1];
+                a[i+1] = temp;
+
+                char temp2 = a[k];
+                a[k] = a[a.length-1];
+                rotasjon(a);
+            }
+*/
+            //Testing
+            System.out.println(Arrays.toString(a));
+
+        }
+    }
+
     //******************************* OPPGAVE 8 ***************************************
 
 
