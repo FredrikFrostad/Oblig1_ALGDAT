@@ -6,14 +6,14 @@ public class Oblig1Test {
     public static void main(String[] args) {
         int antallFeil = 0;
 
-        //antallFeil += oppgave1();
-        //antallFeil += oppgave2();
-        //antallFeil += oppgave3();
-        //antallFeil += oppgave4();
-        //antallFeil += oppgave5();
+        antallFeil += oppgave1();
+        antallFeil += oppgave2();
+        antallFeil += oppgave3();
+        antallFeil += oppgave4();
+        antallFeil += oppgave5();
         antallFeil += oppgave6();
         //antallFeil += oppgave7();
-        //antallFeil += oppgave8();
+        antallFeil += oppgave8();
         //antallFeil += oppgave9();
         //antallFeil += oppgave10();
 
@@ -24,7 +24,7 @@ public class Oblig1Test {
                     + antallFeil + " feil eller svakheter!");
         }
     }
-/*
+
     ///// Oppgave 1 //////////////////////////////////////
 
     public static int oppgave1() {
@@ -327,7 +327,7 @@ public class Oblig1Test {
 
         return antallFeil;
     }
-*/
+
     ///// Oppgave 5 //////////////////////////////////////
 
     public static int oppgave5() {
@@ -611,7 +611,7 @@ public class Oblig1Test {
 
 */
     ///// Oppgave 8 //////////////////////////////////////
-/*
+
     public static int oppgave8() {
         int antallFeil = 0;
 
@@ -712,7 +712,7 @@ public class Oblig1Test {
 
         return antallFeil;
     }
-*/
+
 /*
     ///// Oppgave 9 //////////////////////////////////////
 
