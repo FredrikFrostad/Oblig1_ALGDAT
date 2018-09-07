@@ -20,29 +20,7 @@ public class Oblig1 {
      */
     public static int maks(int[] a) {
 
-        //Sjekker at tabellen ikke er tom
-        if (a.length < 1) {
-            throw new NoSuchElementException
-                    ("\nTabellen er tom, vennligst send en gyldig tabell som parameter.");
-        }
-
-        //Initialiserer variabel som holder på største verdi
-        int m = a[0];
-
-        //Itererer over arrayet og "bobler" største verdi "oppover"
-        for (int i = 0; i < a.length - 1; ++i) {
-
-            if (a[i] >  a[i + 1]) {
-                bytt(a,i, i +1);
-                m = a[i+1];
-            }
-            else
-                {
-                    m = a[i+1];
-                }
-        }
-        System.out.println(m);
-        return m;
+        return -1;
     }
 
     /**
@@ -52,27 +30,8 @@ public class Oblig1 {
      */
     public static int ombyttinger(int[] a) {
 
-        int counter = 0;
 
-        //Sjekker at tabellen ikke er tom
-        if (a.length < 1) {
-            throw new NoSuchElementException
-                    ("\nTabellen er tom, vennligst send en gyldig tabell som parameter.");
-        }
-
-        //Initialiserer variabel som holder på største verdi
-        int m = a[0];
-
-        //Itererer over arrayet og "bobler" største verdi "oppover"
-        for (int i = 0; i < a.length - 1; ++i) {
-
-            if (a[i] >  a[i + 1]) {
-                bytt(a,i, i +1);
-                counter++;
-                m = a[i+1];
-            }
-        }
-        return counter;
+        return -1;
     }
 
     /**
@@ -94,33 +53,7 @@ public class Oblig1 {
      */
     public static int antallUlikeSortert(int[] a) {
 
-        //Variabel som holder på returverdi
-        int distinct = 0;
-
-        //Sjekker om tabellen er tom
-        if (a.length == 0) {return distinct;}
-
-        //Sjekker om tabellen er sortert stigende
-        if (sjekkGyldigFormat(a))
-        {
-            //Dersom tabellen ikke er tom inneholder den minst en distinkt verdi
-            distinct = 1;
-
-            //Sjekker om neste verdi er ulik forrige og øker teller dersom true
-            for (int i = 0; i < a.length - 1; i++) {
-                if (a[i] != a[i + 1])
-                {
-                    distinct++;
-                }
-            }
-        }else
-        {
-            throw new IllegalStateException
-                    ("Parametertabellen må være sortert stigende");
-        }
-
-
-        return distinct;
+        return -1;
     }
 
     /**
@@ -130,17 +63,8 @@ public class Oblig1 {
      */
     public static boolean sjekkGyldigFormat(int[] a) {
 
-        //Sjekker om tabellen har gyldig format (er sortert stigende)
-        if (maksIndex(a) != a.length - 1 || minIndex(a) != 0)
-        {
-         return false;
-        }
-        for (int i = 0; i < a.length - 1; i++) {
-            if (a[i] > a[i + 1]) {
-                return false;
-            }
-        }
-        return true;
+
+        return false;
     }
 
     //***************************** OPPGAVE 3 *****************************************
@@ -155,32 +79,8 @@ public class Oblig1 {
      */
     public static int antallUlikeUsortert(int[] a) {
 
-        //Variabel som holder på returverdi
-        int distinct = a.length;
-        //Variabler som teller antall duplikattall
-        int duplicate = 0;
 
-        //Sjekker om tabellen er tom
-        if (a.length == 0) {return 0;}
-
-        //Ytre for løkke som itererer gjennom tabellen en gang
-        for (int i = 0; i < a.length; i++) {
-
-            //Indre løkke itererer over alle elementer i tabellen opp til i
-            //Dersom vi finner at a[i] er lik et element til venstre i tabellen er
-            //a[i] et duplikattall og teller øker med en.
-            for (int j = 0; j < i; j++) {
-
-                //sjekker om vi har funnet et duplikattall,
-                // øker i så fall teller med en og hopper ut av indre loop
-                if (a[i] == a[j])
-                {
-                    duplicate++;
-                    break;
-                }
-            }
-        }
-        return distinct - duplicate;
+        return -1;
     }
 
     //***************************** OPPGAVE 4 *****************************************
@@ -192,35 +92,7 @@ public class Oblig1 {
      */
     public static void delsortering(int[] a) {
 
-        int i = 0;
-        int j = a.length - 1;
 
-        //Iterer gjennom arrayet en gang med ytre while løkke
-        while (i < a.length) {
-            //Dersom vi finner et partall bytter det plass med det oddetallet som er lengst
-            //til venstre for gjeldende posisjon i arrayet.
-            if (a[i] % 2 == 0) {
-                //Itererer over mulige oddetall til høyre for a[i]
-                while (j > i) {
-                    //Dersom vi finner et oddetall bytter vi plass med partallet a[i]
-                    if (a[j] % 2 != 0) {
-                        int temp = a[i];
-                        a[i] = a[j];
-                        a[j] = temp;
-                        break;
-                    }
-                    --j;
-                }
-            }
-            ++i;
-        }
-        //finner antall partall for å beregne korrekte intervaller for sortering
-        int partall = antallPartall(a);
-        //sorterer hvert av intervallene separat
-        //bubbleSort(a,0,a.length-partall);
-        //bubbleSort(a,a.length-partall, a.length);
-        Arrays.sort(a,0,a.length-partall);
-        Arrays.sort(a,a.length-partall, a.length);
     }
 
     public static int antallPartall(int[] a) {
@@ -353,37 +225,15 @@ public class Oblig1 {
      */
     public static int[] indekssortering(int[] a) {
 
-        //index = sorted(range(len(a)), key=lambda i:a[i])
-        //Tabell som skal inneholde de sorterte indeksene
-        int[] index = new int[a.length];
-        //Sortert hjelpetabell
-        int[] sorted_a = Arrays.copyOf(a,a.length);
-        Arrays.sort(sorted_a);
-        //Finner duplikatverdier til venstre for gjeldende element og teller dem
-        for (int i = 0; i < a.length; i++) {
-            int sort_val = sorted_a[i];
-            int duplicates_count = 0;
-            int k = i - 1;
-            while (k >= 0 && sorted_a[k] == sort_val){
-                duplicates_count++;
-                k--;
-            }
-            //Befolker indekstabellen basert på den sorterte kopitabellen
-            //Dersom vi finner en match mellom sortert tabell og parametertabellen settes tilhørende
-            //index fra parametertabellen inn i indekstabellen, så fremt duplikatteller er null.
-            for (int j = 0; j < a.length; j++) {
-                if (a[j] == sort_val){
-                    if (duplicates_count > 0)
-                        duplicates_count--;
-                    else{
-                        index[i] = j;
-                    }
-                }
-            }
-        }
-        return index;
+        return null;
     }
 
+    //******************************* OPPGAVE 9 ***************************************
+
+    public static int[] tredjeMin(int[] a){
+
+        return null;
+    }
 
 
     // **************************** DIVERSE HJELPEMETODER *****************************
