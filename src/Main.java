@@ -106,5 +106,8 @@ public class Main {
         //char[] a = {'A','B','C','D'};
         //System.out.println(Arrays.toString(a));
         //Oblig1.rotasjon(a,-3);
+
+
+
     }
 }

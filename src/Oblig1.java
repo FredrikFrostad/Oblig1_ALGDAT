@@ -21,7 +21,7 @@ public class Oblig1 {
     public static int maks(int[] a) {
 
         //Har tabellen lengde 0?
-        if (a.length<1){
+        if (a.length==0){
             throw new NoSuchElementException("Tabellen har langde 0. Den er tom! ");
         }
 
@@ -49,7 +49,7 @@ public class Oblig1 {
     public static int ombyttinger(int[] a) {
 
         //Har tabellen lengde 0?
-        if (a.length<1){
+        if (a.length==0){
             throw new NoSuchElementException("Tabellen har langde 0. Den er tom! ");
         }
 
@@ -85,8 +85,29 @@ public class Oblig1 {
      * @return antall distinkte verdier i arrayet
      */
     public static int antallUlikeSortert(int[] a) {
+        boolean isSortedAscending = false;
+        int antallUlikeSorterte = 1; //Minst 1 ulik hvis a har en lengde på 1
 
-        return -1;
+        if(a.length == 0)
+            return 0;
+
+
+        for (int i = 1; i < a.length ; i++) {
+            if(a[i]>a[i-1]) {
+                isSortedAscending = true;
+                antallUlikeSorterte++;
+            }
+            else{
+                isSortedAscending = false;
+
+            }
+        }
+
+        if(isSortedAscending = false){
+            throw new IllegalStateException("Tabellen er ikke sortert stigende! Sorter tabellen først");
+        }
+
+        return antallUlikeSorterte;
     }
 
     /**
