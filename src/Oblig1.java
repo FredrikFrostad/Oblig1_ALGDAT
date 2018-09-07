@@ -289,16 +289,32 @@ public class Oblig1 {
         }
         else{
 
-            for (int i = 0; i < k ; i++) {
+            int n = Math.abs(k);
+
+            for (int i = 0; i < n ; i++) {
                 char temp;
                 int j = 0;
 
-                while (j < (a.length-1)){
-                    temp = a[j];
-                    a[j] = a[j+1];
-                    a[j+1] = temp;
-                    j++;
+                if(k <0 ){
+                    //System.out.println("Du flytter " + n + " mot venstre");
+                    while (j < (a.length-1)){
+                        temp = a[j];
+                        a[j] = a[j+1];
+                        a[j+1] = temp;
+                        j++;
+                    }
+
                 }
+                else{
+                    //System.out.println("Du flytter " + n + " mot høyre");
+                    for (int x = a.length-1; x > 0; x--) { //Starter på slutten av array a.length-1 og går til index 0
+                        char tempTest = a[x]; //Lagrer unna verdien i index du står i
+                        a[x] = a[x - 1]; //Erstatter index du står i med verdien til neste index
+                        a[x-1] = tempTest; //Dytter mellomlagret verdi inn i neste index
+                    }
+                }
+
+
             }
 
 /*

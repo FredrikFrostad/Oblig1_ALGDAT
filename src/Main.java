@@ -94,6 +94,6 @@ public class Main {
         //Test for oppgave6
         char[] a = {'A','B','C','D'};
         System.out.println(Arrays.toString(a));
-        Oblig1.rotasjon(a,2);
+        Oblig1.rotasjon(a,-3);
     }
 }
