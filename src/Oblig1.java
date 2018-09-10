@@ -251,6 +251,12 @@ public class Oblig1 {
             }
         }
 */
+        char[] a2 = new char[a.length];
+        char[] b = new char[a.length];
+
+        for (int i = 0; i <a.length ; i++) {
+            a2[i] = a[i];
+        }
 
         if ((a == null)||(a.length ==1)){
             System.out.println("Ingen endring i rotasjon. Objektet er null, eller array har lengde 1");
@@ -268,8 +274,8 @@ public class Oblig1 {
             int j = 1;
             char tempA;
             char temp1;
+            char temp2;
 
-            char[] b = new char[a.length];
             System.out.println("Array a: "+ Arrays.toString(a));
             for (int i = 0; i < a.length ; i++) {
 
@@ -279,10 +285,40 @@ public class Oblig1 {
 
 
 
-                System.out.println("Array a: i="+ i +"("+a[i]+")" + " => Array b: i=" + ((k*j)+i)%a.length +"("+b[((k*j)+i)%a.length]+")");
-                b[(k+i)%a.length] = a[i];
+                if (k<0){
 
-                System.out.println("Array i b etter endring: "+Arrays.toString(b));
+
+                    System.out.println("Array a: i="+ i +"("+a2[i]+")" + " => Array b: i=" + i+k+a.length +"("+b[(i+k+a2.length)%a2.length]+")");
+                    b[(i+k+a2.length)%a2.length] = a2[i];
+                    System.out.println(Arrays.toString(a2) + " - origin");
+                    System.out.println(Arrays.toString(b));
+                    System.out.println();
+
+                    System.out.println("Array a: i="+ i +"("+a[i]+")" + " => Array a: i=" + i+k+a.length +"("+a[(i+k+a.length)%a.length]+")");
+                    a[(i+k+a.length)%a.length] = a[i];
+                    System.out.println(Arrays.toString(a2) + " - origin");
+                    System.out.println(Arrays.toString(a));
+                }
+                else{
+
+
+                    System.out.println("Array a: i="+ i +"("+a2[i]+")" + " => Array b: i=" + ((k*j)+i)%a2.length +"("+b[((k*j)+i)%a2.length]+")");
+                    b[(i+k)%a2.length] = a2[i];
+                    System.out.println(Arrays.toString(a2) + " - origin");
+                    System.out.println(Arrays.toString(b));
+
+                    System.out.println();
+
+                    System.out.println("Array a: i="+ i +"("+a[i]+")" + " => Array a: i=" + ((k*j)+i)%a.length +"("+a[((k*j)+i)%a.length]+")");
+                    temp1 = a[(i+k)%a.length];
+                    a[(i+k)%a.length] = a[i];
+                    System.out.println(Arrays.toString(a2) + " - origin");
+                    System.out.println(Arrays.toString(a));
+                }
+
+
+
+
 
 
 
@@ -320,7 +356,9 @@ public class Oblig1 {
             }
 
             System.out.println("");
-
+            System.out.println(Arrays.toString(a2)+ " - a2 -skygge referanse");
+            System.out.println(Arrays.toString(b)+ " - b endret fra a2");
+            System.out.println(Arrays.toString(a)+ " - a");
 
             /*
             //FUNKER MEN FOR TREIGT
