@@ -252,7 +252,7 @@ public class Oblig1 {
         }
 */
         char[] a2 = new char[a.length];
-        char[] b = new char[a.length];
+        //char[] b = new char[a.length];
         char temp1 = 0;
         char temp2 = 0;
 
@@ -273,19 +273,59 @@ public class Oblig1 {
             }
 */
 
-            int j = 1;
+            //int j = 1;
             char tempA;
 
 
-            System.out.println("Array a: "+ Arrays.toString(a));
+            //System.out.println("Array a: "+ Arrays.toString(a));
+/*Orginalkode
+            int offset = a.length - k % a.length;
+            if (offset > 0) {
+                char[] copy = a.clone();
+                for (int i = 0; i < a.length; ++i) {
+                    int j = (i + offset) % a.length;
+                    a[i] = copy[j];
+                }
+            }
+
+
+*/
+            int offset = a.length - (k % a.length);
+
+            System.out.println(offset);
+
+            char[] b = a.clone();
+
+            if (k<0) { //ok
+                for (int i = 0; i < a.length; ++i) {
+                    int j = (i-k) % a.length;
+                    System.out.println("i=" +i);
+                    System.out.println("j=" +j);
+                    a[i] = b[j];
+                }
+            }
+
+            else{
+
+
+            for (int i = 0; i < a.length; ++i) {
+                int j = (k + a.length+i) % a.length;
+                System.out.println("i=" +i);
+                System.out.println("j=" +j);
+                a[i] = b[j];
+            }
+
+            }
+
+
             for (int i = 0; i < a.length ; i++) {
 
 
-                System.out.println("");
-                System.out.println("**LOOP RUNDE:" + (i+1) + ", k=" +k);
+                //System.out.println("");
+                //System.out.println("**LOOP RUNDE:" + (i+1) + ", k=" +k);
 
 
-
+/*
                 if (k<0){
 
 
@@ -318,6 +358,8 @@ public class Oblig1 {
 
                     temp2 = a[(i+(2*k))%a.length];
                     System.out.println("Temp2=" + temp2);
+
+                    System.out.println("Temp1 =>" + "a["+(i+(2*k))%a.length+"]" );
                     a[(i+(2*k))%a.length] = temp1;
 
                     temp1=temp2;
@@ -326,6 +368,8 @@ public class Oblig1 {
                     System.out.println(Arrays.toString(a2) + " - origin");
                     System.out.println(Arrays.toString(a));
                 }
+
+*/
 
 
 
@@ -366,10 +410,10 @@ public class Oblig1 {
 
             }
 
-            System.out.println("");
-            System.out.println(Arrays.toString(a2)+ " - a2 -skygge referanse");
-            System.out.println(Arrays.toString(b)+ " - b endret fra a2");
-            System.out.println(Arrays.toString(a)+ " - a");
+            //System.out.println("");
+            //System.out.println(Arrays.toString(a2)+ " - a2 -skygge referanse");
+            //System.out.println(Arrays.toString(b)+ " - b endret fra a2");
+            //System.out.println(Arrays.toString(a)+ " - a");
 
             /*
             //FUNKER MEN FOR TREIGT
