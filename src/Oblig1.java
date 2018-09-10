@@ -253,6 +253,8 @@ public class Oblig1 {
 */
         char[] a2 = new char[a.length];
         char[] b = new char[a.length];
+        char temp1 = 0;
+        char temp2 = 0;
 
         for (int i = 0; i <a.length ; i++) {
             a2[i] = a[i];
@@ -273,15 +275,14 @@ public class Oblig1 {
 
             int j = 1;
             char tempA;
-            char temp1;
-            char temp2;
+
 
             System.out.println("Array a: "+ Arrays.toString(a));
             for (int i = 0; i < a.length ; i++) {
 
 
                 System.out.println("");
-                System.out.println("LOOP RUNDE: " + (i+1) + ", k=" +k);
+                System.out.println("**LOOP RUNDE:" + (i+1) + ", k=" +k);
 
 
 
@@ -311,7 +312,17 @@ public class Oblig1 {
 
                     System.out.println("Array a: i="+ i +"("+a[i]+")" + " => Array a: i=" + ((k*j)+i)%a.length +"("+a[((k*j)+i)%a.length]+")");
                     temp1 = a[(i+k)%a.length];
+                    System.out.println("Temp1=" + temp1);
+
                     a[(i+k)%a.length] = a[i];
+
+                    temp2 = a[(i+(2*k))%a.length];
+                    System.out.println("Temp2=" + temp2);
+                    a[(i+(2*k))%a.length] = temp1;
+
+                    temp1=temp2;
+
+
                     System.out.println(Arrays.toString(a2) + " - origin");
                     System.out.println(Arrays.toString(a));
                 }
