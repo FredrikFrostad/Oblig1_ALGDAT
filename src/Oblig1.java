@@ -489,6 +489,12 @@ public class Oblig1 {
 
     // **************************** OPPGAVE 9 *****************************************
 
+
+    /**
+     * Metode som finner indeksene til de tre minste verdiene i en tabell.
+     * @param a tabellen hvor vi skal søke etter de tre minste verdiene
+     * @return et sortert array inneholdende
+     */
     public static int[] tredjeMin(int[] a) {
 
         if (a.length < 3) {
@@ -496,34 +502,40 @@ public class Oblig1 {
                     ("Parametertabellen inneholder for få elementer!!");
         }
 
+        //Setter startverdier for minst(m), nestminst(nm) og nestnestminst(nnm)
         int m = 0, nm = 1, nnm = 2;
 
+        //Sørger for at minst < nestminst før vi begynner å iterere
         if (a[m] > a[nm]) {
             int temp = m;
             m = nm;
             nm = temp;
         }
 
+
         for (int i = 0; i < a.length; i++) {
 
+            //Dersom ny minst, oppdater alle tre verdier
             if (a[i] < a[m])
             {
                 nnm = nm;
                 nm = m;
                 m = i;
             }
+            //Dersom ny nestminst oppdater nestminst og nestnestminst
             else if (a[i] < a[nm] && a[i] > a[m])
             {
                 nnm = nm;
                 nm = i;
             }
+            //Dersom ny nestnestminst, oppdater bare denne
             else if (a[i] < a[nnm] && a[i] > a[nm])
             {
                 nnm = i;
             }
         }
 
-
+        //Returnerer indeksene til de tre minste verdiene sortert stigende
         return new int[] {m,nm,nnm};
     }
 

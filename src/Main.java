@@ -19,7 +19,7 @@ public class Main {
         Oblig1.rotasjon(a,-3);
         //for (int i:test) { System.out.print(i + " "); }
         */
-
+/*
         int[] a =  {2, 1, 3};
         int[] b = {10, 3, 1, 5, 8, 9, 7, 4, 6, 2};
         int[] c = {1, 3, 2, 4, 5, 6};
@@ -28,6 +28,12 @@ public class Main {
 
         for (int i = 0; i < result.length; i++) {
             System.out.print(" " + a[result[i]]);
+        }
+*/
+
+
+        for (int i = 0; i <= 100000; i++) {
+            System.out.println(i%4);
         }
 
 
