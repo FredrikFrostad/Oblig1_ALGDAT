@@ -175,7 +175,13 @@ public class Oblig1 {
         //bubbleSort(a,0,oddMoved);
         //bubbleSort(a,oddMoved,a.length);
 
-        
+
+
+
+
+
+
+
 /*      DETTE FUNKER MEN BLIR FOR TREIGT!
         //Finner miste verdi for odde og fyller opp fra index 0 til oddMoved offseten
         for (int i = 0; i < oddMoved; i++) {
@@ -222,6 +228,7 @@ public class Oblig1 {
      * @param a arrayet som skal roteres
      * @param k antall rotasjoner, og retning
      */
+
     public static void rotasjon(char[] a, int k ) {
         //char[] result = new char[a.length];
 
@@ -251,54 +258,52 @@ public class Oblig1 {
         else{
 
             int n = Math.abs(k);
+/*
+            for (int j = 0; j < a.length-1; j++) {
+                int temp2 = a[j+k];
+                a[j+k]= a[j];
+            }
+*/
 
+            int j = 0;
+            for (int i = 0; i < a.length ; i++) {
+                int temp = a[n*i]%a.length;
+                a[(3*i)%a.length] = a[j];
+
+                j++;
+            }
+
+
+
+
+            /*
+            //FUNKER MEN FOR TREIGT
             for (int i = 0; i < n ; i++) {
-                char temp;
-                int j = 0;
 
                 if(k <0 ){
-                    //System.out.println("Du flytter " + n + " mot venstre");
-                    while (j < (a.length-1)){
-                        temp = a[j];
-                        a[j] = a[j+1];
-                        a[j+1] = temp;
-                        j++;
+                    for (int j = 0; j < a.length-1; j++) { //Starter på slutten av array a.length-1 og går til index 0
+                        char temp = a[j]; //Lagrer unna verdien i index du står i
+                        a[j] = a[j + 1]; //Erstatter index du står i med verdien til neste index
+                        a[j + 1] = temp; //Dytter mellomlagret verdi inn i neste index
                     }
-
                 }
                 else{
                     //System.out.println("Du flytter " + n + " mot høyre");
-                    for (int x = a.length-1; x > 0; x--) { //Starter på slutten av array a.length-1 og går til index 0
-                        char tempTest = a[x]; //Lagrer unna verdien i index du står i
-                        a[x] = a[x - 1]; //Erstatter index du står i med verdien til neste index
-                        a[x-1] = tempTest; //Dytter mellomlagret verdi inn i neste index
+                    for (int j = a.length-1; j > 0; j--) { //Starter på slutten av array a.length-1 og går til index 0
+                        char tempTest = a[j]; //Lagrer unna verdien i index du står i
+                        a[j] = a[j - 1]; //Erstatter index du står i med verdien til neste index
+                        a[j-1] = tempTest; //Dytter mellomlagret verdi inn i neste index
                     }
                 }
+            }*/
 
 
-            }
 
-/*
-            for (int j = 0; j < k ; j++) {
-                for (int i = a.length-1; i > 0; i--) { //Starter på slutten av array a.length-1 og går til index 0
-                    char temp = a[i]; //Lagrer unna verdien i index du står i
-                    a[i] = a[i - 1]; //Erstatter index du står i med verdien til neste index
-                    a[i-1] = temp; //Dytter mellomlagret verdi inn i neste index
-                }
-            }
-*/
-/*
-            for (int i = 0; i <k ; i++) {
-                char temp = a[i]; //Lagrer unna verdien i index du står i
-                a[i] = a[i+1];
-                a[i+1] = temp;
 
-                char temp2 = a[k];
-                a[k] = a[a.length-1];
-                rotasjon(a);
-            }
-*/
-            //Testing
+
+
+
+
             System.out.println(Arrays.toString(a));
 
         }

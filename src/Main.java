@@ -79,14 +79,15 @@ public class Main {
 */
 
         //Test oppgave4
-        //int[] a = {6,10,9,4,1,3,8,5,2,7};
-        int[] b = {1,2,3,4,6,5};
-        int[] c = {-1,2,-3,4,6,-5};
-        System.out.println(Arrays.toString(b));
-        Oblig1.delsortering(b);
-        System.out.println(Arrays.toString(b));
 
-        //System.out.println("-3%2= " + -4%2);
+            //int[] a = {6,10,9,4,1,3,8,5,2,7};
+//            int[] b = {1, 2, 3, 4, 6, 5};
+//            int[] c = {-1, 2, -3, 4, 6, -5};
+//        System.out.println(Arrays.toString(b));
+//        Oblig1.delsortering(b);
+//        System.out.println(Arrays.toString(b));
+
+            //System.out.println("-3%2= " + -4%2);
 
 
 /*
@@ -118,18 +119,26 @@ public class Main {
         //int[] test = Oblig1.indekssortering(a);
 
 
-        /*
+        /**/
         //Test for oppgave5
-        char[] a = {'A','B','C','D','E','F','G','H','I','J'};
-        System.out.println(Arrays.toString(a));
-        Oblig1.rotasjon(a);
-        */
+  //      char[] a = {'A','B','C','D','E','F','G','H','I','J'};
+  //      System.out.println(Arrays.toString(a));
+  //      Oblig1.rotasjon(a);
+  //      System.out.println(Arrays.toString(a));
 
         //Test for oppgave6
-        //char[] a = {'A','B','C','D'};
+        char[] a = {'A','B','C','D','E'};
+        int[] test = new int[100];
+       // char[] x = new char[100_000];
         //System.out.println(Arrays.toString(a));
-        //Oblig1.rotasjon(a,-3);
+        //Long time = System.currentTimeMillis();
+        //Oblig1.rotasjon(a,-1);
+        //Long timeResult = System.currentTimeMillis() - time;
+        //System.out.println(timeResult);
 
+        for (int i = 0; i < test.length ; i++) {
+            System.out.println(0 % 4);
+        }
 
 
     }
