@@ -256,28 +256,18 @@ public class Oblig1 {
         char temp1 = 0;
         char temp2 = 0;
 
-        for (int i = 0; i <a.length ; i++) {
-            a2[i] = a[i];
-        }
+
 
         if ((a == null)||(a.length ==1)){
             System.out.println("Ingen endring i rotasjon. Objektet er null, eller array har lengde 1");
         }
         else{
 
-            int n = Math.abs(k);
-/*
-            for (int j = 0; j < a.length-1; j++) {
-                int temp2 = a[j+k];
-                a[j+k]= a[j];
-            }
-*/
-
-            //int j = 1;
-            char tempA;
 
 
-            //System.out.println("Array a: "+ Arrays.toString(a));
+
+
+
 /*Orginalkode
             int offset = a.length - k % a.length;
             if (offset > 0) {
@@ -290,17 +280,14 @@ public class Oblig1 {
 
 
 */
-            int offset = a.length - (k % a.length);
-
-            System.out.println(offset);
 
             char[] b = a.clone();
 
             if (k<0) { //ok
                 for (int i = 0; i < a.length; ++i) {
                     int j = (i-k) % a.length;
-                    System.out.println("i=" +i);
-                    System.out.println("j=" +j);
+                    //System.out.println("i=" +i);
+                    //System.out.println("j=" +j);
                     a[i] = b[j];
                 }
             }
@@ -308,12 +295,12 @@ public class Oblig1 {
             else{
 
 
-            for (int i = 0; i < a.length; ++i) {
-                int j = (k + a.length+i) % a.length;
-                System.out.println("i=" +i);
-                System.out.println("j=" +j);
-                a[i] = b[j];
-            }
+                for (int i = 0; i < a.length; ++i) {
+                    int j = (i+k) % a.length;
+                    //System.out.println("i=" +i);
+                    //System.out.println("j=" +j);
+                    a[j] = b[i];
+                }
 
             }
 

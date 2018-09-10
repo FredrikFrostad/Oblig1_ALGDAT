@@ -128,6 +128,7 @@ public class Main {
 
         //Test for oppgave6
         char[] a = {'A','B','C','D','E'};
+        char[] d = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
         int[] test = new int[100];
         //char[] x = new char[100_000];
         //System.out.println(Arrays.toString(a));
@@ -136,9 +137,9 @@ public class Main {
         //Long timeResult = System.currentTimeMillis() - time;
         //System.out.println(timeResult);
 
-        System.out.println(Arrays.toString(a));
-        Oblig1.rotasjon(a,-2);
-        System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(d));
+        Oblig1.rotasjon(d,4);
+        System.out.println(Arrays.toString(d));
 
 /*
         for (int i = 0; i < test.length ; i++) {
