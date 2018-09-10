@@ -491,9 +491,20 @@ public class Oblig1 {
 
     public static int[] tredjeMin(int[] a) {
 
+        if (a.length < 3) {
+            throw new NoSuchElementException
+                    ("Parametertabellen inneholder for få elementer!!");
+        }
+
         int m = 0, nm = 1, nnm = 2;
 
-        for (int i = 3; i < a.length; i++) {
+        if (a[m] > a[nm]) {
+            int temp = m;
+            m = nm;
+            nm = temp;
+        }
+
+        for (int i = 0; i < a.length; i++) {
 
             if (a[i] < a[m])
             {
@@ -501,19 +512,19 @@ public class Oblig1 {
                 nm = m;
                 m = i;
             }
-            else if (a[i] < a[nm])
+            else if (a[i] < a[nm] && a[i] > a[m])
             {
                 nnm = nm;
                 nm = i;
             }
-            else if (a[i] < a[nnm])
+            else if (a[i] < a[nnm] && a[i] > a[nm])
             {
                 nnm = i;
             }
         }
 
-        int[] r ={m,nm,nnm};
-        return r;
+
+        return new int[] {m,nm,nnm};
     }
 
 

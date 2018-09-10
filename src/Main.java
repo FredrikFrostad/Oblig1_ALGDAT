@@ -20,7 +20,7 @@ public class Main {
         //for (int i:test) { System.out.print(i + " "); }
         */
 
-        int[] a =  {1, 3, 2};
+        int[] a =  {2, 1, 3};
         int[] b = {10, 3, 1, 5, 8, 9, 7, 4, 6, 2};
         int[] c = {1, 3, 2, 4, 5, 6};
 
