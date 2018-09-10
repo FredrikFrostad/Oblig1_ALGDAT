@@ -270,9 +270,20 @@ public class Oblig1 {
                 //int temp = a[(n*i)%a.length];
                 //System.out.println("Gjeldende index i=" +i);
                 //System.out.println("Index som lagres unna=" + i + "*" + n + "%"+ a.length+ "=" + (n*i)%a.length);
+                //System.out.println("Fra index:" + i);
+                //System.out.println("Til index:" + ((i+k)%a.length));
 
-                System.out.println("Fra index:" + i);
-                System.out.println("Til index:" + ((i+k)%a.length));
+                int fra = i;
+                int til = (i+k)%a.length;
+
+                System.out.println("i=" + i +", Array før endring: "+Arrays.toString(a));
+                char temp1 = a[i];
+                a[(i+k)%a.length] = a[i];
+                System.out.println("Oppdatert i=" + ((i+k)%a.length) +", Array etter endring: "+Arrays.toString(a));
+
+                char temp2 = a[(i+k+1)%a.length];
+                a[(i+k+k)%a.length] = temp1;
+
 
 
 
