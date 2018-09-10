@@ -271,6 +271,8 @@ public class Oblig1 {
                 System.out.println("Gjeldende index i=" +i);
                 System.out.println("Index som lagres unna=" + i + "*" + n + "%"+ a.length+ "=" + (n*i)%a.length);
 
+                System.out.println("Fra index" + ((i+k)%a.length));
+                System.out.println("Til index" + ((i+k)%a.length));
 
                 //System.out.print((char)(temp));
 
