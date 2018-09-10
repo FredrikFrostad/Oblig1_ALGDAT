@@ -20,10 +20,9 @@ public class Main {
         //for (int i:test) { System.out.print(i + " "); }
         */
 
-        String s = "qwerty";
-        String t = "qwerty";
+        int[] a =  {1,7,4,6,3,8};
 
-        String result = Oblig1.flett(s,t);
-        System.out.print(result);
+
+
     }
 }

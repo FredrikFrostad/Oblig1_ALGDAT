@@ -345,6 +345,14 @@ public class Oblig1 {
 
     //TODO: LEGG TIL KOMMENTARER!!
 
+
+    /**
+     * Metode som fletter sammen to strenger. Dersom strengene har ulik lengde leggers de overskytende
+     * tegnene fra den lengste parameterstrengen til bakerst i returstrengen
+     * @param s en streng som skal flettes
+     * @param t en streng som skal flettes
+     * @return resultatet av flettingen mellom s og t
+     */
     public static String flett(String s, String t) {
 
         String interleaved = null;
@@ -398,6 +406,11 @@ public class Oblig1 {
         return interleaved.toString();
     }
 
+    /**
+     * Metode som tar imot en strengtabell iog fletter sammen alle strengene som ligger i tabellen
+     * @param s tabell som inneholder strengene som skal flettes
+     * @return en streng som inneholder resultatet av flettingen
+     */
     public static String flett(String... s){
 
         StringBuilder interleaved = new StringBuilder();
@@ -417,6 +430,11 @@ public class Oblig1 {
         return interleaved.toString();
     }
 
+    /**
+     * Metode som finner lengste streng i en tabell
+     * @param s tabellen hvor vi skal finne lengste streng
+     * @return en integer med lengden til den lengste strengen
+     */
     public static int findLongest(String[] s) {
         int maxlength = 0;
 
@@ -439,7 +457,6 @@ public class Oblig1 {
      */
     public static int[] indekssortering(int[] a) {
 
-        //index = sorted(range(len(a)), key=lambda i:a[i])
         //Tabell som skal inneholde de sorterte indeksene
         int[] index = new int[a.length];
         //Sortert hjelpetabell
@@ -470,9 +487,79 @@ public class Oblig1 {
         return index;
     }
 
+    // **************************** OPPGAVE 9 *****************************************
+
+    public static int[] tredjeMin(int[] a) {
+
+        int m = 0, nm = 1, nnm = 2;
+
+        for (int i = 3; i < a.length; i++) {
+
+            if (a[i] < a[m])
+            {
+                nnm = nm;
+                nm = m;
+                m = i;
+            }
+            else if (a[i] < a[nm])
+            {
+                nnm = nm;
+                nm = i;
+            }
+            else if (a[i] < a[nnm])
+            {
+                nnm = i;
+            }
+        }
+
+        int[] r ={m,nm,nnm};
+        return r;
+    }
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 
 
     // **************************** DIVERSE HJELPEMETODER *****************************
+
+
+    public static void quicksort(int[] a) {
+
+
+    }
+
+    public static void partition(int[] a) {
+        System.out.println(Arrays.toString(a));
+    }
+
+    /**
+     * Bubblesort som sorterer en hel tabell
+     * @param unsorted arrayet som skal sorteres
+     * @return det sorterte arrayet
+     */
+    public int[] bubbleSort(int[] unsorted) {
+        int[] sorted = unsorted;
+
+        for (int i = 0; i < unsorted.length ; i++) {
+            for (int j = 1; j < unsorted.length; j++) {
+
+                if (unsorted [j-1] > unsorted [j]) {
+                    int tmp = unsorted[j-1];
+                    unsorted[j-1] = unsorted[j];
+                    unsorted[j] = tmp;
+                }
+            }
+        }
+        return sorted;
+    }
 
     /**
      * Metode som implementerer bubblesort-algoritmen i et intervall
