@@ -137,14 +137,14 @@ public class Main {
         //System.out.println(timeResult);
 
         System.out.println(Arrays.toString(a));
-        Oblig1.rotasjon(a,2);
+        Oblig1.rotasjon(a,3);
         System.out.println(Arrays.toString(a));
 
-
+/*
         for (int i = 0; i < test.length ; i++) {
             System.out.println(6 % 5);
         }
-
+*/
 
     }
 }
