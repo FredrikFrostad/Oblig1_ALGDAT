@@ -265,24 +265,50 @@ public class Oblig1 {
             }
 */
 
-            int j = 0;
+            int j = 1;
+            char tempA = a[1];
+
             for (int i = 0; i < a.length ; i++) {
                 //int temp = a[(n*i)%a.length];
                 //System.out.println("Gjeldende index i=" +i);
                 //System.out.println("Index som lagres unna=" + i + "*" + n + "%"+ a.length+ "=" + (n*i)%a.length);
                 //System.out.println("Fra index:" + i);
                 //System.out.println("Til index:" + ((i+k)%a.length));
-
+                System.out.println("");
+                System.out.println("LOOP RUNDE: " + (i+1) + ", k=" +k);
                 int fra = i;
                 int til = (i+k)%a.length;
 
-                System.out.println("i=" + i +", Array før endring: "+Arrays.toString(a));
-                char temp1 = a[i];
-                a[(i+k)%a.length] = a[i];
-                System.out.println("Oppdatert i=" + ((i+k)%a.length) +", Array etter endring: "+Arrays.toString(a));
+                System.out.println("j=" + j + ", i=" + i +", Array før endring: "+Arrays.toString(a));
 
-                char temp2 = a[(i+k+1)%a.length];
-                a[(i+k+k)%a.length] = temp1;
+
+                char temp1 = a[((k*j)+i)%a.length]; //Den "neste" indeksen
+                System.out.println("Lagret unna verdi:" + temp1+"(i=" + (((k*j)+i)%a.length)+")");
+
+
+                System.out.println("i="+ i +"("+a[i]+")" + " => i=" + ((k*j)+i)%a.length +"("+a[((k*j)+i)%a.length]+")");
+                a[((k*j)+i)%a.length] = a[i];
+
+                System.out.println("tempA("+tempA+")" + " => "  + "i=" +i +"(" + a[i]+")" );
+                a[i] = tempA;
+                System.out.println("Array etter endring: "+Arrays.toString(a));
+
+                j++;
+
+                //char temp2 = a[((k*j)+i)%a.length];
+                //System.out.println("temp1("+temp1+") => i:" + (((k*j)+i)%a.length));
+
+
+                //a[((k*j)+i)%a.length] = temp1;
+
+
+                //char temp2 = temp1;
+                //System.out.println("Flytter temp1:" + temp1 + " => temp2:" + temp2);
+
+
+                //a[(i+k+1)%a.length] = temp1;
+                //char temp2 = a[(i+k+1)%a.length];
+                //a[(i+k+k)%a.length] = temp1;
 
 
 
