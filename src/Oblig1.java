@@ -267,13 +267,19 @@ public class Oblig1 {
 
             int j = 0;
             for (int i = 0; i < a.length ; i++) {
-                int temp = a[n*i]%a.length;
-                a[(3*i)%a.length] = a[j];
+                int temp = a[(n*i)%a.length];
+                System.out.println("Gjeldende index i=" +i);
+                System.out.println("Index som lagres unna=" + i + "*" + n + "%"+ a.length+ "=" + (n*i)%a.length);
+
+
+                //System.out.print((char)(temp));
+
+                a[(n*i)%a.length] = a[i];
 
                 j++;
             }
 
-
+            System.out.println("");
 
 
             /*
@@ -304,7 +310,7 @@ public class Oblig1 {
 
 
 
-            System.out.println(Arrays.toString(a));
+            //System.out.println(Arrays.toString(a));
 
         }
     }

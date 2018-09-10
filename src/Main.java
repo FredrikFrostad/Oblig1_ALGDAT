@@ -127,18 +127,23 @@ public class Main {
   //      System.out.println(Arrays.toString(a));
 
         //Test for oppgave6
-        char[] a = {'A','B','C','D','E'};
+        char[] a = {'A','B','C','D'};
         int[] test = new int[100];
-       // char[] x = new char[100_000];
+        //char[] x = new char[100_000];
         //System.out.println(Arrays.toString(a));
         //Long time = System.currentTimeMillis();
         //Oblig1.rotasjon(a,-1);
         //Long timeResult = System.currentTimeMillis() - time;
         //System.out.println(timeResult);
 
+        System.out.println(Arrays.toString(a));
+        Oblig1.rotasjon(a,2);
+        System.out.println(Arrays.toString(a));
+
+        /*
         for (int i = 0; i < test.length ; i++) {
             System.out.println(0 % 4);
-        }
+        }*/
 
 
     }
