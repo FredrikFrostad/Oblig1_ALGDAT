@@ -491,29 +491,14 @@ public class Oblig1 {
 
     public static int[] tredjeMin(int[] a) {
 
-        int m = 0, nm = 1, nnm = 2;
-
-        for (int i = 3; i < a.length; i++) {
-
-            if (a[i] < a[m])
-            {
-                nnm = nm;
-                nm = m;
-                m = i;
-            }
-            else if (a[i] < a[nm])
-            {
-                nnm = nm;
-                nm = i;
-            }
-            else if (a[i] < a[nnm])
-            {
-                nnm = i;
-            }
+        if (a.length < 3) {
+            throw new NoSuchElementException
+                    ("Arrayet er for lite, vennligst benytt et array med minst 3 verdier som argument!!");
         }
 
-        int[] r ={m,nm,nnm};
-        return r;
+
+
+        return null;
     }
 
 
@@ -675,5 +660,25 @@ public class Oblig1 {
             }
         }
         return m;
+    }
+
+    public static int minIndex(int[] a,int fra, int til) {
+
+        //Sjekker om arrayet er gyldig (ikke null)
+        if(a == null) throw new NullPointerException
+                (a.toString() + "is null");
+
+        int m = fra;              // indeks til største verdi i a[fra:til>
+        int maksverdi = a[fra];   // største verdi i a[fra:a.length>
+
+        for (int i = fra + 1; i <= til; i++) {
+            if (a[i] <= maksverdi)
+            {
+                m = i;                // indeks a.lenght største verdi oppdateres
+                maksverdi = a[m];     // største verdi oppdateres
+            }
+        }
+
+        return m;  // posisjonen til største verdi i a[fra:til>
     }
 }

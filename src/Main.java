@@ -20,7 +20,15 @@ public class Main {
         //for (int i:test) { System.out.print(i + " "); }
         */
 
-        int[] a =  {1,7,4,6,3,8};
+        int[] a =  {1, 3, 2};
+        int[] b = {10, 3, 1, 5, 8, 9, 7, 4, 6, 2};
+        int[] c = {1, 3, 2, 4, 5, 6};
+
+        int[] result = Oblig1.tredjeMin(a);
+
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(" " + a[result[i]]);
+        }
 
 
 
