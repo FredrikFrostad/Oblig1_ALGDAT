@@ -503,18 +503,55 @@ public class Oblig1 {
 
         int i = 0, j = 0, k = 0;
         boolean aInB = false;
+        int nDuplicateA = 0;
+        char duplicateA = 0;
+        int count = 0;
 
         while (i < aChar.length && j < bChar.length) {
 
+            k = i;
+            //Finner antall duplikater av en type character i a
+            while ((aChar[k] == aChar[k+1]) && (k<aChar.length)){
+                duplicateA = aChar[k];
+                nDuplicateA++;
+                k++;
+                i = k; //Oppdaterer i slik at i flyttes til nytt offset tilsvarende antall duplikater nDuplicate. kanksje bare bruke i isteden for k?
+            }
+
+            while((bChar[j] == bChar[j+1]) && (j<bChar.length) && (nDuplicateA>0)){ //Går helt til neste character er en ny type character
+
+                if((bChar[j] == duplicateA)){
+                    //a er inneholdt i b.
+                    nDuplicateA--;
+                }
+
+                j++;
+            }
+
+/*
+            for (int l = 0; l < nDuplicateA ; l++) {
+
+
+                if(bChar[j]==duplicateA){
+
+                }
+                j++;
+            }
+*/
+            /*
             if (bChar[j] == aChar[i]) {
                 System.out.println("A-tabell char " + aChar[i] + " A-index " + i + " finnes også i B-tabell som "
                         + bChar[j] + " på index " + j);
 
                 aInB = true;
                 System.out.println("Er a innehold i b? " + aInB);
-                i++;
-                j++;
+
             }
+
+            */
+
+            i++;
+            j++;
         }
 
             while (i < aChar.length) {

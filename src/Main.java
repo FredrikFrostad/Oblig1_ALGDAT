@@ -40,8 +40,10 @@ public class Main {
     String b = "BARAB";
     String c = "ACBAC";
     String d = "BACA";
+    String e = "AABC";
+    String f = "AAABC";
 
-    Oblig1.inneholdt(c,d);
+    Oblig1.inneholdt(e,f);
 
 
 
