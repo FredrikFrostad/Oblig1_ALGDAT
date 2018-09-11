@@ -484,39 +484,71 @@ public class Oblig1 {
 
 
     // **************************** OPPGAVE 10 *****************************************
-    public static boolean inneholdt(String a, String b){
+    public static boolean inneholdt(String a, String b) {
 
         //Lager nytt char array av characters i streng
         char[] aChar = a.toCharArray();
         char[] bChar = b.toCharArray();
 
-        System.out.println("Array a usortert: "+Arrays.toString(aChar));
+        System.out.println("Array a usortert: " + Arrays.toString(aChar));
         System.out.println("Array b usortert: " + Arrays.toString(bChar));
 
         //1) Sorter aChar, og bChar
-        Arrays.sort(aChar,0,aChar.length); //Bruke egen motode for dette?
-        Arrays.sort(bChar,0,aChar.length); //Bruke egen motode for dette?
+        Arrays.sort(aChar, 0, aChar.length); //Bruke egen motode for dette?
+        Arrays.sort(bChar, 0, bChar.length); //Bruke egen motode for dette?
 
-        System.out.println("Array a sortert: "+Arrays.toString(aChar));
+        System.out.println("Array a sortert: " + Arrays.toString(aChar));
         System.out.println("Array b sortert: " + Arrays.toString(bChar));
 
-        //String nyA = "";
-        //StringBuilder buildA = new StringBuilder();
 
-        //int temp = aChar[0];
-        //int countA = 0;
-        //int countB = 0;
-        int nDupA = 0;
-        char charDupA = 0;
-        boolean dupA = true;
-
-        int nDupB = 0;
-        char charDupB = 0;
-        boolean dupB = true;
-        //int j =0;
+        int i = 0, j = 0, k = 0;
         boolean aInB = false;
 
-        int loopCounter = 0;
+        while (i < aChar.length && j < bChar.length) {
+
+            if (bChar[j] == aChar[i]) {
+                System.out.println("A-tabell char " + aChar[i] + " A-index " + i + " finnes også i B-tabell som "
+                        + bChar[j] + " på index " + j);
+
+                aInB = true;
+                System.out.println("Er a innehold i b? " + aInB);
+                i++;
+                j++;
+            }
+        }
+
+            while (i < aChar.length) {
+                System.out.println("Char " + aChar[i] + " i a på indeks " + i + " finnes ikke i B-tabellen");
+                aInB = false;
+                System.out.println("Er a innehold i b? " + aInB);
+                i++;
+            }
+
+            while (j < bChar.length) {
+
+                System.out.println("b inneholder flerer char enn a... dvs a er inneholdt i b hvis de tidligere " +
+                        "char verdiene er inneholdt");
+                j++;
+            }
+
+
+            //String nyA = "";
+            //StringBuilder buildA = new StringBuilder();
+
+            //int temp = aChar[0];
+            //int countA = 0;
+            //int countB = 0;
+            //      int nDupA = 0;
+            //      char charDupA = 0;
+            //      boolean dupA = true;
+
+            //       int nDupB = 0;
+            //       char charDupB = 0;
+//        boolean dupB = true;
+
+
+//        boolean aInB = false;
+//        int loopCounter = 0;
 
 
 
@@ -564,13 +596,13 @@ public class Oblig1 {
             loopCounter++;
         }
 */
-        return aInB;
+            //return aInB;
 
 
-        //Mulig merge sort er best.. tips fra lærer er å bruke Merge Sort... men å telle antall treff...
+            //Mulig merge sort er best.. tips fra lærer er å bruke Merge Sort... men å telle antall treff...
 
-        //2) Loop igjennom char array1, og char array2. sjekk om antallet fra array1 (feks antall AA) ligger i char array2.
-        //Feks: AA i aChar må være en delmengde i bChar
+            //2) Loop igjennom char array1, og char array2. sjekk om antallet fra array1 (feks antall AA) ligger i char array2.
+            //Feks: AA i aChar må være en delmengde i bChar
 /*
         for (int i = 0; i < aChar.length ; i++) {
 
@@ -597,7 +629,10 @@ public class Oblig1 {
 
         return false;
 */
-    }
+            //TODO
+        System.out.println("Er a inneholdt i b? " + aInB);
+        return aInB;
+        }
 
 
 

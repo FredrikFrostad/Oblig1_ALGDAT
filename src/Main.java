@@ -38,7 +38,7 @@ public class Main {
 */
     String a = "ABBA";
     String b = "BARAB";
-    String c = "ACBA";
+    String c = "ACBAC";
     String d = "BACA";
 
     Oblig1.inneholdt(c,d);
