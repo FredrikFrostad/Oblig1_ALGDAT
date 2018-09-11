@@ -511,22 +511,12 @@ public class Oblig1 {
     // **************************** DIVERSE HJELPEMETODER *****************************
 
 
-    public static void quicksort(int[] a) {
 
-
-    }
-
-
-
-    public static void partition(int[] a, int left, int right) {
+    public static int partition(int[] a, int left, int right) {
 
         int i = left;
-        int j = right - 1;
-        int pivotIndex = (left + (right - left)) / 2;
-        int pivot = a[pivotIndex];
-        System.out.println("Pivot : " + pivot);
-
-        bytt(a, pivotIndex, right);
+        int j = right;
+        int pivot = a[(left + right) / 2];
 
         while (i <= j)  {
 
@@ -536,22 +526,25 @@ public class Oblig1 {
             while (a[j] > pivot) {
                 j--;
             }
-            if (i < j) {
+            if (i <= j) {
                 bytt(a, i, j);
 
-                /*
-                int temp = a[i];
-                a[i] = a[j];
-                a[j] = temp;
-                System.out.println("Bytter om " + a[i] + " og " + a[j] + " resultat: "
-                        + Arrays.toString(a) + "i=" + i + ", j=" + j);
-                        */
                 i++;
                 j--;
-
             }
         }
-        bytt(a,right,pivotIndex);
+        return i;
+    }
+
+    public static void quicksort(int[] a, int left,  int right) {
+        int pivotIndex = partition(a, left,right);
+
+        if (left < pivotIndex - 1) {
+            partition(a, left, pivotIndex -1);
+        }
+        if (right > pivotIndex - 1) {
+            partition(a,pivotIndex, right);
+        }
     }
 
 /*
