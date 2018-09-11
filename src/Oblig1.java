@@ -540,10 +540,10 @@ public class Oblig1 {
         int pivotIndex = partition(a, left,right);
 
         if (left < pivotIndex - 1) {
-            partition(a, left, pivotIndex -1);
+            quicksort(a, left, pivotIndex -1);
         }
         if (right > pivotIndex - 1) {
-            partition(a,pivotIndex, right);
+            quicksort(a,pivotIndex, right);
         }
     }
 

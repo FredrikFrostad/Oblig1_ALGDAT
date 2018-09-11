@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] a = Oblig1Test.randPerm(10);
+        int[] a = Oblig1Test.randPerm(100);
         System.out.println(Arrays.toString(a));
         // quicktest.quickSort(a,0,a.length-1);
         //int i = quicktest.partition(a,0,a.length-1);
