@@ -488,7 +488,7 @@ public class Oblig1 {
         char[] first = a.toCharArray();
         char[] last = b.toCharArray();
 
-        
+
 
 
 
