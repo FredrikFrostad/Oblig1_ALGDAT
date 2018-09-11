@@ -500,12 +500,12 @@ public class Oblig1 {
         System.out.println("Array a sortert: "+Arrays.toString(aChar));
         System.out.println("Array b sortert: " + Arrays.toString(bChar));
 
-        String nyA = "";
-        StringBuilder buildA = new StringBuilder();
+        //String nyA = "";
+        //StringBuilder buildA = new StringBuilder();
 
-        int temp = aChar[0];
-        int countA = 0;
-        int countB = 0;
+        //int temp = aChar[0];
+        //int countA = 0;
+        //int countB = 0;
         int nDupA = 0;
         char charDupA = 0;
         boolean dupA = true;
@@ -513,44 +513,65 @@ public class Oblig1 {
         int nDupB = 0;
         char charDupB = 0;
         boolean dupB = true;
-        int j =0;
+        //int j =0;
+        boolean aInB = false;
 
-        for (int i = 1; i < aChar.length; i++) {
-            if (aChar[i] == aChar[i - 1]) {
+        int loopCounter = 0;
+
+
+
+/*
+        //Funker ikke i det hele tatt... men har noen interessante tanker...
+        for (int i = 0; i < aChar.length; i++) {
+            if (aChar[i+1] == aChar[i]) {
                 charDupA = aChar[i];
                 nDupA++;
                 dupA = true;
             }else{
                 dupA = false;
                 charDupA = aChar[i];
+                nDupA = 0;
             }
 
             for (int k = 0; k < nDupA ; k++) {
-                if (bChar[i-nDupA+k] == bChar[i-nDupA+k-1]) {
+                if (bChar[i+1-nDupA+k] == bChar[i+2-nDupA+k]) {
                     charDupB = bChar[i];
                     nDupB++;
                     dupB = true;
                 }else{
                     dupB = false;
                     charDupB = aChar[i];
+                    nDupB = 0;
                 }
             }
+
+            if((nDupA==nDupB) && (loopCounter>0)){ //Hvis true så finnes mengden av characterduplikater fra a i b...
+                aInB = true;
+                System.out.println("Likt antall duplikater av char:" + charDupA +", og " + charDupB);
+            }else{
+                System.out.println(nDupA+ " av Char " + charDupA + " finnes ikke i array b. ");
+                aInB = false;
+
+            }
+
+
             //while(dupA == false){ //Hvis det ikke er flere duplikater i a, så sjekkes b for det som ble funnet i a
             //}
 
 
 
-            if (aChar[i-1] == bChar[i - 1]){
 
-            }
-
+            loopCounter++;
         }
+*/
+        return aInB;
 
 
         //Mulig merge sort er best.. tips fra lærer er å bruke Merge Sort... men å telle antall treff...
 
         //2) Loop igjennom char array1, og char array2. sjekk om antallet fra array1 (feks antall AA) ligger i char array2.
         //Feks: AA i aChar må være en delmengde i bChar
+/*
         for (int i = 0; i < aChar.length ; i++) {
 
             if(aChar[i]==temp){
@@ -559,9 +580,6 @@ public class Oblig1 {
             else{
                 temp = aChar[i];
             }
-
-
-
 
             if(bChar[i]==temp){
                 countB++;
@@ -578,6 +596,7 @@ public class Oblig1 {
 
 
         return false;
+*/
     }
 
 
