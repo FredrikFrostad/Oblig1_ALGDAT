@@ -489,7 +489,7 @@ public class Oblig1 {
         char[] last = b.toCharArray();
 
 
-
+//En liten endring i oppgave 10 for ny branch
 
 
         return false;
