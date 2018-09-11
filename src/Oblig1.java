@@ -516,9 +516,76 @@ public class Oblig1 {
 
     }
 
-    public static void partition(int[] a) {
-        System.out.println(Arrays.toString(a));
+
+
+    public static void partition(int[] a, int left, int right) {
+
+        int i = left;
+        int j = right - 1;
+        int pivotIndex = (left + (right - left)) / 2;
+        int pivot = a[pivotIndex];
+        System.out.println("Pivot : " + pivot);
+
+        bytt(a, pivotIndex, right);
+
+        while (i <= j)  {
+
+            while (a[i] < pivot) {
+                i++;
+            }
+            while (a[j] > pivot) {
+                j--;
+            }
+            if (i < j) {
+                bytt(a, i, j);
+
+                /*
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+                System.out.println("Bytter om " + a[i] + " og " + a[j] + " resultat: "
+                        + Arrays.toString(a) + "i=" + i + ", j=" + j);
+                        */
+                i++;
+                j--;
+
+            }
+        }
+        bytt(a,right,pivotIndex);
     }
+
+/*
+    public static int partition(int arr[], int low, int high)
+    {
+        int pivot = arr[high];
+        System.out.println(pivot);
+        int i = (low-1); // index of smaller element
+
+
+        for (int j = low; j < high; j++)
+        {
+            // If current element is smaller than or
+            // equal to pivot
+            if (arr[j] <= pivot)
+            {
+                i++;
+
+                // swap arr[i] and arr[j]
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        // swap arr[i+1] and arr[high] (or pivot)
+        int temp = arr[i+1];
+        arr[i+1] = arr[high];
+        arr[high] = temp;
+
+        return i+1;
+    }
+*/
+
 
     /**
      * Bubblesort som sorterer en hel tabell
