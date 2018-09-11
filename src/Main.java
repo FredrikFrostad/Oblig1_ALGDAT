@@ -31,10 +31,17 @@ public class Main {
         }
 */
 
-
+/*
         for (int i = 0; i <= 100000; i++) {
-            System.out.println(i%4);
+            //System.out.println(i%4);
         }
+*/
+    String a = "ABBA";
+    String b = "BARAB";
+    String c = "ACB";
+    String d = "BAC";
+
+    Oblig1.inneholdt(c,d);
 
 
 

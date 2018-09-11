@@ -490,12 +490,15 @@ public class Oblig1 {
         char[] aChar = a.toCharArray();
         char[] bChar = b.toCharArray();
 
+        System.out.println("Array a usortert: "+Arrays.toString(aChar));
+        System.out.println("Array b usortert: " + Arrays.toString(bChar));
+
         //1) Sorter aChar, og bChar
         Arrays.sort(aChar,0,aChar.length); //Bruke egen motode for dette?
         Arrays.sort(bChar,0,aChar.length); //Bruke egen motode for dette?
 
-        System.out.println(aChar);
-        System.out.println(bChar);
+        System.out.println("Array a sortert: "+Arrays.toString(aChar));
+        System.out.println("Array b sortert: " + Arrays.toString(bChar));
 
         String nyA = "";
         StringBuilder buildA = new StringBuilder();
@@ -503,6 +506,46 @@ public class Oblig1 {
         int temp = aChar[0];
         int countA = 0;
         int countB = 0;
+        int nDupA = 0;
+        char charDupA = 0;
+        boolean dupA = true;
+
+        int nDupB = 0;
+        char charDupB = 0;
+        boolean dupB = true;
+        int j =0;
+
+        for (int i = 1; i < aChar.length; i++) {
+            if (aChar[i] == aChar[i - 1]) {
+                charDupA = aChar[i];
+                nDupA++;
+                dupA = true;
+            }else{
+                dupA = false;
+                charDupA = aChar[i];
+            }
+
+            for (int k = 0; k < nDupA ; k++) {
+                if (bChar[i-nDupA+k] == bChar[i-nDupA+k-1]) {
+                    charDupB = bChar[i];
+                    nDupB++;
+                    dupB = true;
+                }else{
+                    dupB = false;
+                    charDupB = aChar[i];
+                }
+            }
+            //while(dupA == false){ //Hvis det ikke er flere duplikater i a, så sjekkes b for det som ble funnet i a
+            //}
+
+
+
+            if (aChar[i-1] == bChar[i - 1]){
+
+            }
+
+        }
+
 
         //Mulig merge sort er best.. tips fra lærer er å bruke Merge Sort... men å telle antall treff...
 
