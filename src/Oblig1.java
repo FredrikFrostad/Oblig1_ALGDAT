@@ -20,15 +20,17 @@ public class Oblig1 {
      */
     public static int maks(int[] a) {
 
-        //Har tabellen lengde 0?
-        if (a.length==0){
-            throw new NoSuchElementException("Tabellen har langde 0. Den er tom! ");
+        //Sjekker at tabellen ikke er tom
+        if (a.length < 1) {
+            throw new NoSuchElementException
+                    ("\nTabellen er tom, vennligst send en gyldig tabell som parameter.");
         }
 
-        int m = a[0]; //Variabel for å lagre unna største verdi. Må initieres der hvor løkka starter å kjøre.
+        //Initialiserer variabel som holder på største verdi
+        int m = a[0];
 
-        //Looper igjennom arrayet.
-        for (int i = 0; i <= a.length-2 ; i++ ) { //
+        //Itererer over arrayet og "bobler" største verdi "oppover"
+        for (int i = 0; i < a.length - 1; ++i) {
 
             if(a[i] > a[i+1]) {
                 m = a[i]; //Tar vare på det største tallet.
@@ -434,6 +436,7 @@ public class Oblig1 {
 
         }
     }
+
 
     //******************************* OPPGAVE 7 ***************************************
     public static String flett(String s, String t){
