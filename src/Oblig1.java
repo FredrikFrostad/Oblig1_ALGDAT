@@ -512,7 +512,6 @@ public class Oblig1 {
             nm = temp;
         }
 
-
         for (int i = 0; i < a.length; i++) {
 
             //Dersom ny minst, oppdater alle tre verdier
@@ -538,6 +537,7 @@ public class Oblig1 {
         //Returnerer indeksene til de tre minste verdiene sortert stigende
         return new int[] {m,nm,nnm};
     }
+
 
 
 
