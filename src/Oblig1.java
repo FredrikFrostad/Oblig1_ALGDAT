@@ -515,13 +515,18 @@ public class Oblig1 {
                 duplicateA = aChar[k];
                 nDuplicateA++;
                 k++;
-                i = k; //Oppdaterer i slik at i flyttes til nytt offset tilsvarende antall duplikater nDuplicate. kanksje bare bruke i isteden for k?
+                i += k; //Oppdaterer i slik at i flyttes til nytt offset tilsvarende antall duplikater nDuplicate. kanksje bare bruke i isteden for k?
             }
+            i++;
 
-            while((bChar[j] == bChar[j+1]) && (j<bChar.length) && (nDuplicateA>0)){ //Går helt til neste character er en ny type character
+            while((bChar[j] == duplicateA) && (j<bChar.length) ){ //Går helt til neste character er en ny type character
+                //a er inneholdt i b.
 
-                if((bChar[j] == duplicateA)){
-                    //a er inneholdt i b.
+                if(nDuplicateA == 0){
+                    aInB = true;
+                }
+                else if (nDuplicateA>0){
+                    aInB = false; //False så lenge den ikke har funnet likt antall char i b som i a.
                     nDuplicateA--;
                 }
 
@@ -550,10 +555,11 @@ public class Oblig1 {
 
             */
 
-            i++;
-            j++;
+
+
         }
 
+            //Trenger kanskje ikke disse?
             while (i < aChar.length) {
                 System.out.println("Char " + aChar[i] + " i a på indeks " + i + " finnes ikke i B-tabellen");
                 aInB = false;
