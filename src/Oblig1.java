@@ -192,33 +192,36 @@ public class Oblig1 {
      */
     public static void delsortering(int[] a) {
 
-        int i = 0;
-        int j = a.length - 1;
+        if (a.length > 1) {
 
-        //Iterer gjennom arrayet en gang med ytre while løkke
-        while (i < a.length) {
-            //Dersom vi finner et partall bytter det plass med det oddetallet som er lengst
-            //til venstre for gjeldende posisjon i arrayet.
-            if (a[i] % 2 == 0) {
-                //Itererer over mulige oddetall til høyre for a[i]
-                while (j > i) {
-                    //Dersom vi finner et oddetall bytter vi plass med partallet a[i]
-                    if (a[j] % 2 != 0) {
-                        int temp = a[i];
-                        a[i] = a[j];
-                        a[j] = temp;
-                        break;
+            int i = 0;
+            int j = a.length - 1;
+
+            //Iterer gjennom arrayet en gang med ytre while løkke
+            while (i < a.length) {
+                //Dersom vi finner et partall bytter det plass med det oddetallet som er lengst
+                //til venstre for gjeldende posisjon i arrayet.
+                if (a[i] % 2 == 0) {
+                    //Itererer over mulige oddetall til høyre for a[i]
+                    while (j > i) {
+                        //Dersom vi finner et oddetall bytter vi plass med partallet a[i]
+                        if (a[j] % 2 != 0) {
+                            int temp = a[i];
+                            a[i] = a[j];
+                            a[j] = temp;
+                            break;
+                        }
+                        --j;
                     }
-                    --j;
                 }
+                ++i;
             }
-            ++i;
+            //finner antall partall for å beregne korrekte intervaller for sortering
+            int partall = antallPartall(a);
+            //sorterer hvert av intervallene separat
+            quicksort(a, 0, a.length - partall - 1);
+            quicksort(a, a.length - partall, a.length - 1);
         }
-        //finner antall partall for å beregne korrekte intervaller for sortering
-        int partall = antallPartall(a);
-        //sorterer hvert av intervallene separat
-        Arrays.sort(a,0,a.length-partall);
-        Arrays.sort(a,a.length-partall, a.length);
     }
 
     public static int antallPartall(int[] a) {
@@ -399,11 +402,17 @@ public class Oblig1 {
      */
     public static int[] indekssortering(int[] a) {
 
+
         //Tabell som skal inneholde de sorterte indeksene
         int[] index = new int[a.length];
+
+        //Returner tom tabell dersom parametertabellen er tom
+        if (a.length < 1) {return index;}
+
         //Sortert hjelpetabell
         int[] sorted_a = Arrays.copyOf(a,a.length);
-        Arrays.sort(sorted_a);
+        quicksort(sorted_a,0, sorted_a.length-1);
+
         //Finner duplikatverdier til venstre for gjeldende element og teller dem
         for (int i = 0; i < a.length; i++) {
             int sort_val = sorted_a[i];
@@ -512,7 +521,7 @@ public class Oblig1 {
 
 
 
-    public static int partition(int[] a, int left, int right) {
+    public static int partisjoner(int[] a, int left, int right) {
 
         int i = left;
         int j = right;
@@ -537,7 +546,7 @@ public class Oblig1 {
     }
 
     public static void quicksort(int[] a, int left,  int right) {
-        int pivotIndex = partition(a, left,right);
+        int pivotIndex = partisjoner(a, left,right);
 
         if (left < pivotIndex - 1) {
             quicksort(a, left, pivotIndex -1);
@@ -546,38 +555,6 @@ public class Oblig1 {
             quicksort(a,pivotIndex, right);
         }
     }
-
-/*
-    public static int partition(int arr[], int low, int high)
-    {
-        int pivot = arr[high];
-        System.out.println(pivot);
-        int i = (low-1); // index of smaller element
-
-
-        for (int j = low; j < high; j++)
-        {
-            // If current element is smaller than or
-            // equal to pivot
-            if (arr[j] <= pivot)
-            {
-                i++;
-
-                // swap arr[i] and arr[j]
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
-
-        // swap arr[i+1] and arr[high] (or pivot)
-        int temp = arr[i+1];
-        arr[i+1] = arr[high];
-        arr[high] = temp;
-
-        return i+1;
-    }
-*/
 
 
     /**
