@@ -137,9 +137,11 @@ public class Main {
         //Long timeResult = System.currentTimeMillis() - time;
         //System.out.println(timeResult);
 
-        System.out.println(Arrays.toString(d));
+        //System.out.println(Arrays.toString(d));
         Oblig1.rotasjon(d,4);
-        System.out.println(Arrays.toString(d));
+        //System.out.println(Arrays.toString(d));
+
+
 
 /*
         for (int i = 0; i < test.length ; i++) {
@@ -147,5 +149,7 @@ public class Main {
         }
 */
 
+        //Test oppgave7
+        Oblig1.flett("Ad","nr");
     }
 }

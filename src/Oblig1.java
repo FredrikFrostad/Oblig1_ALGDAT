@@ -435,6 +435,20 @@ public class Oblig1 {
         }
     }
 
+    //******************************* OPPGAVE 7 ***************************************
+    public static String flett(String s, String t){
+        String resultat = "";
+        StringBuilder sb = new StringBuilder();
+
+        resultat = resultat.substring(s.charAt(0));
+
+        System.out.println(resultat);
+
+        return resultat;
+    }
+
+
+
     //******************************* OPPGAVE 8 ***************************************
 
 
