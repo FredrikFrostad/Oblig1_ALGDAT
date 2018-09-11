@@ -484,6 +484,14 @@ public class Oblig1 {
     // **************************** OPPGAVE 10 *****************************************
     public static boolean inneholdt(String a, String b){
 
+        //Lager nytt char array av characters i streng
+        char[] first = a.toCharArray();
+        char[] last = b.toCharArray();
+
+        
+
+
+
         return false;
     }
 
