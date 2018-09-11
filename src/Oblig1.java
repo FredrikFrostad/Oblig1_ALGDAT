@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -485,11 +487,51 @@ public class Oblig1 {
     public static boolean inneholdt(String a, String b){
 
         //Lager nytt char array av characters i streng
-        char[] first = a.toCharArray();
-        char[] last = b.toCharArray();
+        char[] aChar = a.toCharArray();
+        char[] bChar = b.toCharArray();
+
+        //1) Sorter aChar, og bChar
+        Arrays.sort(aChar,0,aChar.length); //Bruke egen motode for dette?
+        Arrays.sort(bChar,0,aChar.length); //Bruke egen motode for dette?
+
+        System.out.println(aChar);
+        System.out.println(bChar);
+
+        String nyA = "";
+        StringBuilder buildA = new StringBuilder();
+
+        int temp = aChar[0];
+        int countA = 0;
+        int countB = 0;
+
+        //Mulig merge sort er best.. tips fra lærer er å bruke Merge Sort... men å telle antall treff...
+
+        //2) Loop igjennom char array1, og char array2. sjekk om antallet fra array1 (feks antall AA) ligger i char array2.
+        //Feks: AA i aChar må være en delmengde i bChar
+        for (int i = 0; i < aChar.length ; i++) {
+
+            if(aChar[i]==temp){
+                countA++;
+            }
+            else{
+                temp = aChar[i];
+            }
 
 
-//En liten endring i oppgave 10 for ny branch
+
+
+            if(bChar[i]==temp){
+                countB++;
+            }
+            else{
+                temp = aChar[i];
+            }
+
+
+            //buildA.append(aChar[i]);
+
+
+        }
 
 
         return false;
