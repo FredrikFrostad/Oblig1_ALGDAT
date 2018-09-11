@@ -133,7 +133,7 @@ public class Oblig1 {
         //Sjekker om tabellen har gyldig format (er sortert stigende)
         if (maksIndex(a) != a.length - 1 || minIndex(a) != 0)
         {
-         return false;
+            return false;
         }
         for (int i = 0; i < a.length - 1; i++) {
             if (a[i] > a[i + 1]) {
@@ -558,19 +558,40 @@ public class Oblig1 {
      */
     public  static void bytt(int[] a, int i, int j) {
 
-            if (k < 0) { //ok
-                for (int i = 0; i < a.length; ++i) {
-                    int j = (i - k) % a.length;
-                    a[i] = b[j];
-                }
-            } else {
+        if (i < 0 || i > a.length - 1 || j < 0 || j > a.length - 1) {
+            throw new IllegalArgumentException
+                    ("Illegal input argument. Input must be within array bounds");
+        }
 
-                for (int i = 0; i < a.length; ++i) {
-                    int j = (i + k) % a.length;
-                    a[j] = b[i];
-                }
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+    /**
+     * Metode som finner index til største verdi i et array, dersom arrayet inneholder duplikatverdier er det
+     * høyreverdien som returneres
+     * @param a arrayet vi skal søke etter største verdi i
+     * @return index til største verdi
+     */
+    public static int maksIndex(int[] a) {
+
+        //Sjekker om arrayet er gyldig (ikke null)
+        if(a == null) throw new NullPointerException
+                (a.toString() + "is null");
+
+        int m = 0;              // indeks til største verdi i a[0:til>
+        int maksverdi = a[0];   // største verdi i a[0:a.length>
+
+        for (int i = 0 + 1; i < a.length; i++) {
+            if (a[i] >= maksverdi)
+            {
+                m = i;                // indeks a.lenght største verdi oppdateres
+                maksverdi = a[m];     // største verdi oppdateres
             }
         }
+
+        return m;  // posisjonen til største verdi i a[fra:til>
     }
 
     /**
