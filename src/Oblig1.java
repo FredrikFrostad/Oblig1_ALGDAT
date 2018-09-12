@@ -435,24 +435,6 @@ public class Oblig1 {
 
         boolean isContained = false;
 
-        //Lager nytt char array av characters i streng
-        char[] first = a.toCharArray();
-        char[] last = b.toCharArray();
-
-        if (first.length < 1) {return true;}
-
-        quicksort(first,0,first.length - 1);
-        quicksort(last, 0, last.length - 1);
-
-        for (int i = 0; i < first.length; i++) {
-            for (int j = 0; j < last.length; j++) {
-                if (first[i] == last[j]) {
-                    last[j] = 255;
-                }
-            }
-        }
-
-
 
         return isContained;
     }
