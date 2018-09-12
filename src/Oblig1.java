@@ -593,6 +593,7 @@ public class Oblig1 {
                         if (nDuplicateA == 0) {
                             aInB = true;
                             //j++;//TODO: Litt usikker på denne...
+                            k++;
                             break;
                         } else if (nDuplicateA > 0) {
                             aInB = false; //False så lenge den ikke har funnet likt antall char i b som i a.
