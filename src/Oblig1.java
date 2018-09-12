@@ -503,6 +503,7 @@ public class Oblig1 {
 
         int i = 0, j = 0, k = 1;
         boolean aInB = false;
+        boolean singleChar = false;
         int nDuplicateA = 0;
         char duplicateA = 0;
         char singleA = 0;
@@ -513,7 +514,7 @@ public class Oblig1 {
             //l = i;
 
 
-            if(aChar[k-1] == aChar[k]) {
+            if(aChar[k-1] == aChar[k]) { //Håndtering/telling av duplikater for a
                 //Finner antall duplikater av en type character i a
                 while ((aChar[k - 1] == aChar[k]) && (k < aChar.length)) {
                     duplicateA = aChar[k];
@@ -521,29 +522,34 @@ public class Oblig1 {
                     k++;
                     i = i + k - 1; //Oppdaterer i slik at i flyttes til nytt offset tilsvarende antall duplikater nDuplicate. kanksje bare bruke i isteden for k?
                 }
-            }else{
+            }else{ //Håndtering av enkelt char
                 singleA = aChar[k-1]; //Lagrer unna enkelt char
+                singleChar = true;
                 nDuplicateA = 0; //Mulig overflødig pga at neste while "nuller" ut denne... Legges inn for lesbarhet inntil videre
                 k++;
-                i = i + k - 1; //Oppdaterer i slik at i flyttes til nytt offset tilsvarende antall duplikater nDuplicate. kanksje bare bruke i isteden for k?
-
+                i = i + k - 1; //Sykroniserer i med antall bevegelser i k retning
             }
-            i++;
+            i++;//Tror kanskje jeg ikke trenger denne pga at i oppdateres innenfra while løkke.
 
 
+            if((bChar[j] == duplicateA) && (!singleChar)){
+                while((bChar[j] == duplicateA) && (j<bChar.length) ) { //Går helt til neste character er en ny type character
+                    //a er inneholdt i b.
 
-            while((bChar[j] == duplicateA) && (j<bChar.length) ){ //Går helt til neste character er en ny type character
-                //a er inneholdt i b.
-
-                if(nDuplicateA == 0){
-                    aInB = true;
+                    if (nDuplicateA == 0) {
+                        aInB = true;
+                    } else if (nDuplicateA > 0) {
+                        aInB = false; //False så lenge den ikke har funnet likt antall char i b som i a.
+                        nDuplicateA--;
+                    }
+                    j++;
                 }
-                else if (nDuplicateA>0){
-                    aInB = false; //False så lenge den ikke har funnet likt antall char i b som i a.
-                    nDuplicateA--;
-                }
-
+            }else if ((bChar[j] == singleA) && singleChar){
+                //Den single char i a finnes i b
+                aInB = true;
                 j++;
+            }else{
+                return false;
             }
 
 /*
