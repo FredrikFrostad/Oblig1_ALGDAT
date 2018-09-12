@@ -40,11 +40,11 @@ public class Main {
     String b = "BARAB";
     String c = "ACBAC";
     String d = "BACA";
-    String e = "AABC";
+    String e = "AABCD";
     String f = "AAABC";
 
-    Oblig1.inneholdt(e,f);
-
+    boolean inneholdt = Oblig1.inneholdt(e,f);
+    System.out.println(inneholdt);
 
 
     }

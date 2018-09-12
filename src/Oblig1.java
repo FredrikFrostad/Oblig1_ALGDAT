@@ -523,13 +523,13 @@ public class Oblig1 {
                     i = i + k - 1; //Oppdaterer i slik at i flyttes til nytt offset tilsvarende antall duplikater nDuplicate. kanksje bare bruke i isteden for k?
                 }
             }else{ //Håndtering av enkelt char
-                singleA = aChar[k-1]; //Lagrer unna enkelt char
+                singleA = aChar[k]; //Lagrer unna enkelt char
                 singleChar = true;
                 nDuplicateA = 0; //Mulig overflødig pga at neste while "nuller" ut denne... Legges inn for lesbarhet inntil videre
                 k++;
-                i = i + k - 1; //Sykroniserer i med antall bevegelser i k retning
+                i++; //Sykroniserer i med antall bevegelser i k retning
             }
-            i++;//Tror kanskje jeg ikke trenger denne pga at i oppdateres innenfra while løkke.
+
 
 
             if((bChar[j] == duplicateA) && (!singleChar)){
@@ -548,6 +548,7 @@ public class Oblig1 {
                 //Den single char i a finnes i b
                 aInB = true;
                 j++;
+                singleChar = false;
             }else{
                 return false;
             }
@@ -574,7 +575,7 @@ public class Oblig1 {
 
             */
 
-
+        i++;//Tror kanskje jeg ikke trenger denne pga at i oppdateres innenfra while løkke.
 
         }
 
