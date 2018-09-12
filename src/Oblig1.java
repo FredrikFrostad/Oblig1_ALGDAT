@@ -292,18 +292,6 @@ public class Oblig1 {
 
 
     /**
-     * Metode som fletter sammen to strenger. Dersom strengene har ulik lengde leggers de overskytende
-     * tegnene fra den lengste parameterstrengen til bakerst i returstrengen
-     * @param s en streng som skal flettes
-     * @param t en streng som skal flettes
-     * @return resultatet av flettingen mellom s og t
-     */
-    public static String flett(String s, String t) {
-
-       return flett(s,t,"");
-    }
-
-    /**
      * Metode som tar imot en strengtabell iog fletter sammen alle strengene som ligger i tabellen
      * @param s tabell som inneholder strengene som skal flettes
      * @return en streng som inneholder resultatet av flettingen
