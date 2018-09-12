@@ -44,10 +44,11 @@ public class Main {
     String f = "AAEABCD";
     String g = "";
     String h = "";
+    String i = "ABBACCCDE";
+    String j = "XYYX";
+    String k = "AAAAAAAYXXY";
 
-
-
-    boolean inneholdt = Oblig1.inneholdt(a, a);
+    boolean inneholdt = Oblig1.inneholdt(j, k);
     System.out.println(inneholdt);
 
 

@@ -504,7 +504,7 @@ public class Oblig1 {
         //System.out.println("Array b sortert: " + Arrays.toString(bChar));
 
 
-        int i = 0, j = 0, k = 1;
+        int i = 0, j = 0, k = 0;
         boolean aInB = false;
         boolean singleChar = false;
         int nDuplicateA = 0;
@@ -516,14 +516,23 @@ public class Oblig1 {
 
             //l = i;
 
+            if((k+1)==a.length()){
+                singleA = aChar[k]; //Lagrer unna enkelt char
+                singleChar = true;
+                nDuplicateA = 0; //Mulig overflødig pga at neste while "nuller" ut denne... Legges inn for lesbarhet inntil videre
+                k++;
+                i++; //Sykroniserer i med antall bevegelser i k retning
+            }
 
-            if(aChar[k-1] == aChar[k]) { //Håndtering/telling av duplikater for a
+            else if(aChar[k] == aChar[k+1]) { //Håndtering/telling av duplikater for a. Må hodtere corner case der hvor jeg er på slutten av løkka
                 //Finner antall duplikater av en type character i a
-                while ((aChar[k - 1] == aChar[k]) && (k < aChar.length)) {
+                while ((aChar[k] == aChar[k+1]) && (k < aChar.length)) {
                     duplicateA = aChar[k];
                     nDuplicateA++;
                     k++;
                     i = i + k; //Oppdaterer i slik at i flyttes til nytt offset tilsvarende antall duplikater nDuplicate. kanksje bare bruke i isteden for k?
+                    if(k+1>=aChar.length)
+                        break;
                 }
             }else{ //Håndtering av enkelt char
                 singleA = aChar[k]; //Lagrer unna enkelt char
@@ -535,7 +544,8 @@ public class Oblig1 {
 
 
 
-            if((bChar[j] == duplicateA) && (!singleChar)){
+            if((bChar[j] == duplicateA) && (!singleChar)){ //Tilfellet hvor den er lik for neste
+                k= k + 1; //Må flytte offset for k lik antall duplikater slik at den sjekker riktig for neste.
                 while((bChar[j] == duplicateA) && (j<bChar.length) ) { //Går helt til neste character er en ny type character
                     //a er inneholdt i b.
 
@@ -546,8 +556,28 @@ public class Oblig1 {
                         nDuplicateA--;
                     }
                     j++;
+                    if(j>=bChar.length)
+                        break;
                 }
-            }else if ((bChar[j] == singleA) && singleChar){
+            }else if ((bChar[j] != duplicateA) && (!singleChar)) { //Må løpe igjennom hele for å se om det finnes noen like.
+                aInB = false; //Ikke umiddelbart inneholdt, må sjekke hele b.
+                for (int l = j; l < bChar.length ; l++) {
+
+                    if((bChar[j] == duplicateA) && (j<bChar.length)){
+                        if (nDuplicateA == 0) {
+                            aInB = true;
+                            //j++;//TODO: Litt usikker på denne...
+                            break;
+                        } else if (nDuplicateA > 0) {
+                            aInB = false; //False så lenge den ikke har funnet likt antall char i b som i a.
+                            nDuplicateA--;
+                        }
+                    }
+                    j++;
+                }
+                if(nDuplicateA >0) //Hvis sant etter å ha sjekket resten av b. a er ikke inneholdt i b
+                    return aInB;
+            } else if ((bChar[j] == singleA) && singleChar){ //tilfelle for single char
                 //Den single char i a finnes i b
                 aInB = true;
                 j++;
@@ -579,7 +609,7 @@ public class Oblig1 {
             */
 
         //i++;//Tror kanskje jeg ikke trenger denne pga at i oppdateres innenfra while løkke.
-
+        //k++;
         }
 
             //Hvis denne inntreffer er i b mindre enn a, og resultatet er false
