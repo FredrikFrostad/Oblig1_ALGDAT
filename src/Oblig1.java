@@ -510,6 +510,7 @@ public class Oblig1 {
         char duplicateA = 0;
         char singleA = 0;
 
+        //Yttre løkke som går igjennom characters som kommer fra streng a, og streng b
         while (i < aChar.length && j < bChar.length) {
 
             if((k+1)==a.length()){
