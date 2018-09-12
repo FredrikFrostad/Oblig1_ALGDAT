@@ -486,22 +486,15 @@ public class Oblig1 {
     // **************************** OPPGAVE 10 *****************************************
     public static boolean inneholdt(String a, String b) {
 
-        if(a.equals("")){
-            return true;
-        }
+        if(a.equals("")) return true;
+
         //Lager nytt char array av characters i streng
         char[] aChar = a.toCharArray();
         char[] bChar = b.toCharArray();
 
-        //System.out.println("Array a usortert: " + Arrays.toString(aChar));
-        //System.out.println("Array b usortert: " + Arrays.toString(bChar));
-
-        //1) Sorter aChar, og bChar
-        Arrays.sort(aChar, 0, aChar.length); //Bruke egen motode for dette?
-        Arrays.sort(bChar, 0, bChar.length); //Bruke egen motode for dette?
-
-        //System.out.println("Array a sortert: " + Arrays.toString(aChar));
-        //System.out.println("Array b sortert: " + Arrays.toString(bChar));
+        //Sortering av aChar, og bChar tabell. Videre referert til som a og b i kommentarer under.
+        Arrays.sort(aChar, 0, aChar.length); //
+        Arrays.sort(bChar, 0, bChar.length); //
 
         int i = 0; //Ytre indeks for tabell a
         int j = 0; //Ytre og indre indeks for tabell b
@@ -540,40 +533,43 @@ public class Oblig1 {
                 k++;
                 i++;
             }
-            k= k + 1; //Må flytte offset for k lik antall duplikater slik at den sjekker riktig for neste.
+
             //Løkke for tabell b. Denne tar inn resultatet fra løkken som har telt opp duplikater og enkelt chars
             //i fra tabell a. Løkken ser om a er inneholdt i b.
             if((bChar[j] == duplicateA) && (!singleChar)){ //Tilfellet hvor den er lik for neste, og ikke singel char
-
-                int n = nDuplicateA;
-
+                k= k + 1; //Om b finner at utvalget fra a er inneholdt i b, så legges det til offset på løkka for a for neste runde
+                int n = nDuplicateA; //temp variable som brukes for hvor mange characters som skal sjekkes for duplikat
+                //Løkken sjekker om n telte duplikat fra a er inneholdt i b.
                 for (int l = 0; l < n  ; l++) {
-                    if((bChar[j] == duplicateA)){
-                        if (nDuplicateA == 0) {
-                            aInB = true;
+                    if((bChar[j] == duplicateA)){ //a er inneholdt i b
+                        if (nDuplicateA == 0) { //alle sjekkede characters fra a er inneholdt i b
+                            aInB = true; //a er inneholdt i b
                         } else if (nDuplicateA > 0) {
                             aInB = false; //False så lenge den ikke har funnet likt antall char i b som i a.
-                            nDuplicateA--;
+                            nDuplicateA--; //Teller ned sjekkede duplikater
                         }
                     }else{ //Hvis du har kommet hit og bChar[j] != duplicateA, så er ikke a ikke inneholdt i b
                         return false;
                     }
 
                     j++;
-                    if(j>=bChar.length)
+                    if(j>=bChar.length) //Bryter for loop om j går utover størrelsen på b
                         break;
                 }
+             //Tilfelle hvor man enda ikke vet om a er inneholdt i b. Dvs a kan være inneholdt i b lengre ut i b tabellen.
             }else if ((bChar[j] != duplicateA) && (!singleChar)) { //Må løpe igjennom hele for å se om det finnes noen like.
                 aInB = false; //Ikke umiddelbart inneholdt, må sjekke hele b.
+
+                //Looper hele b for å se om a er inneholdt, da den ikke var inneholdt på starten av tabell b
                 for (int l = j; l < bChar.length ; l++) {
 
-                    if((bChar[j] == duplicateA) && (j<bChar.length)){
-                        if (nDuplicateA == 0) {
+                    if((bChar[j] == duplicateA) && (j<bChar.length)){ //a er inneholdt i b
+                        if (nDuplicateA == 0) { //Alle sjekkede a er inneholdt i b.
                             aInB = true;
-                            k++;
-                            break;
+                            k++; //oppdaterer indeks for a tabell for neste kjøring.
+                            break; //Trenger ikke sjekke resten av tabell b ved treff på at alle i a er inneholdt i b.
                         } else if (nDuplicateA > 0) {
-                            aInB = false; //False så lenge den ikke har funnet likt antall char i b som i a.
+                            aInB = false; //False så lenge ikke alle sjekkede fra a er inneholdt i b.
                             nDuplicateA--;
                         }
                     }
@@ -581,22 +577,20 @@ public class Oblig1 {
                 }
                 if(nDuplicateA >0) //Hvis sant etter å ha sjekket resten av b. a er ikke inneholdt i b
                     return aInB;
+            //Håndtering av sjekk på om a er inneholdt i b når det kun er en character.
             } else if ((bChar[j] == singleA) && singleChar){ //tilfelle for single char
-                //Den single char i a finnes i b
+                //En enkelt char i a finnes i b
                 aInB = true;
                 j++;
-                singleChar = false;
+                singleChar = false; //tilbakestiller singel character flagg for neste kjøring.
             }else{
-                return false;
+                return false; //Returnere false hvis ingen av sjekkede chars i a er inneholdt i b.
             }
         }
-            //Hvis denne inntreffer er i b mindre enn a, og resultatet er false
-            if(i < aChar.length){ //Hvis dette -> hovedløkka har terminert pga at j>=cChar.length -> DET ER FLERE CHAR I a enn i b.. a kan ikke være inneholdt i b
-                //System.out.println("Char " + aChar[i] + " i a på indeks " + i + " finnes ikke i B-tabellen");
+            //Hvis denne inntreffer er i b tabellen mindre enn a, og resultatet er false. a kan ikke være inneholdt i b
+            if(i < aChar.length){ //Hvis dette -> hovedløkka har terminert pga at j>=cChar.length -> a>b -> return false
                 aInB = false;
-                //System.out.println("a er ikke inneholdt i b, da b er kortere enn a");
             }
-
         return aInB;
         }
 
