@@ -40,8 +40,8 @@ public class Main {
     String b = "BARAB";
     String c = "ACBAC";
     String d = "BACA";
-    String e = "AABCD";
-    String f = "AAABC";
+    String e = "AABCDE";
+    String f = "AAEABCD";
 
     boolean inneholdt = Oblig1.inneholdt(e,f);
     System.out.println(inneholdt);

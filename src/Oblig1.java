@@ -490,15 +490,15 @@ public class Oblig1 {
         char[] aChar = a.toCharArray();
         char[] bChar = b.toCharArray();
 
-        System.out.println("Array a usortert: " + Arrays.toString(aChar));
-        System.out.println("Array b usortert: " + Arrays.toString(bChar));
+        //System.out.println("Array a usortert: " + Arrays.toString(aChar));
+        //System.out.println("Array b usortert: " + Arrays.toString(bChar));
 
         //1) Sorter aChar, og bChar
         Arrays.sort(aChar, 0, aChar.length); //Bruke egen motode for dette?
         Arrays.sort(bChar, 0, bChar.length); //Bruke egen motode for dette?
 
-        System.out.println("Array a sortert: " + Arrays.toString(aChar));
-        System.out.println("Array b sortert: " + Arrays.toString(bChar));
+        //System.out.println("Array a sortert: " + Arrays.toString(aChar));
+        //System.out.println("Array b sortert: " + Arrays.toString(bChar));
 
 
         int i = 0, j = 0, k = 1;
@@ -520,7 +520,7 @@ public class Oblig1 {
                     duplicateA = aChar[k];
                     nDuplicateA++;
                     k++;
-                    i = i + k - 1; //Oppdaterer i slik at i flyttes til nytt offset tilsvarende antall duplikater nDuplicate. kanksje bare bruke i isteden for k?
+                    i = i + k; //Oppdaterer i slik at i flyttes til nytt offset tilsvarende antall duplikater nDuplicate. kanksje bare bruke i isteden for k?
                 }
             }else{ //Håndtering av enkelt char
                 singleA = aChar[k]; //Lagrer unna enkelt char
@@ -575,25 +575,35 @@ public class Oblig1 {
 
             */
 
-        i++;//Tror kanskje jeg ikke trenger denne pga at i oppdateres innenfra while løkke.
+        //i++;//Tror kanskje jeg ikke trenger denne pga at i oppdateres innenfra while løkke.
 
         }
 
-            //Trenger kanskje ikke disse?
+            //Hvis denne inntreffer er i b mindre enn a, og resultatet er false
+
+            if(i < aChar.length){ //Hvis dette -> hovedløkka har terminert pga at j>=cChar.length -> DET ER FLERE CHAR I a enn i b.. a kan ikke være inneholdt i b
+                System.out.println("Char " + aChar[i] + " i a på indeks " + i + " finnes ikke i B-tabellen");
+                aInB = false;
+                System.out.println("a er ikke inneholdt i b, da b er kortere enn a");
+            }
+            /*
             while (i < aChar.length) {
                 System.out.println("Char " + aChar[i] + " i a på indeks " + i + " finnes ikke i B-tabellen");
                 aInB = false;
                 System.out.println("Er a innehold i b? " + aInB);
                 i++;
-            }
+            }*/
 
+
+/*
+            //Hvis denne inntreffer betyr det at b har enda flere chars en a, og resultatet er allerede kjent.
             while (j < bChar.length) {
 
                 System.out.println("b inneholder flerer char enn a... dvs a er inneholdt i b hvis de tidligere " +
                         "char verdiene er inneholdt");
                 j++;
             }
-
+*/
 
             //String nyA = "";
             //StringBuilder buildA = new StringBuilder();
