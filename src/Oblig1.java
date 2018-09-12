@@ -300,55 +300,7 @@ public class Oblig1 {
      */
     public static String flett(String s, String t) {
 
-        String interleaved = null;
-
-        if (s.length() == t.length())
-        {
-            interleaved = stringWeaver(s,t,true,false);
-        }
-        if (s.length() < t.length())
-        {
-            interleaved = stringWeaver(s,t,false, false);
-        }
-        if (s.length() > t.length())
-        {
-            interleaved = stringWeaver(t,s,false, true);
-        }
-
-        return interleaved;
-    }
-
-
-    public static String stringWeaver(String shortest, String longest, boolean equal, boolean swapped) {
-
-        StringBuilder interleaved = new StringBuilder();
-
-        if (equal)
-        {
-            for (int i = 0; i < longest.length(); i++) {
-                interleaved.append(shortest.charAt(i));
-                interleaved.append(longest.charAt(i));
-            }
-        }else
-        {
-            int i = 0;
-            while (i < shortest.length()) {
-                if (swapped)
-                {
-                    interleaved.append(longest.charAt(i));
-                    interleaved.append(shortest.charAt(i));
-                }else {
-                    interleaved.append(shortest.charAt(i));
-                    interleaved.append(longest.charAt(i));
-                }
-                i++;
-            }
-            while (i < longest.length()) {
-                interleaved.append(longest.charAt(i));
-                i++;
-            }
-        }
-        return interleaved.toString();
+       return flett(s,t,"");
     }
 
     /**
@@ -499,12 +451,16 @@ public class Oblig1 {
         char[] first = a.toCharArray();
         char[] last = b.toCharArray();
 
+        if (first.length < 1) {return true;}
+
         quicksort(first,0,first.length - 1);
         quicksort(last, 0, last.length - 1);
 
         for (int i = 0; i < first.length; i++) {
             for (int j = 0; j < last.length; j++) {
-
+                if (first[i] == last[j]) {
+                    last[j] = 255;
+                }
             }
         }
 
