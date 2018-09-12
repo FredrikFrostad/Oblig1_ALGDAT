@@ -290,6 +290,7 @@ public class Oblig1 {
 
     //TODO: LEGG TIL KOMMENTARER!!
 
+
     /**
      * Metode som tar imot en strengtabell iog fletter sammen alle strengene som ligger i tabellen
      * @param s tabell som inneholder strengene som skal flettes
@@ -458,9 +459,18 @@ public class Oblig1 {
 
     // **************************** DIVERSE HJELPEMETODER *****************************
 
+    public static void quicksort(int[] a, int left,  int right) {
+        int pivotIndex = partisjoner(a, left,right);
 
+        if (left < pivotIndex - 1) {
+            quicksort(a, left, pivotIndex -1);
+        }
+        if (right > pivotIndex - 1) {
+            quicksort(a,pivotIndex, right);
+        }
+    }
 
-    public static int partisjoner(int[] a, int left, int right) {
+    static int partisjoner(int[] a, int left, int right) {
 
         int i = left;
         int j = right;
@@ -484,7 +494,7 @@ public class Oblig1 {
         return i;
     }
 
-    public static void quicksort(int[] a, int left,  int right) {
+    public static void quicksort(char[] a, int left,  int right) {
         int pivotIndex = partisjoner(a, left,right);
 
         if (left < pivotIndex - 1) {
@@ -494,6 +504,33 @@ public class Oblig1 {
             quicksort(a,pivotIndex, right);
         }
     }
+
+    static int partisjoner(char[] a, int left, int right) {
+
+        int i = left;
+        int j = right;
+        char pivot = a[(left + right) / 2];
+
+        while (i <= j)  {
+
+            while (a[i] < pivot) {
+                i++;
+            }
+            while (a[j] > pivot) {
+                j--;
+            }
+            if (i <= j) {
+                bytt(a, i, j);
+
+                i++;
+                j--;
+            }
+        }
+        return i;
+    }
+
+
+
 
 
     /**
@@ -542,7 +579,7 @@ public class Oblig1 {
 
 
     /**
-     * Metode som bytter om to verdier i et array
+     * Metode som bytter om to integere i et array
      * @param a arrayet som inneholder verdiene som skal bytte plass
      * @param i index til den ene verdien
      * @param j index til den andre verdien
@@ -555,6 +592,25 @@ public class Oblig1 {
         }
 
         int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+
+    /**
+     * Metode som bytter om to characters i et array
+     * @param a arrayet som inneholder verdiene som skal bytte plass
+     * @param i index til den ene verdien
+     * @param j index til den andre verdien
+     */
+    public  static void bytt(char[] a, int i, int j) {
+
+        if (i < 0 || i > a.length - 1 || j < 0 || j > a.length - 1) {
+            throw new IllegalArgumentException
+                    ("Illegal input argument. Input must be within array bounds");
+        }
+
+        char temp = a[i];
         a[i] = a[j];
         a[j] = temp;
     }
