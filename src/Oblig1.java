@@ -501,23 +501,36 @@ public class Oblig1 {
         System.out.println("Array b sortert: " + Arrays.toString(bChar));
 
 
-        int i = 0, j = 0, k = 0;
+        int i = 0, j = 0, k = 1;
         boolean aInB = false;
         int nDuplicateA = 0;
         char duplicateA = 0;
+        char singleA = 0;
         int count = 0;
 
         while (i < aChar.length && j < bChar.length) {
 
-            k = i;
-            //Finner antall duplikater av en type character i a
-            while ((aChar[k] == aChar[k+1]) && (k<aChar.length)){
-                duplicateA = aChar[k];
-                nDuplicateA++;
+            //l = i;
+
+
+            if(aChar[k-1] == aChar[k]) {
+                //Finner antall duplikater av en type character i a
+                while ((aChar[k - 1] == aChar[k]) && (k < aChar.length)) {
+                    duplicateA = aChar[k];
+                    nDuplicateA++;
+                    k++;
+                    i = i + k - 1; //Oppdaterer i slik at i flyttes til nytt offset tilsvarende antall duplikater nDuplicate. kanksje bare bruke i isteden for k?
+                }
+            }else{
+                singleA = aChar[k-1]; //Lagrer unna enkelt char
+                nDuplicateA = 0; //Mulig overflødig pga at neste while "nuller" ut denne... Legges inn for lesbarhet inntil videre
                 k++;
-                i += k; //Oppdaterer i slik at i flyttes til nytt offset tilsvarende antall duplikater nDuplicate. kanksje bare bruke i isteden for k?
+                i = i + k - 1; //Oppdaterer i slik at i flyttes til nytt offset tilsvarende antall duplikater nDuplicate. kanksje bare bruke i isteden for k?
+
             }
             i++;
+
+
 
             while((bChar[j] == duplicateA) && (j<bChar.length) ){ //Går helt til neste character er en ny type character
                 //a er inneholdt i b.
