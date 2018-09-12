@@ -42,8 +42,12 @@ public class Main {
     String d = "BACA";
     String e = "AABCDE";
     String f = "AAEABCD";
+    String g = "";
+    String h = "";
 
-    boolean inneholdt = Oblig1.inneholdt(e,f);
+
+
+    boolean inneholdt = Oblig1.inneholdt(a, a);
     System.out.println(inneholdt);
 
 

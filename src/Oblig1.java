@@ -486,6 +486,9 @@ public class Oblig1 {
     // **************************** OPPGAVE 10 *****************************************
     public static boolean inneholdt(String a, String b) {
 
+        if(a.equals("")){
+            return true;
+        }
         //Lager nytt char array av characters i streng
         char[] aChar = a.toCharArray();
         char[] bChar = b.toCharArray();
@@ -582,9 +585,9 @@ public class Oblig1 {
             //Hvis denne inntreffer er i b mindre enn a, og resultatet er false
 
             if(i < aChar.length){ //Hvis dette -> hovedløkka har terminert pga at j>=cChar.length -> DET ER FLERE CHAR I a enn i b.. a kan ikke være inneholdt i b
-                System.out.println("Char " + aChar[i] + " i a på indeks " + i + " finnes ikke i B-tabellen");
+                //System.out.println("Char " + aChar[i] + " i a på indeks " + i + " finnes ikke i B-tabellen");
                 aInB = false;
-                System.out.println("a er ikke inneholdt i b, da b er kortere enn a");
+                //System.out.println("a er ikke inneholdt i b, da b er kortere enn a");
             }
             /*
             while (i < aChar.length) {
@@ -703,7 +706,7 @@ public class Oblig1 {
         return false;
 */
             //TODO
-        System.out.println("Er a inneholdt i b? " + aInB);
+        //System.out.println("Er a inneholdt i b? " + aInB);
         return aInB;
         }
 
