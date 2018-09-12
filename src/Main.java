@@ -37,7 +37,7 @@ public class Main {
         }
 */
     String a = "ABBA";
-    String b = "BARAB";
+    String b = "BARBERER";
     String c = "ACBAC";
     String d = "BACA";
     String e = "AABCDE";
@@ -48,7 +48,7 @@ public class Main {
     String j = "XYYX";
     String k = "AAAAAAAYXXY";
 
-    boolean inneholdt = Oblig1.inneholdt(j, k);
+    boolean inneholdt = Oblig1.inneholdt(a, b);
     System.out.println(inneholdt);
 
 
