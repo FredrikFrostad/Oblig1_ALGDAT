@@ -547,6 +547,7 @@ public class Oblig1 {
             if((bChar[j] == duplicateA) && (!singleChar)){ //Tilfellet hvor den er lik for neste
                 k= k + 1; //Må flytte offset for k lik antall duplikater slik at den sjekker riktig for neste.
 
+
                 int n = nDuplicateA;
                 for (int l = 0; l < n  ; l++) {
 
@@ -565,6 +566,25 @@ public class Oblig1 {
                     if(j>=bChar.length)
                         break;
                 }
+
+
+/*
+                while((bChar[j] == duplicateA) && (j<bChar.length) ) { //Går helt til neste character er en ny type character
+                    //a er inneholdt i b.
+
+                    if (nDuplicateA == 0) {
+                        aInB = true;
+                    } else if (nDuplicateA > 0) {
+                        aInB = false; //False så lenge den ikke har funnet likt antall char i b som i a.
+                        nDuplicateA--;
+                    }
+                    j++;
+                    if(j>=bChar.length)
+                        break;
+                }
+*/
+
+
             }else if ((bChar[j] != duplicateA) && (!singleChar)) { //Må løpe igjennom hele for å se om det finnes noen like.
                 aInB = false; //Ikke umiddelbart inneholdt, må sjekke hele b.
                 for (int l = j; l < bChar.length ; l++) {

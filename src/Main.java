@@ -48,7 +48,7 @@ public class Main {
     String j = "XYYX";
     String k = "AAAAAAAYXXY";
 
-    boolean inneholdt = Oblig1.inneholdt(a, b);
+    boolean inneholdt = Oblig1.inneholdt(j, k);
     System.out.println(inneholdt);
 
 
