@@ -290,67 +290,6 @@ public class Oblig1 {
 
     //TODO: LEGG TIL KOMMENTARER!!
 
-
-    /**
-     * Metode som fletter sammen to strenger. Dersom strengene har ulik lengde leggers de overskytende
-     * tegnene fra den lengste parameterstrengen til bakerst i returstrengen
-     * @param s en streng som skal flettes
-     * @param t en streng som skal flettes
-     * @return resultatet av flettingen mellom s og t
-     */
-    public static String flett(String s, String t) {
-
-        String interleaved = null;
-
-        if (s.length() == t.length())
-        {
-            interleaved = stringWeaver(s,t,true,false);
-        }
-        if (s.length() < t.length())
-        {
-            interleaved = stringWeaver(s,t,false, false);
-        }
-        if (s.length() > t.length())
-        {
-            interleaved = stringWeaver(t,s,false, true);
-        }
-
-        return interleaved;
-    }
-
-
-    public static String stringWeaver(String shortest, String longest, boolean equal, boolean swapped) {
-
-        StringBuilder interleaved = new StringBuilder();
-
-        if (equal)
-        {
-            for (int i = 0; i < longest.length(); i++) {
-                interleaved.append(shortest.charAt(i));
-                interleaved.append(longest.charAt(i));
-            }
-        }else
-        {
-            int i = 0;
-            while (i < shortest.length()) {
-                if (swapped)
-                {
-                    interleaved.append(longest.charAt(i));
-                    interleaved.append(shortest.charAt(i));
-                }else {
-                    interleaved.append(shortest.charAt(i));
-                    interleaved.append(longest.charAt(i));
-                }
-                i++;
-            }
-            while (i < longest.length()) {
-                interleaved.append(longest.charAt(i));
-                i++;
-            }
-        }
-        return interleaved.toString();
-    }
-
     /**
      * Metode som tar imot en strengtabell iog fletter sammen alle strengene som ligger i tabellen
      * @param s tabell som inneholder strengene som skal flettes
