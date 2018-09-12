@@ -503,44 +503,48 @@ public class Oblig1 {
         //System.out.println("Array a sortert: " + Arrays.toString(aChar));
         //System.out.println("Array b sortert: " + Arrays.toString(bChar));
 
-        int i = 0, j = 0, k = 0;
+        int i = 0; //Ytre indeks for tabell a
+        int j = 0; //Ytre og indre indeks for tabell b
+        int k = 0; //Indre indeks for tabell a
         boolean aInB = false;
         boolean singleChar = false;
         int nDuplicateA = 0;
         char duplicateA = 0;
         char singleA = 0;
 
-        //Yttre løkke som går igjennom characters som kommer fra streng a, og streng b
+        //Yttre løkke som looper tilsvarende antall characters fra streng a, og streng b
         while (i < aChar.length && j < bChar.length) {
 
+            //Hvis man får en ny kjørerunde i loopen, og er på på siste index (cornercase),
+            //så behandles det som skjer i løkka som enkelt char case.
             if((k+1)==a.length()){
                 singleA = aChar[k]; //Lagrer unna enkelt char
                 singleChar = true;
-                //nDuplicateA = 0; //Mulig overflødig pga at neste while "nuller" ut denne... Legges inn for lesbarhet inntil videre
                 k++;
-                i++; //Sykroniserer i med antall bevegelser i k retning
+                i++;
             }
-
-            else if(aChar[k] == aChar[k+1]) { //Håndtering/telling av duplikater for a. Må hodtere corner case der hvor jeg er på slutten av løkka
+            //Håndtering/telling av duplikater for a. Ser om nåværende og neste char er like.
+            else if(aChar[k] == aChar[k+1]) {
                 //Finner antall duplikater av en type character i a
-                while ((aChar[k] == aChar[k+1]) && (k < aChar.length)) {
-                    duplicateA = aChar[k];
-                    nDuplicateA++;
-                    k++;
-                    i = i + k; //Oppdaterer i slik at i flyttes til nytt offset tilsvarende antall duplikater nDuplicate. kanksje bare bruke i isteden for k?
-                    if(k+1>=aChar.length)
+                while ((aChar[k] == aChar[k+1]) && (k < aChar.length)) { //Går så lenge det er duplikater.
+                    duplicateA = aChar[k]; //Lagrer unna duplikat character
+                    nDuplicateA++; //Teller opp antall duplikater
+                    k++; //Oppdaterer indeks teller for tabell a loop.
+                    i = i + k; //Oppdaterer ytre løkke slik at i flyttes med offsett tilsvarende antall opptelte indekser i a
+                    if(k+1>=aChar.length) //Bryter opptelling hvis den neste tellingen går over lengden til a
                         break;
                 }
-            }else{ //Håndtering av enkelt char
+            }else{ //Håndtering/telling av enkelt char
                 singleA = aChar[k]; //Lagrer unna enkelt char
-                singleChar = true;
-                //nDuplicateA = 0; //Mulig overflødig pga at neste while "nuller" ut denne... Legges inn for lesbarhet inntil videre
+                singleChar = true; //Flagg for å fortelle løkke for tabell b at det ikke er duplikat, men en enkelt char.
                 k++;
-                i++; //Sykroniserer i med antall bevegelser i k retning
+                i++;
             }
+            k= k + 1; //Må flytte offset for k lik antall duplikater slik at den sjekker riktig for neste.
+            //Løkke for tabell b. Denne tar inn resultatet fra løkken som har telt opp duplikater og enkelt chars
+            //i fra tabell a. Løkken ser om a er inneholdt i b.
+            if((bChar[j] == duplicateA) && (!singleChar)){ //Tilfellet hvor den er lik for neste, og ikke singel char
 
-            if((bChar[j] == duplicateA) && (!singleChar)){ //Tilfellet hvor den er lik for neste
-                k= k + 1; //Må flytte offset for k lik antall duplikater slik at den sjekker riktig for neste.
                 int n = nDuplicateA;
 
                 for (int l = 0; l < n  ; l++) {
