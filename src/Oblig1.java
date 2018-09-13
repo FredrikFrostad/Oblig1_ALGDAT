@@ -433,14 +433,29 @@ public class Oblig1 {
     public static boolean inneholdt(String a, String b){
 
         //Lager nytt char array av characters i streng
-        char[] first = a.toCharArray();
-        char[] last = b.toCharArray();
+        char[] iscontained = a.toCharArray();
+        char[] contains = b.toCharArray();
 
+        if (iscontained.length > contains.length)  {
+            return false;
+        }
 
+        int[] A = new int[256];
+        int[] B = new int[256];
 
+        for (char c : iscontained) {
+            A[c]++;
+        }
+        for (char c : contains) {
+            B[c]++;
+        }
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] > B[i]) {
+                return false;
+            }
+        }
 
-
-        return false;
+        return true;
     }
 
 
