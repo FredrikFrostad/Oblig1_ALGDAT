@@ -430,7 +430,7 @@ public class Oblig1 {
 
 
     // **************************** OPPGAVE 10 *****************************************
-    public static boolean inneholdt(String a, String b){
+    public static boolean inneholdt2(String a, String b){
 
         //Lager nytt char array av characters i streng
         char[] iscontained = a.toCharArray();
@@ -458,14 +458,40 @@ public class Oblig1 {
         return true;
     }
 
-    public static boolean inneholdt2(String a, String b) {
+    public static boolean inneholdt(String a, String b) {
+
+        if (a.isEmpty()) {return true;}
 
         char[] containee = a.toCharArray();
         char[] container = b.toCharArray();
 
+        if (containee.length > container.length) {return false;}
 
+        quicksort(containee, 0, a.length()-1);
+        quicksort(container, 0, b.length()-1);
 
+        int i = 0;
+        int j = 0;
+        int charcounter = 0;
 
+        while (charcounter < containee.length-1) {
+
+            if (containee[i] == container[j])
+            {
+                i++;
+                j++;
+                charcounter++;
+            }
+            else if(j < container.length-1)
+            {
+                j++;
+            }
+
+            if (j == container.length - 1 && charcounter != containee.length - 1)
+            {
+                return false;
+            }
+        }
         return true;
     }
 

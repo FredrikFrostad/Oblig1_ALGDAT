@@ -11,8 +11,11 @@ public class Main {
         //System.out.println(Arrays.toString(a));
 
 
-        int[] b = {4,6,7,9,-2,-3,-10,16,-13};
-        Oblig1.delsortering(b);
-        System.out.println(Arrays.toString(b));
+        //int[] b = {4,6,7,9,-2,-3,-10,16,-13};
+        //Oblig1.delsortering(b);
+        //System.out.println(Arrays.toString(b));
+
+        Oblig1.inneholdt2("ABBA", "RABARBRA");
+
     }
 }
