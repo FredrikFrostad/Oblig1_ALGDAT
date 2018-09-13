@@ -458,7 +458,16 @@ public class Oblig1 {
         return true;
     }
 
+    public static boolean inneholdt2(String a, String b) {
 
+        char[] containee = a.toCharArray();
+        char[] container = b.toCharArray();
+
+
+
+
+        return true;
+    }
 
 
 /////////////////////////////////////////////////////////////////////////////
