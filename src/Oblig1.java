@@ -185,51 +185,49 @@ public class Oblig1 {
 
     //***************************** OPPGAVE 4 *****************************************
 
-    /**
-     * Metode som deler et array i to sorterte deler, der venstre side inneholder oddetallene sortert,
-     * og høyre side inneholder partallene sortert.
-     * @param a arrayet som skal sorteres
-     */
     public static void delsortering(int[] a) {
 
-        if (a.length > 1) {
+        int partall = 0;
+        int oddetall = 0;
 
-            int i = 0;
-            int j = a.length - 1;
-
-            //Iterer gjennom arrayet en gang med ytre while løkke
-            while (i < a.length) {
-                //Dersom vi finner et partall bytter det plass med det oddetallet som er lengst
-                //til venstre for gjeldende posisjon i arrayet.
-                if (a[i] % 2 == 0) {
-                    //Itererer over mulige oddetall til høyre for a[i]
-                    while (j > i) {
-                        //Dersom vi finner et oddetall bytter vi plass med partallet a[i]
-                        if (a[j] % 2 != 0) {
-                            int temp = a[i];
-                            a[i] = a[j];
-                            a[j] = temp;
-                            break;
-                        }
-                        --j;
-                    }
-                }
-                ++i;
-            }
-            //finner antall partall for å beregne korrekte intervaller for sortering
-            int partall = antallPartall(a);
-            //sorterer hvert av intervallene separat
-            quicksort(a, 0, a.length - partall - 1);
-            quicksort(a, a.length - partall, a.length - 1);
+        if (a.length == 0) {
+            return;
         }
+
+        partition(a, 0, a.length - 1);
+
+        for (int i = 0; i < a.length; i++) {
+
+
+            if (Math.floorMod(a[i], 2) == 0) {
+                partall = partall + 1;
+            } else {
+                oddetall = oddetall + 1;
+            }
+
+        }
+
+        quicksort(a, 0, oddetall - 1);
+        quicksort(a, oddetall, a.length - 1);
     }
 
-    public static int antallPartall(int[] a) {
-        int antPartall = 0;
-        for (int k = 0; k < a.length; k++) {
-            if (a[k] % 2 == 0) {antPartall++;}
+    public static void partition(int a[], int v, int h) {
+        while (true) {
+            while (v <= h && a[h] % 2 == 0) {
+                h--;
+
+            }
+            while (h >= v && a[v] % 2 != 0) {
+                v++;
+            }
+            if (v < h) {
+                bytt(a, v++, h--);
+            }
+            if (v >= h) {
+                break;
+            }
         }
-        return antPartall;
+
     }
 
     //***************************** OPPGAVE 5 *****************************************
@@ -362,6 +360,7 @@ public class Oblig1 {
                 duplicates_count++;
                 k--;
             }
+
             //Befolker indekstabellen basert på den sorterte kopitabellen
             //Dersom vi finner en match mellom sortert tabell og parametertabellen settes tilhørende
             //index fra parametertabellen inn i indekstabellen, så fremt duplikatteller er null.
