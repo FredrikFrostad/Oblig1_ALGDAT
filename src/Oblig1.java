@@ -41,7 +41,6 @@ public class Oblig1 {
                     m = a[i+1];
                 }
         }
-        System.out.println(m);
         return m;
     }
 
@@ -239,7 +238,6 @@ public class Oblig1 {
      */
     public static void rotasjon(char[] a) {
         if ((a == null)||(a.length ==1)){
-            System.out.println("Ingen endring i rotasjon. Objektet er null, eller array har lengde 1");
         }
         else{
             for (int i = a.length-1; i > 0; i--) { //Starter på slutten av array a.length-1 og går til index 0
@@ -264,7 +262,6 @@ public class Oblig1 {
     public static void rotasjon(char[] a, int k) {
 
         if ((a == null) || (a.length == 1)) {
-            System.out.println("Ingen endring i rotasjon. Objektet er null, eller array har lengde 1");
         } else {
             char[] b = a.clone();
 
@@ -467,14 +464,17 @@ public class Oblig1 {
 
         if (containee.length > container.length) {return false;}
 
-        quicksort(containee, 0, a.length()-1);
-        quicksort(container, 0, b.length()-1);
+        quicksort(containee, 0, a.length() - 1);
+        quicksort(container, 0, b.length() - 1);
+        //Arrays.sort(containee);
+        //Arrays.sort(container);
+
 
         int i = 0;
         int j = 0;
         int charcounter = 0;
 
-        while (charcounter < containee.length-1) {
+        while (i <= containee.length-1 ) {
 
             if (containee[i] == container[j])
             {
@@ -482,17 +482,20 @@ public class Oblig1 {
                 j++;
                 charcounter++;
             }
-            else if(j < container.length-1)
+            else if(j < container.length - 1)
             {
                 j++;
-            }
-
-            if (j == container.length - 1 && charcounter != containee.length - 1)
+            }else
             {
                 return false;
             }
+
+            if (charcounter == containee.length )
+            {
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 
 
@@ -623,7 +626,6 @@ public class Oblig1 {
                 }
             }
         }
-        System.out.println(count);
     }
 
 
