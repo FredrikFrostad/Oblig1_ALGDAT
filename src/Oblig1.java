@@ -43,7 +43,7 @@ public class Oblig1 {
                     m = a[i+1];
                 }
         }
-        System.out.println(m);
+
         return m;
     }
 
@@ -241,7 +241,7 @@ public class Oblig1 {
      */
     public static void rotasjon(char[] a) {
         if ((a == null)||(a.length ==1)){
-            System.out.println("Ingen endring i rotasjon. Objektet er null, eller array har lengde 1");
+
         }
         else{
             for (int i = a.length-1; i > 0; i--) { //Starter på slutten av array a.length-1 og går til index 0
@@ -266,7 +266,7 @@ public class Oblig1 {
     public static void rotasjon(char[] a, int k) {
 
         if ((a == null) || (a.length == 1)) {
-            System.out.println("Ingen endring i rotasjon. Objektet er null, eller array har lengde 1");
+
         } else {
             char[] b = a.clone();
 
@@ -434,7 +434,9 @@ public class Oblig1 {
     // **************************** OPPGAVE 10 *****************************************
 
     /**
-     * //TODO: Beskrivelse
+     * Sjekker om characters i string a er inneholdt i string b. Hver bokstav i det første ordet skal forekommer minst
+     like mange ganger i det andre ordet som i det første, men ikke nødvendigvis i samme rekkefølge. Et ord er tenkt
+     som oppramsing av bokstaver.
      * @param a
      * @param b
      * @return
@@ -679,7 +681,7 @@ public class Oblig1 {
                 }
             }
         }
-        System.out.println(count);
+        //System.out.println(count);
     }
 
 
