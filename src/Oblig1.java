@@ -288,9 +288,6 @@ public class Oblig1 {
 
     //******************************* OPPGAVE 7 ***************************************
 
-    //TODO: LEGG TIL KOMMENTARER!!
-
-
     /**
      * Metode som tar imot en strengtabell iog fletter sammen alle strengene som ligger i tabellen
      * @param s tabell som inneholder strengene som skal flettes
