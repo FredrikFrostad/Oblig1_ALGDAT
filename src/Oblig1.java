@@ -265,21 +265,21 @@ public class Oblig1 {
 
     public static void rotasjon(char[] a, int k) {
 
-        if ((a == null) || (a.length == 1)) {
+        if ((a == null) || (a.length == 1)) { //Gjør ingenting hvis a er tom, eller har lengde 1
 
         } else {
-            char[] b = a.clone();
+            char[] b = a.clone(); //Lager hjelpe array.
 
-            if (k < 0) { //ok
+            if (k < 0) { //Sjekk om k er negativ. Skal rotere mot venstre
                 for (int i = 0; i < a.length; ++i) {
-                    int j = (i - k) % a.length;
-                    a[i] = b[j];
+                    int j = (i - k) % a.length; //Sirkulær j som flyttrt retning venstre. Neste etter 0 blir den siste.
+                    a[i] = b[j]; //Flytter indeks j fra hjelpearray(som er uendret) inn i a med indeks i.
                 }
-            } else {
+            } else { //Roterer mot høyre
 
                 for (int i = 0; i < a.length; ++i) {
-                    int j = (i + k) % a.length;
-                    a[j] = b[i];
+                    int j = (i + k) % a.length; //Sirkulær j som flyttrt retning venstre. Neste etter siste blir 0.
+                    a[j] = b[i]; //Flytter indeks i fra hjelpearray(som er uendret) inn a med indeks lik den nye j.
                 }
             }
         }
@@ -288,9 +288,6 @@ public class Oblig1 {
 
     //******************************* OPPGAVE 7 ***************************************
 
-    //TODO: LEGG TIL KOMMENTARER!!
-
-
     /**
      * Metode som tar imot en strengtabell iog fletter sammen alle strengene som ligger i tabellen
      * @param s tabell som inneholder strengene som skal flettes
@@ -298,12 +295,17 @@ public class Oblig1 {
      */
     public static String flett(String... s){
 
+        //initaliserer stringbuilder objekt som hjelpestreng
         StringBuilder interleaved = new StringBuilder();
 
+        // ytre iterasjonsvariabel
         int i = 0;
+        // finner lengden til den lengste strengen i arrayet
         int longest = findLongest(s);
+        //itererer og inkrementerer i frem til lengden av lengste streng er nådd
         while (i <= longest)  {
-
+            //itererer over alle strengene i arrayet og legger til gjeldende charecter gitt av i dersom den eksisterer
+            // i strengen
             for (int j = 0; j < s.length; j++) {
                 if (s[j].length() > i)
                 {
