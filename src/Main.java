@@ -47,9 +47,10 @@ public class Main {
     String i = "ABBACCCDE";
     String j = "XYYX";
     String k = "AAAAAAAYXXY";
+    String l = "CDEBAAAD";
 
-    boolean inneholdt = Oblig1.inneholdt(j, k);
-    System.out.println(inneholdt);
+    boolean inneholdt = Oblig1.inneholdt(l, l);
+    //System.out.println(inneholdt);
 
 
     }
