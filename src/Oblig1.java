@@ -464,11 +464,11 @@ public class Oblig1 {
 
         if (containee.length > container.length) {return false;}
 
-        quicksort(containee, 0, a.length() - 1);
-        quicksort(container, 0, b.length() - 1);
-        //Arrays.sort(containee);
-        //Arrays.sort(container);
+        //quicksort(containee, 0, a.length() - 1);
+        //quicksort(container, 0, b.length() - 1);
 
+        Arrays.sort(containee);
+        Arrays.sort(container);
 
         int i = 0;
         int j = 0;
@@ -489,7 +489,6 @@ public class Oblig1 {
             {
                 return false;
             }
-
             if (charcounter == containee.length )
             {
                 return true;

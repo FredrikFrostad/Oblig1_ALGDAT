@@ -17,5 +17,9 @@ public class Main {
 
         Oblig1.inneholdt2("ABBA", "RABARBRA");
 
+        String s = "asdfghjkløæqwertyuiopåzxcvbnm";
+        char[] c = s.toCharArray();
+        Oblig1.quicksort(c,0, c.length - 1);
+        System.out.println(Arrays.toString(c));
     }
 }
