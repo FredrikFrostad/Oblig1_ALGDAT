@@ -484,6 +484,13 @@ public class Oblig1 {
 
 
     // **************************** OPPGAVE 10 *****************************************
+
+    /**
+     * //TODO: Beskrivelse
+     * @param a
+     * @param b
+     * @return
+     */
     public static boolean inneholdt(String a, String b) {
 
         if(a.equals("")) return true;
@@ -506,7 +513,7 @@ public class Oblig1 {
         char singleA = 0;
 
         //Yttre løkke som looper tilsvarende antall characters fra streng a, og streng b
-        while (i < aChar.length && j < bChar.length) { 
+        while (i < aChar.length && j < bChar.length) {
 
             //Hvis man får en ny kjørerunde i loopen, og er på på siste index (cornercase),
             //så behandles det som skjer i løkka som enkelt char case.
