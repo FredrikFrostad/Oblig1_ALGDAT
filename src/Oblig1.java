@@ -187,48 +187,49 @@ public class Oblig1 {
 
     //***************************** OPPGAVE 4 *****************************************
 
-    /**
-     * Metode som deler et array i to sorterte deler, der venstre side inneholder oddetallene sortert,
-     * og høyre side inneholder partallene sortert.
-     * @param a arrayet som skal sorteres
-     */
     public static void delsortering(int[] a) {
 
-        int i = 0;
-        int j = a.length - 1;
+        int partall = 0;
+        int oddetall = 0;
 
-        //Iterer gjennom arrayet en gang med ytre while løkke
-        while (i < a.length) {
-            //Dersom vi finner et partall bytter det plass med det oddetallet som er lengst
-            //til venstre for gjeldende posisjon i arrayet.
-            if (a[i] % 2 == 0) {
-                //Itererer over mulige oddetall til høyre for a[i]
-                while (j > i) {
-                    //Dersom vi finner et oddetall bytter vi plass med partallet a[i]
-                    if (a[j] % 2 != 0) {
-                        int temp = a[i];
-                        a[i] = a[j];
-                        a[j] = temp;
-                        break;
-                    }
-                    --j;
-                }
-            }
-            ++i;
+        if (a.length == 0) {
+            return;
         }
-        //finner antall partall for å beregne korrekte intervaller for sortering
-        int partall = antallPartall(a);
-        //sorterer hvert av intervallene separat
-        Arrays.sort(a,0,a.length-partall);
-        Arrays.sort(a,a.length-partall, a.length);
+
+        partition(a, 0, a.length - 1);
+
+        for (int i = 0; i < a.length; i++) {
+
+
+            if (Math.floorMod(a[i], 2) == 0) {
+                partall = partall + 1;
+            } else {
+                oddetall = oddetall + 1;
+            }
+
+        }
+
+        quicksort(a, 0, oddetall - 1);
+        quicksort(a, oddetall, a.length - 1);
     }
 
-    public static int antallPartall(int[] a) {
-        int antPartall = 0;
-        for (int k = 0; k < a.length; k++) {
-            if (a[k] % 2 == 0) {antPartall++;}
+    public static void partition(int a[], int v, int h) {
+        while (true) {
+            while (v <= h && a[h] % 2 == 0) {
+                h--;
+
+            }
+            while (h >= v && a[v] % 2 != 0) {
+                v++;
+            }
+            if (v < h) {
+                bytt(a, v++, h--);
+            }
+            if (v >= h) {
+                break;
+            }
         }
-        return antPartall;
+
     }
 
     //***************************** OPPGAVE 5 *****************************************
@@ -291,66 +292,6 @@ public class Oblig1 {
 
 
     /**
-     * Metode som fletter sammen to strenger. Dersom strengene har ulik lengde leggers de overskytende
-     * tegnene fra den lengste parameterstrengen til bakerst i returstrengen
-     * @param s en streng som skal flettes
-     * @param t en streng som skal flettes
-     * @return resultatet av flettingen mellom s og t
-     */
-    public static String flett(String s, String t) {
-
-        String interleaved = null;
-
-        if (s.length() == t.length())
-        {
-            interleaved = stringWeaver(s,t,true,false);
-        }
-        if (s.length() < t.length())
-        {
-            interleaved = stringWeaver(s,t,false, false);
-        }
-        if (s.length() > t.length())
-        {
-            interleaved = stringWeaver(t,s,false, true);
-        }
-
-        return interleaved;
-    }
-
-
-    public static String stringWeaver(String shortest, String longest, boolean equal, boolean swapped) {
-
-        StringBuilder interleaved = new StringBuilder();
-
-        if (equal)
-        {
-            for (int i = 0; i < longest.length(); i++) {
-                interleaved.append(shortest.charAt(i));
-                interleaved.append(longest.charAt(i));
-            }
-        }else
-        {
-            int i = 0;
-            while (i < shortest.length()) {
-                if (swapped)
-                {
-                    interleaved.append(longest.charAt(i));
-                    interleaved.append(shortest.charAt(i));
-                }else {
-                    interleaved.append(shortest.charAt(i));
-                    interleaved.append(longest.charAt(i));
-                }
-                i++;
-            }
-            while (i < longest.length()) {
-                interleaved.append(longest.charAt(i));
-                i++;
-            }
-        }
-        return interleaved.toString();
-    }
-
-    /**
      * Metode som tar imot en strengtabell iog fletter sammen alle strengene som ligger i tabellen
      * @param s tabell som inneholder strengene som skal flettes
      * @return en streng som inneholder resultatet av flettingen
@@ -401,11 +342,17 @@ public class Oblig1 {
      */
     public static int[] indekssortering(int[] a) {
 
+
         //Tabell som skal inneholde de sorterte indeksene
         int[] index = new int[a.length];
+
+        //Returner tom tabell dersom parametertabellen er tom
+        if (a.length < 1) {return index;}
+
         //Sortert hjelpetabell
         int[] sorted_a = Arrays.copyOf(a,a.length);
-        Arrays.sort(sorted_a);
+        quicksort(sorted_a,0, sorted_a.length-1);
+
         //Finner duplikatverdier til venstre for gjeldende element og teller dem
         for (int i = 0; i < a.length; i++) {
             int sort_val = sorted_a[i];
@@ -415,6 +362,7 @@ public class Oblig1 {
                 duplicates_count++;
                 k--;
             }
+
             //Befolker indekstabellen basert på den sorterte kopitabellen
             //Dersom vi finner en match mellom sortert tabell og parametertabellen settes tilhørende
             //index fra parametertabellen inn i indekstabellen, så fremt duplikatteller er null.
@@ -616,15 +564,79 @@ public class Oblig1 {
 
     // **************************** DIVERSE HJELPEMETODER *****************************
 
+    public static void quicksort(int[] a, int left,  int right) {
+        int pivotIndex = partisjoner(a, left,right);
 
-    public static void quicksort(int[] a) {
-
-
+        if (left < pivotIndex - 1) {
+            quicksort(a, left, pivotIndex -1);
+        }
+        if (right > pivotIndex - 1) {
+            quicksort(a,pivotIndex, right);
+        }
     }
 
-    public static void partition(int[] a) {
-        System.out.println(Arrays.toString(a));
+    static int partisjoner(int[] a, int left, int right) {
+
+        int i = left;
+        int j = right;
+        int pivot = a[(left + right) / 2];
+
+        while (i <= j)  {
+
+            while (a[i] < pivot) {
+                i++;
+            }
+            while (a[j] > pivot) {
+                j--;
+            }
+            if (i <= j) {
+                bytt(a, i, j);
+
+                i++;
+                j--;
+            }
+        }
+        return i;
     }
+
+    public static void quicksort(char[] a, int left,  int right) {
+        int pivotIndex = partisjoner(a, left,right);
+
+        if (left < pivotIndex - 1) {
+            quicksort(a, left, pivotIndex -1);
+        }
+        if (right > pivotIndex - 1) {
+            quicksort(a,pivotIndex, right);
+        }
+    }
+
+    static int partisjoner(char[] a, int left, int right) {
+
+        int i = left;
+        int j = right;
+        char pivot = a[(left + right) / 2];
+
+        while (i <= j)  {
+
+            while (a[i] < pivot) {
+                i++;
+            }
+            while (a[j] > pivot) {
+                j--;
+            }
+            if (i <= j) {
+                bytt(a, i, j);
+
+                i++;
+                j--;
+            }
+        }
+        return i;
+    }
+
+
+
+
 
     /**
      * Bubblesort som sorterer en hel tabell
@@ -672,7 +684,7 @@ public class Oblig1 {
 
 
     /**
-     * Metode som bytter om to verdier i et array
+     * Metode som bytter om to integere i et array
      * @param a arrayet som inneholder verdiene som skal bytte plass
      * @param i index til den ene verdien
      * @param j index til den andre verdien
@@ -685,6 +697,25 @@ public class Oblig1 {
         }
 
         int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+
+    /**
+     * Metode som bytter om to characters i et array
+     * @param a arrayet som inneholder verdiene som skal bytte plass
+     * @param i index til den ene verdien
+     * @param j index til den andre verdien
+     */
+    public  static void bytt(char[] a, int i, int j) {
+
+        if (i < 0 || i > a.length - 1 || j < 0 || j > a.length - 1) {
+            throw new IllegalArgumentException
+                    ("Illegal input argument. Input must be within array bounds");
+        }
+
+        char temp = a[i];
         a[i] = a[j];
         a[j] = temp;
     }
