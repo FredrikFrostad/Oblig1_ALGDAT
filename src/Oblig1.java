@@ -82,7 +82,7 @@ public class Oblig1 {
      * Det gjøres færrest ombyttinger dersom tabellen er sortert i stigende rekkefølge
      * Avsnitt 1.1.6 i kompendiet omhandler average case effektivitet for denne algoritmen. Der får vi vite at det harmoniske
      * tallet for denne algoritmen er Hn tilnærmet lik log(n) - 0,557 som gir gjennomsnittlig antall tall større enn
-     * det største tallet foran = Hn - 1 = log(n) - 0.423
+     * det største tallet foran = Hn - 1 = log(n) - 0.423 Det virker som om metodene er like gode.
      */
 
 
