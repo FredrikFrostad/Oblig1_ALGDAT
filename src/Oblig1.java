@@ -455,15 +455,15 @@ public class Oblig1 {
         //Arrays.sort(aChar, 0, aChar.length);
         //System.out.println(Arrays.toString(aChar));
 
-        //quicksort(aChar, 0 , aChar.length-1);
+        quicksort(aChar, 0 , aChar.length-1);
         //System.out.println(Arrays.toString(aChar));
 
-        //quicksort(bChar, 0 , bChar.length-1);
+        quicksort(bChar, 0 , bChar.length-1);
         //System.out.println(Arrays.toString(bChar));
 
         //quicksort(bChar, 0 , bChar.length-1);
-        Arrays.sort(aChar, 0, aChar.length); //
-        Arrays.sort(bChar, 0, bChar.length); //
+        //Arrays.sort(aChar, 0, aChar.length); //
+        //Arrays.sort(bChar, 0, bChar.length); //
 
 
 
