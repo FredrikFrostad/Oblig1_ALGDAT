@@ -462,8 +462,11 @@ public class Oblig1 {
         //System.out.println(Arrays.toString(bChar));
 
         //quicksort(bChar, 0 , bChar.length-1);
-        Arrays.sort(aChar, 0, aChar.length); //
-        Arrays.sort(bChar, 0, bChar.length); //
+        //Arrays.sort(aChar, 0, aChar.length); //
+        //Arrays.sort(bChar, 0, bChar.length); //
+
+        quicksort(aChar,0,aChar.length-1);
+        quicksort(bChar,0,bChar.length-1);
 
 
 
@@ -616,13 +619,16 @@ public class Oblig1 {
     }
 
     public static void quicksort(char[] a, int left,  int right) {
-        int pivotIndex = partisjoner(a, left,right);
+        if (checkValidity(a)) {
 
-        if (left < pivotIndex - 1) {
-            quicksort(a, left, pivotIndex -1);
-        }
-        if (right > pivotIndex - 1) {
-            quicksort(a,pivotIndex, right);
+            int pivotIndex = partisjoner(a, left, right);
+
+            if (left < pivotIndex - 1) {
+                quicksort(a, left, pivotIndex - 1);
+            }
+            if (right > pivotIndex - 1) {
+                quicksort(a, pivotIndex, right);
+            }
         }
     }
 
@@ -648,6 +654,14 @@ public class Oblig1 {
             }
         }
         return i;
+    }
+
+    private static boolean checkValidity(char[] a) {
+
+        if (a.length == 0) {
+            return false;
+        }
+        return true;
     }
 
 
