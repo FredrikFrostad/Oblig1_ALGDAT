@@ -80,9 +80,9 @@ public class Oblig1 {
     /**
      * Metoden maks vil gjøre flest ombyttinger når den største verdien ligger først i arrayet, da vil det utføres n-1 bytter
      * Det gjøres færrest ombyttinger dersom tabellen er sortert i stigende rekkefølge
-     * TODO: Fullfør besvarelsen av average case scenario
      * Avsnitt 1.1.6 i kompendiet omhandler average case effektivitet for denne algoritmen. Der får vi vite at det harmoniske
-     * tallet for denne algoritmen er Hn tilnærmet lik log(n) - 0,557
+     * tallet for denne algoritmen er Hn tilnærmet lik log(n) - 0,557 som gir gjennomsnittlig antall tall større enn
+     * det største tallet foran = Hn - 1 = log(n) - 0.423
      */
 
 
