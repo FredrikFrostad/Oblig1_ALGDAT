@@ -450,21 +450,7 @@ public class Oblig1 {
         char[] bChar = b.toCharArray();
 
 
-        //Sortering av aChar, og bChar tabell. Videre referert til som a og b i kommentarer under.
-
-        //Arrays.sort(aChar, 0, aChar.length);
-        //System.out.println(Arrays.toString(aChar));
-
-        //quicksort(aChar, 0 , aChar.length-1);
-        //System.out.println(Arrays.toString(aChar));
-
         //quicksort(bChar, 0 , bChar.length-1);
-        //System.out.println(Arrays.toString(bChar));
-
-        //quicksort(bChar, 0 , bChar.length-1);
-        //Arrays.sort(aChar, 0, aChar.length); //
-        //Arrays.sort(bChar, 0, bChar.length); //
-
         quicksort(aChar,0,aChar.length-1);
         quicksort(bChar,0,bChar.length-1);
 
