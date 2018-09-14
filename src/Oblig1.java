@@ -433,128 +433,77 @@ public class Oblig1 {
 
     // **************************** OPPGAVE 10 *****************************************
 
-    /**
-     * Sjekker om characters i string a er inneholdt i string b. Hver bokstav i det første ordet skal forekommer minst
-     like mange ganger i det andre ordet som i det første, men ikke nødvendigvis i samme rekkefølge. Et ord er tenkt
-     som oppramsing av bokstaver.
-     * @param a
-     * @param b
-     * @return
-     */
-    public static boolean inneholdt(String a, String b) {
-
-        if(a.equals("")) return true;
+    // **************************** OPPGAVE 10 *****************************************
+    public static boolean inneholdt2(String a, String b){
 
         //Lager nytt char array av characters i streng
-        char[] aChar = a.toCharArray();
-        char[] bChar = b.toCharArray();
+        char[] iscontained = a.toCharArray();
+        char[] contains = b.toCharArray();
 
+        if (iscontained.length > contains.length)  {
+            return false;
+        }
 
-        //quicksort(bChar, 0 , bChar.length-1);
-        quicksort(aChar,0,aChar.length-1);
-        quicksort(bChar,0,bChar.length-1);
+        int[] A = new int[256];
+        int[] B = new int[256];
 
-
-
-        int i = 0; //Ytre indeks for tabell a
-        int j = 0; //Ytre og indre indeks for tabell b
-        int k = 0; //Indre indeks for tabell a
-        boolean aInB = false;
-        boolean singleChar = false;
-        int nDuplicateA = 0;
-        char duplicateA = 0;
-        char singleA = 0;
-
-        //Yttre løkke som looper tilsvarende antall characters fra streng a, og streng b
-        while (i < aChar.length && j < bChar.length) {
-
-            //Hvis man får en ny kjørerunde i loopen, og er på på siste index (cornercase),
-            //så behandles det som skjer i løkka som enkelt char case.
-            if((k+1)==a.length()){
-                singleA = aChar[k]; //Lagrer unna enkelt char
-                singleChar = true;
-                k++;
-                i++;
+        for (char c : iscontained) {
+            A[c]++;
+        }
+        for (char c : contains) {
+            B[c]++;
+        }
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] > B[i]) {
+                return false;
             }
-            //Håndtering/telling av duplikater for a. Ser om nåværende og neste char er like.
-            else if(aChar[k] == aChar[k+1]) {
-                //Finner antall duplikater av en type character i a
-                while ((aChar[k] == aChar[k+1]) && (k < aChar.length)) { //Går så lenge det er duplikater.
-                    duplicateA = aChar[k]; //Lagrer unna duplikat character
-                    nDuplicateA++; //Teller opp antall duplikater
-                    k++; //Oppdaterer indeks teller for tabell a loop.
-                    i = i + k; //Oppdaterer ytre løkke slik at i flyttes med offsett tilsvarende antall opptelte indekser i a
-                    if(k+1>=aChar.length) //Bryter opptelling hvis den neste tellingen går over lengden til a
-                        break;
-                }
-            }else{ //Håndtering/telling av enkelt char
-                singleA = aChar[k]; //Lagrer unna enkelt char
-                singleChar = true; //Flagg for å fortelle løkke for tabell b at det ikke er duplikat, men en enkelt char.
-                k++;
+        }
+
+        return true;
+    }
+
+    public static boolean inneholdt(String a, String b) {
+
+        if (a.isEmpty()) {return true;}
+
+        char[] containee = a.toCharArray();
+        char[] container = b.toCharArray();
+
+        if (containee.length > container.length) {return false;}
+
+        quicksort(containee, 0, a.length() - 1);
+        quicksort(container, 0, b.length() - 1);
+        //Arrays.sort(containee);
+        //Arrays.sort(container);
+
+
+        int i = 0;
+        int j = 0;
+        int charcounter = 0;
+
+        while (i <= containee.length-1 ) {
+
+            if (containee[i] == container[j])
+            {
                 i++;
-            }
-
-            //Løkke for tabell b. Denne tar inn resultatet fra løkken som har telt opp duplikater og enkelt chars
-            //i fra tabell a. Løkken ser om a er inneholdt i b.
-            if((bChar[j] == duplicateA) && (!singleChar)){ //Tilfellet hvor den er lik for neste, og ikke singel char
-                k= k + 1; //Om b finner at utvalget fra a er inneholdt i b, så legges det til offset på løkka for a for neste runde
-                int n = nDuplicateA; //temp variable som brukes for hvor mange characters som skal sjekkes for duplikat
-                //Løkken sjekker om n telte duplikat fra a er inneholdt i b.
-                for (int l = 0; l < n  ; l++) {
-                    if((bChar[j] == duplicateA)){ //a er inneholdt i b
-                        if (nDuplicateA == 0) { //alle sjekkede characters fra a er inneholdt i b
-                            aInB = true; //a er inneholdt i b
-                        } else if (nDuplicateA > 0) {
-                            aInB = false; //False så lenge den ikke har funnet likt antall char i b som i a.
-                            nDuplicateA--; //Teller ned sjekkede duplikater
-                        }
-                    }else{ //Hvis du har kommet hit og bChar[j] != duplicateA, så er ikke a ikke inneholdt i b
-                        return false;
-                    }
-
-                    j++;
-                    if(j>=bChar.length) //Bryter for loop om j går utover størrelsen på b
-                        break;
-                }
-             //Tilfelle hvor man enda ikke vet om a er inneholdt i b. Dvs a kan være inneholdt i b lengre ut i b tabellen.
-            }else if ((bChar[j] != duplicateA) && (!singleChar)) { //Må løpe igjennom hele for å se om det finnes noen like.
-                aInB = false; //Ikke umiddelbart inneholdt, må sjekke hele b.
-
-                //Looper hele b for å se om a er inneholdt, da den ikke var inneholdt på starten av tabell b
-                for (int l = j; l < bChar.length ; l++) {
-
-                    if((bChar[j] == duplicateA) && (j<bChar.length)){ //a er inneholdt i b
-                        if (nDuplicateA == 0) { //Alle sjekkede a er inneholdt i b.
-                            aInB = true;
-                            k++; //oppdaterer indeks for a tabell for neste kjøring.
-                            break; //Trenger ikke sjekke resten av tabell b ved treff på at alle i a er inneholdt i b.
-                        } else if (nDuplicateA > 0) {
-                            aInB = false; //False så lenge ikke alle sjekkede fra a er inneholdt i b.
-                            nDuplicateA--;
-                        }
-                    }
-                    j++;
-                }
-                if(nDuplicateA >0) //Hvis sant etter å ha sjekket resten av b. a er ikke inneholdt i b
-                    return aInB;
-            //Håndtering av sjekk på om a er inneholdt i b når det kun er en character.
-            } else if ((bChar[j] == singleA) && singleChar){ //tilfelle for single char
-                //En enkelt char i a finnes i b
-                aInB = true;
                 j++;
-                singleChar = false; //tilbakestiller singel character flagg for neste kjøring.
-            }else{
-                return false; //Returnere false hvis ingen av sjekkede chars i a er inneholdt i b.
+                charcounter++;
+            }
+            else if(j < container.length - 1)
+            {
+                j++;
+            }else
+            {
+                break;
+            }
+
+            if (charcounter == containee.length )
+            {
+                return true;
             }
         }
-            //Hvis denne inntreffer er i b tabellen mindre enn a, og resultatet er false. a kan ikke være inneholdt i b
-            if(i < aChar.length){ //Hvis dette -> hovedløkka har terminert pga at j>=cChar.length -> a>b -> return false
-                aInB = false;
-            }
-        return aInB;
-        }
-
-
+        return false;
+    }
 
 
 /////////////////////////////////////////////////////////////////////////////
